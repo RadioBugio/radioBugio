@@ -16,7 +16,7 @@ h1 {
 }
 
 body {
-	background-image: url('../../radio-bugio/public/radio-bg.jpg');
+	background-image: url('/radio-bg.jpg');
 	background-repeat: no-repeat;
 	background-position: fixed center center;
 	background-size: cover;
