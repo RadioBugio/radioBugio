@@ -32,10 +32,10 @@ export function Header() {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -10 }}
 							transition={{ duration: 0.3 }}
-							className=' flex items-center gap-3 bg-[#cecece] text-black pl-4  text-sm rounded-full shadow-xl shadow-black/30'
+							className=' flex items-center gap-3 bg-[#cecece] text-black pl-4  text-sm  shadow-black/30'
 						>
 							<div className='live-now uppercase font-bold'>no ar</div>
-							<div className='bg-black py-2 px-4 rounded-full'>
+							<div className='  border-l-1 py-2 px-4 '>
 								<SmallPlayer />
 							</div>
 						</motion.div>

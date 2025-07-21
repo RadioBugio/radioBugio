@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import sanityClient from '../SanityClient.js';
 import { Player } from '../components/Player';
 import { Schedule } from '../components/Schedule';
+import { About } from '../components/About.jsx';
+import { Arquivo } from '../components/Arquivo.jsx';
+import { Hero } from '../components/Hero.jsx';
 
 export function Home() {
 	const [entrevistas, setEntrevistas] = useState([]);
@@ -17,7 +20,9 @@ export function Home() {
 				titulo,
 				thumbnail,
 				descricao,
-				clusters
+				clusters,
+				duracao,
+				clusters2
 			}`);
 				setEntrevistas(data);
 			} catch (error) {
@@ -28,15 +33,14 @@ export function Home() {
 		fetchEntrevistas();
 	}, []);
 
-
 	return (
 		<div className='home'>
 			<div className='home-overlay '>
 				<div className='container-default'>
-					<div className='player-section'>
-						<Player />
-					</div>
+					<Hero />
 					<Schedule entrevistas={entrevistas} />
+					<About />
+					<Arquivo entrevistas={entrevistas} />
 				</div>
 			</div>
 		</div>

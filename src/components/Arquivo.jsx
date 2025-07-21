@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 
-export function Schedule({ entrevistas }) {
+export function Arquivo({ entrevistas }) {
 	const [expandedId, setExpandedId] = useState(null);
 
 	const toggle = id => {
@@ -15,13 +15,13 @@ export function Schedule({ entrevistas }) {
 
 	return (
 		<div className='text-white mt-6'>
-			<h2 className='text-2xl mb-4 font-bold'>Schedules</h2>
+			<h2 className='text-2xl mb-4 font-bold'>Arquivo</h2>
 			<ul className='grid grid-cols-1 gap-6'>
 				{entrevistas.map(ep => {
 					const isOpen = expandedId === ep._id;
 
 					return (
-						<li key={ep._id} onClick={() => toggle(ep._id)} className='cursor-pointer border-1 border-[#484848] p-3 transition duration-500 hover:bg-black'>
+						<li key={ep._id} onClick={() => toggle(ep._id)} className='cursor-pointer  bg-[#484848] p-3 transition duration-500 hover:opacity-100 opacity-50'>
 							<div className='text-xs'>{ep.clusters2}</div>
 							<div className='pt-4 grid grid-cols-4'>
 								<div className='col-span-1 flex justify-between text-sm opacity-80 mb-2'>

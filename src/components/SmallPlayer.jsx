@@ -17,12 +17,12 @@ export function SmallPlayer() {
 
 	return (
 		<div div className='flex gap-5 items-center'>
-			<button onClick={togglePlay} className=' text-#eaebde  transition'>
-				{isPlaying ? <Pause className='w-4 h-4' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-4 h-4' stroke='#eaebde' fill='#eaebde' />}
+			<button onClick={togglePlay} className=' text-black  transition'>
+				{isPlaying ? <Pause className='w-4 h-4' stroke='black' fill='black' /> : <Play className='w-4 h-4' stroke='black' fill='black' />}
 			</button>
 
-			<span className='truncate max-w-[250px] text-white'>{meta?.song.title || 'Loading...'}</span>
-			<span className='text-xs text-gray-300'>{formatTime(currentTime)}</span>
+			<span className='truncate max-w-[250px] text-black'>{meta?.song.title || 'Offline'}</span>
+			<span className='text-xs text-black'>{formatTime(currentTime)}</span>
 		</div>
 	);
 }
