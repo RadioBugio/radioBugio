@@ -1,19 +1,18 @@
 @import 'tailwindcss';
 
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap');
+
 
 body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	background-color: #0f0f0f;
 	color: #eaebde;
-
-	font-family: 'Arimo', sans-serif;
+	
+	font-family: 'Hedvig Letters Sans', sans-serif;
 }
 
-h1 {
-	font-family: 'Michroma', sans-serif;
-}
+
 
 /* body {
 	background-image: url('/radio-bg.jpg');

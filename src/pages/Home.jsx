@@ -36,11 +36,16 @@ export function Home() {
 	return (
 		<div className='home'>
 			<div className='home-overlay '>
-				<div className='container-default'>
+				<div>
 					<Hero />
+
 					<Schedule entrevistas={entrevistas} />
-					<About />
-					<Arquivo entrevistas={entrevistas} />
+					<div id='sobre'>
+						<About />
+					</div>
+					<div id='arquivo'>
+						<Arquivo entrevistas={entrevistas} />
+					</div>
 				</div>
 			</div>
 		</div>
