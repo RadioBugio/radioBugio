@@ -59,8 +59,8 @@ export function Schedule({ entrevistas }) {
 											transition={{ duration: 0.3 }}
 											className='overflow-hidden mt-4 text-sm text-gray-300'
 										>
+											<div className='w-1/3'>{ep.thumbnail && <img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} />}</div>
 											<p className='mb-2'>{ep.descricao}</p>
-											<p className='text-indigo-400 font-semibold'>{ep.clusters}</p>
 										</motion.div>
 									)}
 								</AnimatePresence>
