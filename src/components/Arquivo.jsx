@@ -18,7 +18,7 @@ export function Arquivo({ entrevistas }) {
 			<hr className='border-[#484848] ' />
 			<div className='text-white container-default'>
 				<h2 className='text-2xl mb-4 font-bold'>ARQUIVO</h2>
-				<ul className='grid grid-cols-1 gap-6'>
+				<ul className='flex flex-col gap-6 w-2/3 place-self-center-safe'>
 					{entrevistas.map(ep => {
 						const isOpen = expandedId === ep._id;
 
@@ -36,7 +36,7 @@ export function Arquivo({ entrevistas }) {
 									</div>
 									<div className='col-span-3'>
 										<h3 className='text-lg font-semibold'>
-											<span class='inline-block bg-white text-black font-bold px-1.5 py-0 '>{ep.programa}</span> {ep.titulo}
+											<span class='inline-block bg-white text-black font-bold px-1.5 py-0 mr-2 '>{ep.programa}</span>{ep.titulo}
 										</h3>
 
 										<div className='mt-3 flex  gap-4'>
