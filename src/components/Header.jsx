@@ -24,14 +24,19 @@ export function Header() {
 
 	return (
 		<>
-			<div className='fixed top-0 left-0 w-full flex flex-col uppercase z-50 items-start p-3 '>
-				<button>Rádio Bugio</button>
-				<button onClick={() => scrollToSection('sobre')} className='hover:underline'>
-					Sobre
-				</button>
-				<button onClick={() => scrollToSection('arquivo')} className='hover:underline'>
-					Arquivo
-				</button>
+			<div className='fixed top-0 left-0 w-full flex flex-col uppercase z-50 items-start p-3  text-lg'>
+				<button>Rádio-Estação do Bugio</button>
+				<div className='pt-3 flex flex-col  text-sm items-start'>
+					<button onClick={() => scrollToSection('programacao')} className='hover:underline'>
+						PROGRAMAÇÃO
+					</button>
+					<button onClick={() => scrollToSection('sobre')} className='hover:underline'>
+						Sobre
+					</button>
+					<button onClick={() => scrollToSection('arquivo')} className='hover:underline'>
+						Arquivo
+					</button>
+				</div>
 			</div>
 
 			{/* Mini Player */}

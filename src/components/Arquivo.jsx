@@ -42,7 +42,7 @@ export function Arquivo({ entrevistas }) {
 										<div className='mt-3 flex  gap-4'>
 											{Array.isArray(ep.clusters) &&
 												ep.clusters.map((cluster, index) => (
-													<div key={index} className='inline-block bg-[#484848] px-1.5 py-0.5 text-xs opacity-80 '>
+													<div key={index} className='inline-block bg-[#313131c1] px-2 py-1 text-xs opacity-80 rounded-full'>
 														{cluster}
 													</div>
 												))}

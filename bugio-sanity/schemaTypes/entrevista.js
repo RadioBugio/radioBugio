@@ -138,4 +138,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
+  orderings: [
+    {
+      title: 'Ordenar por programa',
+      name: 'ordemCre',
+      by: [{field: 'programa', direction: 'asc'}],
+    },
+  ],
 }

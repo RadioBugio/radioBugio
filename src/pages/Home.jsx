@@ -12,7 +12,7 @@ export function Home() {
 	useEffect(() => {
 		const fetchEntrevistas = async () => {
 			try {
-				const data = await sanityClient.fetch(`*[_type == "entrevista"]{
+				const data = await sanityClient.fetch(`*[_type == "entrevista"]| order(programa asc){
 				_id,
 				programa,
 				data,
@@ -38,8 +38,9 @@ export function Home() {
 			<div className='home-overlay '>
 				<div>
 					<Hero />
-
-					<Schedule entrevistas={entrevistas} />
+					<div id='programacao'>
+						<Schedule entrevistas={entrevistas} />
+					</div>
 					<div id='sobre'>
 						<About />
 					</div>
