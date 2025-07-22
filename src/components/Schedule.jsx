@@ -18,12 +18,12 @@ export function Schedule({ entrevistas }) {
 			
 			<div className='container-default text-white  '>
 				<h2 className='text-2xl mb-4 font-bold uppercase  '>PROGRAMAÇÃO</h2>
-				<ul className='flex flex-col gap-6 w-2/3 place-self-center-safe '>
+				<ul className='flex flex-col gap-6 w-2/3 place-self-center-safe rounded-2xl'>
 					{entrevistas.map(ep => {
 						const isOpen = expandedId === ep._id;
 
 						return (
-							<li key={ep._id} onClick={() => toggle(ep._id)} className='cursor-pointer border-[.5px] border-[#484848] p-3 transition duration-500 hover:bg-black'>
+							<li key={ep._id} onClick={() => toggle(ep._id)} className='cursor-pointer border-[.5px] border-[#484848] rounded-2xl p-3 transition duration-500 hover:bg-black'>
 								<div className='text-xs'>{ep.clusters2}</div>
 								<div className='pt-4 grid grid-cols-4'>
 									<div className='col-span-1 flex justify-between text-sm opacity-80 mb-2'>

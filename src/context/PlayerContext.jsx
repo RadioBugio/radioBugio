@@ -7,6 +7,7 @@ export function PlayerProvider({ children }) {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
+	const [isMuted, setIsMuted] = useState(false);
 
 	useEffect(() => {
 		const audio = audioRef.current;
@@ -34,6 +35,12 @@ export function PlayerProvider({ children }) {
 		}
 	};
 
+	const toggleMute = () => {
+		const audio = audioRef.current;
+		audio.muted = !audio.muted;
+		setIsMuted(audio.muted);
+	};
+
 	return (
 		<PlayerContext.Provider
 			value={{
@@ -41,6 +48,8 @@ export function PlayerProvider({ children }) {
 				isPlaying,
 				currentTime,
 				duration,
+				toggleMute,
+				isMuted,
 				togglePlay,
 			}}
 		>

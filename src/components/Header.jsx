@@ -24,22 +24,25 @@ export function Header() {
 
 	return (
 		<>
-			<div className='fixed top-0 left-0 w-full flex flex-col uppercase z-50 items-start p-3  text-lg'>
+			<div className='fixed top-0 left-0 w-full h-24 bg-gradient-to-b from-black/100 to-transparent z-40 pointer-events-none' />
+
+			<div className='fixed top-0 left-0 w-full flex flex-col uppercase z-50 items-start p-3 text-lg'>
 				<button>Rádio-Estação do Bugio</button>
-				<div className='pt-3 flex flex-col  text-sm items-start'>
+				<div className='pt-3 flex flex-col text-sm items-start'>
 					<button onClick={() => scrollToSection('programacao')} className='hover:underline'>
 						PROGRAMAÇÃO
-					</button>
-					<button onClick={() => scrollToSection('sobre')} className='hover:underline'>
-						Sobre
 					</button>
 					<button onClick={() => scrollToSection('arquivo')} className='hover:underline'>
 						Arquivo
 					</button>
+					<button onClick={() => scrollToSection('sobre')} className='hover:underline'>
+						Sobre
+					</button>
 				</div>
 			</div>
 
-			{/* Mini Player */}
+			<div className='fixed bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/100 to-transparent z-40 pointer-events-none' />
+
 			<div className='fixed bottom-4 left-3.5 z-50'>
 				<AnimatePresence>
 					{showMiniPlayer && (

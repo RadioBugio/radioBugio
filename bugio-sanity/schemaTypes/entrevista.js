@@ -134,7 +134,8 @@ export default {
     {
       name: 'descricao',
       title: 'Texto Descritivo',
-      type: 'text',
+      type: 'blockContent',
+      
       validation: (Rule) => Rule.required(),
     },
   ],
