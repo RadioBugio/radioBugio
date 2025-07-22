@@ -45,6 +45,14 @@ export default {
           },
           validation: (Rule) => Rule.required(),
         },
+        {
+          name: 'ano',
+          title: 'Ano',
+          type: 'number',
+          placeholder: 'ex: 2025',
+
+          validation: (Rule) => Rule.required().min(2025).max(2028),
+        },
       ],
     },
     {
@@ -58,14 +66,7 @@ export default {
           type: 'string',
           placeholder: 'ex: 17h00',
           validation: (Rule) => Rule.required(),
-        },
-        {
-          name: 'fim',
-          title: 'Hora de Fim',
-          type: 'string',
-          placeholder: 'ex: 19h30',
-          validation: (Rule) => Rule.required(),
-        },
+        }
       ],
     },
     {
@@ -74,12 +75,7 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
-    {
-      name: 'duracao',
-      title: 'Duração (minutos)',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    },
+    
     {
       name: 'clusters',
       title: 'Clusters',
@@ -102,7 +98,6 @@ export default {
           {title: 'Correntes Políticas e Cívicas', value: 'Correntes Políticas e Cívicas'},
         ],
       },
-      validation: (Rule) => Rule.required().min(1),
     },
     {
       name: 'clusters2',
@@ -135,7 +130,7 @@ export default {
       name: 'descricao',
       title: 'Texto Descritivo',
       type: 'blockContent',
-      
+
       validation: (Rule) => Rule.required(),
     },
   ],

@@ -16,7 +16,7 @@ export function SmallPlayer() {
 	const { meta } = useNowPlaying();
 
 	return (
-		<div div className='flex gap-5 items-center'>
+		<div div className='flex gap-5 items-center '>
 			<button onClick={togglePlay} className=' text-black  transition'>
 				{isPlaying ? <Pause className='w-4 h-4' stroke='black' fill='black' /> : <Play className='w-4 h-4' stroke='black' fill='black' />}
 			</button>

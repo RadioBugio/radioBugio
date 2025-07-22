@@ -38,7 +38,7 @@ export function Player() {
 			)}
 
 			{/* Info + Controls */}
-			<div className='  flex flex-col justify-between'>
+			<div className='  flex flex-col justify-between py-3'>
 				<div>
 					<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 					<p className='text-md truncate'>
@@ -62,9 +62,10 @@ export function Player() {
 							min='0'
 							max='1'
 							step='0.01'
+							
 							value={volume}
 							onChange={handleVolumeChange}
-							className='absolute -top-2 left-8 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer'
+							className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer '
 							initial={{ opacity: 0, x: -10 }}
 							animate={{ opacity: volumeHover ? 1 : 0, x: volumeHover ? 0 : -10 }}
 							transition={{ duration: 0.2 }}

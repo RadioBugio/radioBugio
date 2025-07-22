@@ -52,9 +52,9 @@ export function Header() {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -10 }}
 							transition={{ duration: 0.3 }}
-							className='flex items-center gap-3 bg-[#cecece] text-black pl-4 text-sm shadow-black/30'
+							className='flex items-center gap-3 bg-[#484848] text-black pl-4 text-sm shadow-black/30 rounded-2xl'
 						>
-							<div className='live-now uppercase font-bold'>no ar</div>
+							<p className='text-[#898989] text-sm live-now'>Live stream</p>
 							<div className='border-l-1 py-2 px-4'>
 								<SmallPlayer />
 							</div>
