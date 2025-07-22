@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { urlFor } from '../utils/imageUrlBuilder.js';
+import { PortableText } from '@portabletext/react';
+
 
 export function Schedule({ entrevistas }) {
 	const [expandedId, setExpandedId] = useState(null);
@@ -60,7 +62,7 @@ export function Schedule({ entrevistas }) {
 											className='overflow-hidden mt-4 text-sm text-gray-300'
 										>
 											<div className='w-1/3'>{ep.thumbnail && <img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} />}</div>
-											<p className='mb-2'>{ep.descricao}</p>
+											<PortableText value={ep.descricao} />
 										</motion.div>
 									)}
 								</AnimatePresence>
