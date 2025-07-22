@@ -66,7 +66,7 @@ export default {
           type: 'string',
           placeholder: 'ex: 17h00',
           validation: (Rule) => Rule.required(),
-        }
+        },
       ],
     },
     {
@@ -75,7 +75,7 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
-    
+
     {
       name: 'clusters',
       title: 'Clusters',
@@ -118,13 +118,17 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+
     {
-      name: 'thumbnail',
-      title: 'Imagem de Capa',
-      type: 'image',
+      name: 'imagens',
+      title: 'Imagens',
+      description: 'Colocar até 6 imagens em formato ".webp", máximo 150 Kb cada.',
+      type: 'array',
+      of: [{type: 'image'}],
       options: {
-        hotspot: true,
+        layout: 'grid',
       },
+      validation: (Rule) => Rule.max(6),
     },
     {
       name: 'descricao',
@@ -132,6 +136,25 @@ export default {
       type: 'blockContent',
 
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'fichatecnica',
+      title: 'Ficha Técnica',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {name: 'titulo', title: 'Título', placeholder: 'ex: "Gravação por:"', type: 'string'},
+            {
+              name: 'conteudo',
+              title: 'Conteúdo',
+              placeholder: 'ex: "Bernardo & Diana"',
+              type: 'text',
+            },
+          ],
+        },
+      ],
     },
   ],
   orderings: [
