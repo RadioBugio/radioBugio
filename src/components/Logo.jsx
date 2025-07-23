@@ -30,7 +30,7 @@ export function Logo() {
 		>
 			<defs>
 				<filter id='blur'>
-					<feGaussianBlur stdDeviation='1.2' />
+					<feGaussianBlur stdDeviation='1' />
 				</filter>
 			</defs>
 
@@ -42,7 +42,7 @@ export function Logo() {
 					ry={ry}
 					fill='none'
 					stroke='white'
-					strokeWidth='0.07'
+					strokeWidth='0.15'
 					strokeDasharray={strokeLength}
 					strokeDashoffset={dashOffset}
 					strokeLinecap='butt'
