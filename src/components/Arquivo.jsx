@@ -15,38 +15,42 @@ export function Arquivo({ entrevistas }) {
 
 	return (
 		<>
-			<hr className='border-[#484848] ' />
-			<div className='text-white container-default'>
-				<h2 className='text-2xl mb-4 font-bold'>ARQUIVO</h2>
-				<ul className='flex flex-col gap-6 w-2/3 place-self-center-safe'>
+			<hr className='border-[#484848]' />
+			<div className='text-white container-default relative'>
+				<h2 className='text-2xl mb-4 font-bold uppercase'>ARQUIVO</h2>
+
+				<ul className='flex flex-col gap-4 place-self-center-safe'>
 					{entrevistas.map(ep => {
 						const isOpen = expandedId === ep._id;
 
 						return (
-							<li key={ep._id} onClick={() => toggle(ep._id)} className='cursor-pointer  bg-[#484848] p-3 transition duration-500 hover:opacity-100 opacity-50 rounded-2xl'>
-								<div className='text-xs'>{ep.clusters2}</div>
-								<div className='pt-4 grid grid-cols-4'>
-									<div className='col-span-1 flex justify-between text-sm opacity-80 mb-2'>
+							<li
+								key={ep._id}
+								onClick={() => toggle(ep._id)}
+								className='relative  bg-[#484848] hover:opacity-100 opacity-50 rounded-2xl p-3 transition duration-500  cursor-pointer'
+								style={{ width: '900px', maxWidth: '100%' }}
+							>
+								<div className='grid grid-cols-4'>
+									<div className='col-span-1 flex justify-between text-sm opacity-80'>
 										<span>
-											{ep.data?.dia}/{mesParaNumero(ep.data?.mes)} <br></br>
-											{ep.horario?.inicio} - {ep.horario?.fim}
-											<br></br>
+											{ep.data?.dia}/{mesParaNumero(ep.data?.mes)}/{ep.data?.ano}, {ep.horario?.inicio} <br />
 											{ep.duracao} min
 										</span>
 									</div>
-									<div className='col-span-3'>
-										<h3 className='text-lg font-semibold'>
-											<span class='inline-block bg-white text-black font-bold px-1.5 py-0 mr-2 '>{ep.programa}</span>
-											{ep.titulo}
-										</h3>
-
-										<div className='mt-3 flex  gap-4'>
-											{Array.isArray(ep.clusters) &&
-												ep.clusters.map((cluster, index) => (
-													<div key={index} className='inline-block bg-[#313131c1] px-2 py-1 text-xs opacity-80 rounded-full'>
-														{cluster}
-													</div>
-												))}
+									<div className='col-span-2'>
+										<h3 className='text-lg font-semibold'>{ep.titulo}</h3>
+									</div>
+									<div className='col-span-1'>
+										<div className='flex flex-col gap-1'>
+											<div>{ep.clusters2 && <div className='inline-block bg-[#88888856] px-2 py-1 text-xs opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
+											<div>
+												{Array.isArray(ep.clusters) &&
+													ep.clusters.map((cluster, index) => (
+														<div key={index} className='inline-block bg-[#88888856] px-2 py-1 text-xs opacity-80 rounded-full'>
+															{cluster}
+														</div>
+													))}
+											</div>
 										</div>
 									</div>
 								</div>
@@ -58,10 +62,14 @@ export function Arquivo({ entrevistas }) {
 											animate={{ opacity: 1, height: 'auto' }}
 											exit={{ opacity: 0, height: 0 }}
 											transition={{ duration: 0.3 }}
-											className='overflow-hidden mt-4 text-sm text-gray-300'
+											className='overflow-hidden mt-4 text-sm text-gray-300 px-6 pb-6'
 										>
-											<p className='mb-2'>{ep.descricao}</p>
-											<p className='text-indigo-400 font-semibold'>{ep.clusters}</p>
+											{ep.thumbnail && (
+												<div className='w-1/3 pb-8'>
+													<img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} className='rounded-2xl' />
+												</div>
+											)}
+											<p>{ep.descricao}</p>
 										</motion.div>
 									)}
 								</AnimatePresence>

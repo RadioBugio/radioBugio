@@ -14,7 +14,7 @@ export function Header() {
 
 			<div className='fixed top-0 left-0 right-0 flex flex-col uppercase z-50  p-3 text-lg '>
 				<button className='text-left'>
-					Rádio Estação <br />
+					Rádio Estação 
 					do Bugio
 				</button>
 				<div className='pt-3 flex flex-col text-sm items-start'>

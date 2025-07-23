@@ -15,8 +15,7 @@ export function Header1() {
 			<div className='fixed top-0 left-0 right-0 uppercase z-50 text-sm  '>
 				<div className=' mx-[8rem] mt-4 flex justify-between items-baseline '>
 					<button className='text-left'>
-						Rádio Estação <br />
-						do Bugio
+						Rádio Estação do Bugio
 					</button>
 					<div className='flex flex-row gap-5'>
 						<button onClick={() => scrollToSection('programacao')} className='hover:underline'>
