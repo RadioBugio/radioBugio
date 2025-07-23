@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import sanityClient from '../SanityClient.js';
 import { Player } from '../components/Player';
 import { Schedule } from '../components/Schedule';
@@ -8,6 +8,7 @@ import { Hero } from '../components/Hero.jsx';
 
 export function Home() {
 	const [entrevistas, setEntrevistas] = useState([]);
+	const videoRef = useRef(null); 
 
 	useEffect(() => {
 		const fetchEntrevistas = async () => {
@@ -33,13 +34,19 @@ export function Home() {
 		fetchEntrevistas();
 	}, []);
 
+	useEffect(() => {
+		if (videoRef.current) {
+			videoRef.current.playbackRate = 0.5;
+		}
+	}, []);
+
 	return (
 		<>
-			<video autoPlay loop muted playsInline className='fixed top-0 left-0 w-full h-full object-cover z-[-1000]'>
-				<source src='../../public/fundo.mp4' type='video/mp4' />
-		
+			<video ref={videoRef} autoPlay loop muted playsInline className='fixed top-0 left-0 w-full h-full object-cover z-[-1000]'>
+				<source src='/fundo.mp4' type='video/mp4' />
 				Seu navegador não suporta vídeos em HTML5.
 			</video>
+
 			<Hero />
 			<div id='programacao'>
 				<Schedule entrevistas={entrevistas} />
