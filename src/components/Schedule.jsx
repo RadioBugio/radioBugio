@@ -39,7 +39,7 @@ export function Schedule({ entrevistas }) {
 
 					return (
 						<div key={date} className='mb-10 flex flex-col place-self-center-safe'>
-							<h3 className='text-xl font-semibold uppercase mb-4'>{formatarDataHumana(dia, mesNome, ano)}</h3>
+							<h3 className='text-xl font-semibold uppercase mb-4 opacity-50'>{formatarDataHumana(dia, mesNome, ano)}</h3>
 
 							<ul className='flex flex-col gap-4 place-self-center-safe'>
 								{episodes.map(ep => {
