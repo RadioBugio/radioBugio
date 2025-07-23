@@ -19,7 +19,7 @@ export function Arquivo({ entrevistas }) {
 			<div className='text-[#eaebde] container-default relative'>
 				<h2 className='text-2xl mb-4 font-bold uppercase'>ARQUIVO</h2>
 
-				<ul className='grid grid-cols-4 gap-8'>
+				<ul className='grid grid-cols-5 gap-4'>
 					{entrevistas.map(ep => {
 						const isOpen = expandedId === ep._id;
 
@@ -39,11 +39,11 @@ export function Arquivo({ entrevistas }) {
 										<h3 className='text-lg font-semibold pt-1'>{ep.titulo}</h3>
 
 										<div className='flex flex-col gap-1 pt-4'>
-											<div>{ep.clusters2 && <div className='inline-block bg-[#88888856] px-2 py-1 text-xs opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
+											<div>{ep.clusters2 && <div className='inline-block bg-[#88888856] px-2 py-1 text-[0.7rem] opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
 											<div>
 												{Array.isArray(ep.clusters) &&
 													ep.clusters.map((cluster, index) => (
-														<div key={index} className='inline-block bg-[#88888856] px-2 py-1 text-xs opacity-80 rounded-full'>
+														<div key={index} className='inline-block bg-[#88888856] px-2 py-1 text-[0.7rem] opacity-80 rounded-full'>
 															{cluster}
 														</div>
 													))}

@@ -35,6 +35,11 @@ export function Home() {
 
 	return (
 		<>
+			<video autoPlay loop muted playsInline className='fixed top-0 left-0 w-full h-full object-cover z-[-1000]'>
+				<source src='../../public/fundo.mp4' type='video/mp4' />
+		
+				Seu navegador não suporta vídeos em HTML5.
+			</video>
 			<Hero />
 			<div id='programacao'>
 				<Schedule entrevistas={entrevistas} />
