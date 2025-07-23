@@ -32,7 +32,7 @@ export function SmallPlayer() {
 	return (
 		<>
 			{/* Mini Player flutuante */}
-			<div className='fixed bottom-4 left-3.5 z-50'>
+			<div className='fixed bottom-4 left-[8rem] z-50   '>
 				<AnimatePresence>
 					{showMiniPlayer && (
 						<motion.div
@@ -41,7 +41,7 @@ export function SmallPlayer() {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -10 }}
 							transition={{ duration: 0.3 }}
-							className='flex items-center gap-3 bg-[#484848] text-black pl-4 text-sm shadow-black/30 rounded-2xl'
+							className='flex items-center gap-3 bg-[#484848] text-black pl-4 text-sm shadow-black/30 rounded-xl'
 						>
 							<p className='text-[#898989] text-sm live-now'>Live stream</p>
 							<div className='border-l-1 py-2 px-4'>
