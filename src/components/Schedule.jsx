@@ -37,7 +37,7 @@ export function Schedule({ entrevistas }) {
 					<div key={date} className='mb-10 flex flex-col  place-self-center-safe '>
 						<h3 className='text-xl font-semibold uppercase mb-4'>{date}</h3>
 
-						<ul className='flex flex-col gap-6 place-self-center-safe '>
+						<ul className='flex flex-col gap-4 place-self-center-safe '>
 							{episodes.map(ep => {
 								const isOpen = expandedId === ep._id;
 								const isHovered = hoveredId === ep._id;
