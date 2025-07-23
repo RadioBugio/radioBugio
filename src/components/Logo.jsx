@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 
 export function Logo() {
-	const perimeter = 314; // perímetro real da elipse
-	const strokeLength = perimeter + 1; // +1 para esconder totalmente
+	// Cálculo aproximado do perímetro da elipse com rx = 90, ry = 40
+	const rx = 90;
+	const ry = 40;
+	const perimeter = Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry)));
+	const strokeLength = perimeter;
 
 	const [dashOffset, setDashOffset] = useState(strokeLength);
 
@@ -12,21 +15,17 @@ export function Logo() {
 			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 			const scrollPercent = Math.min(scrollTop / docHeight, 1);
 
-			if (scrollTop === 0) {
-				setDashOffset(strokeLength);
-			} else {
-				setDashOffset(strokeLength * (1 - scrollPercent));
-			}
+			setDashOffset(strokeLength * (1 - scrollPercent));
 		};
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	}, [strokeLength]);
 
 	return (
-		<svg className='fixed inset-0 w-full h-full pointer-events-none z-[1000]' viewBox='0 0 100 100' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
-			<g transform='rotate(-25 50 50)'>
-				<ellipse cx='50' cy='50' rx='50' ry='50' fill='none' stroke='white' strokeWidth='0.04' strokeDasharray={strokeLength} strokeDashoffset={dashOffset} strokeLinecap='butt' />
+		<svg className='fixed inset-0 w-full h-full pointer-events-none z-[1000]' viewBox='0 0 200 200' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
+			<g transform='rotate(-25 100 100)'>
+				<ellipse cx='100' cy='100' rx={rx} ry={ry} fill='none' stroke='white' strokeWidth='0.07' strokeDasharray={strokeLength} strokeDashoffset={dashOffset} strokeLinecap='butt' />
 			</g>
 		</svg>
 	);
