@@ -7,7 +7,7 @@ export function About() {
 		<>
 			<hr className='border-[#484848] ' />
 
-			<div className='container-default '>
+			<div className='container-default'>
 				<h2 className='text-2xl mb-4 font-bold'>SOBRE</h2>
 
 				<div className=' w-2/3 place-self-center-safe'>

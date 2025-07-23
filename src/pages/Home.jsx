@@ -34,23 +34,17 @@ export function Home() {
 	}, []);
 
 	return (
-		
-			<div className='home'>
-				<div className='home-overlay '>
-					<div>
-						<Hero />
-						<div id='programacao'>
-							<Schedule entrevistas={entrevistas} />
-						</div>
-						<div id='sobre'>
-							<About />
-						</div>
-						<div id='arquivo'>
-							<Arquivo entrevistas={entrevistas} />
-						</div>
-					</div>
-				</div>
+		<>
+			<Hero />
+			<div id='programacao'>
+				<Schedule entrevistas={entrevistas} />
 			</div>
-		
+			<div id='sobre'>
+				<About />
+			</div>
+			<div id='arquivo'>
+				<Arquivo entrevistas={entrevistas} />
+			</div>
+		</>
 	);
 }
