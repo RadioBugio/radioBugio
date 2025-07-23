@@ -24,10 +24,15 @@ export function Header() {
 
 	return (
 		<>
-			<div className='fixed top-0 left-0 w-full h-24 bg-gradient-to-b from-[#0f0f0f]/100 to-transparent z-40 pointer-events-none' />
+			{/* Gradiente no topo */}
+			<div className='fixed top-0 left-0 w-full h-24 bg-gradient-to-b from-[#0f0f0f]/100 to-transparent z-40 pointer-events-none'></div>
 
-			<div className='fixed top-0 left-0 w-full flex flex-col uppercase z-50 items-start p-3 text-lg'>
-				<button>Rádio-Estação do Bugio</button>
+			{/* Cabeçalho */}
+			<div className='fixed top-0 left-0 w-full flex flex-col uppercase z-50 items-start p-3 text-lg '>
+				<button className='text-left'>
+					Rádio Estação <br />
+					do Bugio
+				</button>
 				<div className='pt-3 flex flex-col text-sm items-start'>
 					<button onClick={() => scrollToSection('programacao')} className='hover:underline'>
 						PROGRAMAÇÃO
@@ -41,8 +46,7 @@ export function Header() {
 				</div>
 			</div>
 
-			<div className='fixed bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f0f0f]/100 to-transparent z-40 pointer-events-none' />
-
+			{/* Mini Player flutuante */}
 			<div className='fixed bottom-4 left-3.5 z-50'>
 				<AnimatePresence>
 					{showMiniPlayer && (
@@ -62,6 +66,9 @@ export function Header() {
 					)}
 				</AnimatePresence>
 			</div>
+
+			{/* Gradiente no fundo */}
+			<div className='fixed bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f0f0f]/100 to-transparent z-40 pointer-events-none'></div>
 		</>
 	);
 }

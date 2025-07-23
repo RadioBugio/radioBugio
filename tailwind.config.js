@@ -1,12 +1,9 @@
-// tailwind.config.js
-import { heroui } from "@heroui/theme";
-
 /** @type {import('tailwindcss').Config} */
-export const content = [
-  "./node_modules/@heroui/theme/dist/components/scroll-shadow.js",
-];
-export const theme = {
-  extend: {},
+export default {
+	darkMode: 'class',
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+	theme: {
+		extend: {},
+	},
+	plugins: [],
 };
-export const darkMode = "class";
-export const plugins = [heroui()];

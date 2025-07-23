@@ -2,8 +2,8 @@ import React from 'react';
 import { Player } from './Player';
 export function Hero() {
 	return (
-		<div className=' h-[calc(100vh-5.5rem)] flex justify-end items-center container-default '>
-			<div className=' flex flex-col  w-1/2'>
+		<div className=' h-[calc(100vh-5.5rem)] flex justify-end container-default '>
+			<div className=' flex flex-col  w-1/2 pt-[5.5rem]'>
 				
 					<Player />
 					<div className='pt-12'>

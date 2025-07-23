@@ -8,8 +8,11 @@ body {
 	-webkit-font-smoothing: antialiased;
 	background-color: #0f0f0f;
 	color: #eaebde;
-	
 	font-family: 'Hedvig Letters Sans', sans-serif;
+		padding: 0;
+	margin: 0;
+	width: 100%;
+
 }
 
 button{
