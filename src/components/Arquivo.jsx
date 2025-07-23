@@ -15,7 +15,6 @@ export function Arquivo({ entrevistas }) {
 
 	return (
 		<>
-			<hr className='border-[#484848]' />
 			<div className='text-[#eaebde] container-default relative'>
 				<h2 className='text-2xl mb-4 font-bold uppercase'>ARQUIVO</h2>
 
