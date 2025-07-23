@@ -22,7 +22,7 @@ export function Schedule({ entrevistas }) {
 	return (
 		<>
 			<hr className='border-[#484848]' />
-			<div className='text-white relative container-default'>
+			<div className='text-[#eaebde] relative container-default'>
 				<h2 className='text-2xl mb-4 font-bold uppercase'>PROGRAMAÇÃO</h2>
 
 				{Object.entries(grouped).map(([date, episodes]) => {
@@ -50,7 +50,7 @@ export function Schedule({ entrevistas }) {
 													<span>{ep.horario?.inicio}</span>
 												</div>
 												<div className='col-span-3'>
-													<h3 className='text-lg font-semibold'>{ep.titulo}</h3>
+													<h3 className='text-lg text-[#eaebde] font-semibold'>{ep.titulo}</h3>
 												</div>
 												<div className='col-span-2'>
 													<div className='flex flex-col gap-1'>
@@ -68,7 +68,7 @@ export function Schedule({ entrevistas }) {
 
 												<div className='col-span-1 flex justify-end items-center pr-2'>
 													<motion.div initial={false} animate={{ rotate: isOpen ? 90 : 180 }} transition={{ duration: 0.3 }}>
-														<svg width='16' height='16' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='text-white'>
+														<svg width='16' height='16' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='text-[#eaebde]'>
 															<path
 																d='M8.12 4.71L13.41 10L8.12 15.29C7.73 15.68 7.73 16.31 8.12 16.7C8.51 17.09 9.14 17.09 9.53 16.7L15.53 10.7C15.92 10.31 15.92 9.68 15.53 9.29L9.53 3.29C9.14 2.9 8.51 2.9 8.12 3.29C7.73 3.68 7.73 4.31 8.12 4.71Z'
 																fill='currentColor'

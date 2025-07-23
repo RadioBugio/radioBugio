@@ -1,14 +1,13 @@
 export function About() {
 	return (
 		<>
-
 			<div className='relative overflow-hidden'>
 				<video className='absolute top-0 left-0 w-full h-full object-cover -z-10 pointer-events-none opacity-30' autoPlay loop muted playsInline>
 					<source src='/IMG_9958 2-1.mp4' type='video/mp4' />
 					Your browser does not support the video tag.
 				</video>
 
-				<div className='container-default py-20 z-10 relative text-white'>
+				<div className='container-default py-20 z-10 relative text-[#eaebde]'>
 					<h2 className='text-2xl mb-4 font-bold'>SOBRE</h2>
 
 					<div className='w-2/3'>

@@ -4,9 +4,19 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+
+function formatTime(seconds) {
+	if (isNaN(seconds)) return '0:00';
+	const m = Math.floor(seconds / 60);
+	const s = Math.floor(seconds % 60)
+		.toString()
+		.padStart(2, '0');
+	return `${m}:${s}`;
+}
+
 export function Player() {
 	const { meta } = useNowPlaying();
-	const { isPlaying, togglePlay, audioRef } = usePlayer();
+	const { isPlaying, togglePlay, audioRef, currentTime } = usePlayer();
 	const [volumeHover, setVolumeHover] = useState(false);
 	const [volume, setVolume] = useState(1);
 
@@ -32,9 +42,9 @@ export function Player() {
 		<div className='border-[.5px] border-[#484848]  text-[#eaebde] rounded-2xl p-2 flex space-x-4  max-w-md relative'>
 			{/* Cover */}
 			{meta?.song.art ? (
-				<img src={meta.song.art} alt='Album Art' className='w-30 h-30 rounded-lg object-cover' />
+				<img src={meta.song.art} alt='Album Art' className='w-35 h-35 rounded-lg object-cover' />
 			) : (
-				<div className='w-30 h-30 rounded-lg  flex items-center justify-center text-sm'>Offline</div>
+				<div className='w-35 h-35 rounded-lg  flex items-center justify-center text-sm'>Offline</div>
 			)}
 
 			{/* Info + Controls */}
@@ -42,8 +52,9 @@ export function Player() {
 				<div>
 					<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 					<p className='text-md truncate'>
-						Now Playing: <span className='font-semibold'>{meta?.song.title || 'Offline...'}</span>{' '}
+						Now Playing: <span className='font-semibold'>{meta?.song.title || 'Offline...'}</span>
 					</p>
+					<p className='text-sm text-[#898989] '>{formatTime(currentTime)}</p>
 				</div>
 
 				<div className=' flex gap-4 '>
@@ -62,7 +73,6 @@ export function Player() {
 							min='0'
 							max='1'
 							step='0.01'
-							
 							value={volume}
 							onChange={handleVolumeChange}
 							className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer '

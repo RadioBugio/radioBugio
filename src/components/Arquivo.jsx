@@ -16,32 +16,29 @@ export function Arquivo({ entrevistas }) {
 	return (
 		<>
 			<hr className='border-[#484848]' />
-			<div className='text-white container-default relative'>
+			<div className='text-[#eaebde] container-default relative'>
 				<h2 className='text-2xl mb-4 font-bold uppercase'>ARQUIVO</h2>
 
-				<ul className='flex flex-col gap-4 place-self-center-safe'>
+				<ul className='grid grid-cols-4 gap-8'>
 					{entrevistas.map(ep => {
 						const isOpen = expandedId === ep._id;
 
 						return (
-							<li
-								key={ep._id}
-								onClick={() => toggle(ep._id)}
-								className='relative  bg-[#484848] hover:opacity-100 opacity-50 rounded-2xl p-3 transition duration-500  cursor-pointer'
-								style={{ width: '900px', maxWidth: '100%' }}
-							>
-								<div className='grid grid-cols-4'>
-									<div className='col-span-1 flex justify-between text-sm opacity-80'>
-										<span>
-											{ep.data?.dia}/{mesParaNumero(ep.data?.mes)}/{ep.data?.ano}, {ep.horario?.inicio} <br />
+							<li key={ep._id} onClick={() => toggle(ep._id)} className='relative  bg-[#484848] hover:opacity-100 opacity-50 rounded-2xl p-2 transition duration-500  cursor-pointer'>
+								<div className='flex flex-col '>
+									<img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} className='rounded-xl w-full h-[220px] object-cover' />
+
+									<div className='mt-3 mx-2'>
+										<div className='flex justify-between text-sm opacity-80 '>
+											<span>
+												{ep.data?.dia}/{mesParaNumero(ep.data?.mes)}/{ep.data?.ano}, {ep.horario?.inicio}
+											</span>
 											{ep.duracao} min
-										</span>
-									</div>
-									<div className='col-span-2'>
-										<h3 className='text-lg font-semibold'>{ep.titulo}</h3>
-									</div>
-									<div className='col-span-1'>
-										<div className='flex flex-col gap-1'>
+										</div>
+
+										<h3 className='text-lg font-semibold pt-1'>{ep.titulo}</h3>
+
+										<div className='flex flex-col gap-1 pt-4'>
 											<div>{ep.clusters2 && <div className='inline-block bg-[#88888856] px-2 py-1 text-xs opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
 											<div>
 												{Array.isArray(ep.clusters) &&

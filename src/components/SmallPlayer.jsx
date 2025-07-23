@@ -41,17 +41,17 @@ export function SmallPlayer() {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -10 }}
 							transition={{ duration: 0.3 }}
-							className='flex items-center gap-3 bg-[#484848] text-black pl-4 text-sm shadow-black/30 rounded-xl'
+							className='flex items-center border-[.5px] border-[#484848]  text-[#eaebde] bg-[#0f0f0f]  pl-4 text-sm shadow-black/30 rounded-xl'
 						>
-							<p className='text-[#898989] text-sm live-now'>Live stream</p>
-							<div className='border-l-1 py-2 px-4'>
+							<p className='text-[#898989] text-sm live-now pr-2'>Live </p>
+							<div className='border-l-1 border-[#484848] py-2 px-4'>
 								<div className='flex gap-5 items-center'>
-									<button onClick={togglePlay} className='text-black transition'>
-										{isPlaying ? <Pause className='w-4 h-4' stroke='black' fill='black' /> : <Play className='w-4 h-4' stroke='black' fill='black' />}
+									<button onClick={togglePlay} className='text-[#eaebde]transition'>
+										{isPlaying ? <Pause className='w-4 h-4' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-4 h-4' stroke='"eaebde"' fill='#eaebde' />}
 									</button>
 
-									<span className='truncate max-w-[250px] text-black'>{meta?.song.title || 'Offline'}</span>
-									<span className='text-xs text-black'>{formatTime(currentTime)}</span>
+									<span className='truncate max-w-[250px] text-[#eaebde]'>{meta?.song.title || 'Offline'}</span>
+									<span className='text-xs text-[#eaebde]'>{formatTime(currentTime)}</span>
 								</div>
 							</div>
 						</motion.div>
