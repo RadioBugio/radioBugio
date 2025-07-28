@@ -3,7 +3,7 @@ import sanityClient from '../SanityClient.js';
 import { Player } from '../components/Player';
 import { Schedule } from '../components/Schedule';
 import { About } from '../components/About.jsx';
-import { About1 } from '../components/About1.jsx';
+import { Video } from '../components/Video.jsx';
 import { Arquivo } from '../components/Arquivo.jsx';
 import { Hero } from '../components/Hero.jsx';
 
@@ -42,8 +42,8 @@ export function Home() {
 			<div id='programacao'>
 				<Schedule entrevistas={entrevistas} />
 			</div>
-			<div id='sobre'>
-				<About1 />
+			<div>
+				<Video />
 			</div>
 			<div id='arquivo'>
 				<Arquivo entrevistas={entrevistas} />

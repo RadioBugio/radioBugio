@@ -2,8 +2,8 @@ import React from 'react';
 import { Player } from './Player';
 export function Hero() {
 	return (
-		<div className=' h-[50vh] flex justify-end container-default'>
-			<div className=' flex flex-col  w-1/2 pt-[5.5rem]  '>
+		<div className=' h-[75vh] flex justify-end container-default '>
+			<div className=' flex flex-col  w-1/2 justify-center  pr-8'>
 				<Player />
 				<div className='pt-12'>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, esse laudantium sed amet aspernatur debitis ea quod dolore corrupti doloribus?Lorem ipsum dolor sit amet consectetur

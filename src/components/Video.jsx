@@ -1,4 +1,4 @@
-export function About1() {
+export function Video() {
 	return (
 		<>
 			<div className='relative overflow-hidden h-[70vh]'>
@@ -7,7 +7,9 @@ export function About1() {
 					Your browser does not support the video tag.
 				</video>
 
-				
+				<div className="absolute bottom-2 right-2">
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
 			</div>
 		</>
 	);
