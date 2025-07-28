@@ -7,7 +7,7 @@ export function Video() {
 					Your browser does not support the video tag.
 				</video>
 
-				<div className="absolute bottom-2 right-2">
+				<div className="absolute bottom-2 right-8">
 					<p>Lorem ipsum dolor sit amet.</p>
 				</div>
 			</div>
