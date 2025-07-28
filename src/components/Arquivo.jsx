@@ -23,7 +23,7 @@ export function Arquivo({ entrevistas }) {
 						const isOpen = expandedId === ep._id;
 
 						return (
-							<li key={ep._id} onClick={() => toggle(ep._id)} className='relative  bg-[#484848] hover:opacity-100 opacity-50 rounded-2xl p-2 transition duration-500  cursor-pointer'>
+							<li key={ep._id} onClick={() => toggle(ep._id)} className='relative  bg-[#484848] hover:opacity-50  rounded-2xl p-2 transition duration-500  cursor-pointer'>
 								<div className='flex flex-col '>
 									<img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} className='rounded-xl w-full h-[220px] object-cover' />
 
