@@ -53,7 +53,7 @@ export function About() {
 						</AnimatePresence>
 
 						<div className='mt-4 '>
-							<button onClick={toggle} className=' text-gray-300 hover:text-white transition duration-200 underline-offset-4'>
+							<button onClick={toggle} className='  hover:underline transition duration-200 underline-offset-4'>
 								{expanded ? 'Ler menos' : 'Ler mais'}
 							</button>
 						</div>

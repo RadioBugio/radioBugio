@@ -25,7 +25,7 @@ export function DrawerModal({ isOpen, onClose, episode }) {
 
 					<motion.div
 						key='drawer'
-						className='fixed left-0 right-0 bottom-0 h-[70vh] border-t border-[#484848] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-8 overflow-y-auto'
+						className='fixed left-0 right-0 bottom-0 h-[80vh] border-t border-[#484848] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-8 overflow-y-auto'
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
