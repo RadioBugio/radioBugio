@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { DrawerModal } from './DrawerModal';
-import { PortableText } from '@portabletext/react';
 
 
 export function Arquivo({ entrevistas }) {
@@ -42,15 +41,7 @@ export function Arquivo({ entrevistas }) {
 				</ul>
 			</div>
 
-			<DrawerModal isOpen={!!selectedEp} onClose={() => setSelectedEp(null)}>
-				{selectedEp && (
-					<div>
-						<h2 className='text-xl font-bold mb-2'>{selectedEp.titulo}</h2>
-
-						<PortableText value={selectedEp.descricao} />
-					</div>
-				)}
-			</DrawerModal>
+			<DrawerModal isOpen={!!selectedEp} onClose={() => setSelectedEp(null)} episode={selectedEp} />
 		</div>
 	);
 }
