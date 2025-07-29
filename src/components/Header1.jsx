@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 export function Header1() {
 	const scrollToSection = id => {
@@ -15,7 +17,9 @@ export function Header1() {
 			<div className='fixed top-0 left-0 right-0 uppercase z-50   '>
 				<div className='mx-8 mt-8 flex justify-between items-baseline uppercase'>
 					<div>
-						<button className='text-left'>Rádio-Estação do Bugio</button>
+						<Link to='/'>
+							<img src='/logos/logoBugio.png' alt='Rádio Bugio Logo' className='w-32 max-w-full h-auto' />
+						</Link>
 						<div className='pt-4 flex flex-col items-start '>
 							<button onClick={() => scrollToSection('programacao')} className='hover:underline uppercase'>
 								PROGRAMAÇÃO

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { urlFor } from '../utils/imageUrlBuilder.js';
-import { X, Play } from 'lucide-react';
+import { X, Play, Pause } from 'lucide-react';
 import { usePlayer } from '../context/PlayerContext';
 
 

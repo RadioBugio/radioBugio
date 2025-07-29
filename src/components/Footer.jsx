@@ -7,7 +7,6 @@ import logoCAM from '/logos/cam.png';
 import logoMarinha from '/logos/autoridade.png';
 import logoITI from '/logos/iti.png';
 import logoITQB from '/logos/itqb.png';
-import logo8 from '/logos/itqb.png';
 
 
 export function Footer() {
