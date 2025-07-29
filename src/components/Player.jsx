@@ -40,14 +40,12 @@ export function Player() {
 
 	return (
 		<div className='border-[.5px] border-[#484848]  text-[#eaebde] rounded-2xl p-2 flex space-x-4  max-w-md relative'>
-			{/* Cover */}
 			{meta?.song.art ? (
 				<img src={meta.song.art} alt='Album Art' className='w-35 h-35 rounded-lg object-cover' />
 			) : (
 				<div className='w-35 h-35 rounded-lg  flex items-center justify-center text-sm'>Offline</div>
 			)}
 
-			{/* Info + Controls */}
 			<div className='  flex flex-col justify-between py-3'>
 				<div>
 					<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
@@ -63,11 +61,9 @@ export function Player() {
 						{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
 					</button>
 
-					{/* Volume Control (hover reveal) */}
 					<div className='relative  flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
 						<button onClick={toggleMute}>{volume > 0 ? <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}</button>
 
-						{/* Slider on hover */}
 						<motion.input
 							type='range'
 							min='0'
