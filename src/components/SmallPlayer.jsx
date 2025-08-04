@@ -14,9 +14,8 @@ function formatTime(seconds) {
 }
 
 export function SmallPlayer() {
-	const { isPlaying, togglePlay, currentTime} = usePlayer();
+	const { isPlaying, togglePlay, currentTime } = usePlayer();
 	const { meta } = useNowPlaying();
-
 	const [showMiniPlayer, setShowMiniPlayer] = useState(false);
 
 	useEffect(() => {
@@ -29,11 +28,13 @@ export function SmallPlayer() {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	const isOnline = meta?.isOnline;
+
 	return (
 		<>
 			<div className='fixed bottom-4 left-8 z-50   '>
 				<AnimatePresence>
-					{showMiniPlayer && (
+					{isOnline && showMiniPlayer && (
 						<motion.div
 							key='small-player'
 							initial={{ opacity: 0, y: -10 }}

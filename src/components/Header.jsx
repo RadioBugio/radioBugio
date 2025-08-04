@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-export function Header1() {
+export function Header() {
 	const scrollToSection = id => {
 		const el = document.getElementById(id);
 		if (el) {

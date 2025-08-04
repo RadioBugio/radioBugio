@@ -119,16 +119,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
 
+    
+
     {
       name: 'imagens',
       title: 'Imagens',
-      description: 'Colocar até 6 imagens em formato ".webp", máximo 150 Kb cada.',
+      description: 'Colocar até 3 imagens em formato ".webp", máximo 150 Kb cada.',
       type: 'array',
       of: [{type: 'image'}],
       options: {
         layout: 'grid',
       },
-      validation: (Rule) => Rule.max(6),
+      validation: (Rule) => Rule.max(3),
     },
     {
       name: 'descricao',

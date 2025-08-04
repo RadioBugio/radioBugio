@@ -12,7 +12,10 @@ export function NowPlayingProvider({ children }) {
 		const fetchMeta = async () => {
 			try {
 				const res = await axios.get('https://azuracast-tiwnu-u49648.vm.elestio.app/api/nowplaying/radio_estacao_do_bugio');
-				setMeta(res.data.now_playing);
+				setMeta({
+					song: res.data.now_playing.song,
+					isOnline: res.data.is_online, 
+				});
 				setError(null);
 			} catch (err) {
 				console.error('Erro ao buscar metadata:', err);

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header1 } from './components/Header1';
+import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
 function App() {
 	return (
 		<>
-			<Header1 />
+			<Header />
 			<Outlet />
 			<Footer	/>
 		</>

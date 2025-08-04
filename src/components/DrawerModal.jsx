@@ -3,18 +3,10 @@ import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { X } from 'lucide-react';
-import { useArchivePlayer } from '../context/ArchivePlayerContext';
-import { PlayerArchive } from './PlayerArchive.jsx';
 
-export function DrawerModal({ isOpen, onClose, episode, audioUrl }) {
-	const { playAudio, isPlaying, currentAudio, pause } = useArchivePlayer();
+export function DrawerModal({ episode, isOpen, onClose }) {
 
-	const isThisPlaying = currentAudio === audioUrl;
 
-	const toggle = () => {
-		if (isThisPlaying && isPlaying) pause();
-		else playAudio(audioUrl);
-	};
 
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -22,7 +14,7 @@ export function DrawerModal({ isOpen, onClose, episode, audioUrl }) {
 
 	if (!episode) return null;
 
-	const { titulo, data, horario, thumbnail, descricao, clusters, clusters2, duracao } = episode;
+	const { titulo, data, horario, descricao, clusters, clusters2, duracao } = episode;
 
 	return (
 		<AnimatePresence>
@@ -38,31 +30,40 @@ export function DrawerModal({ isOpen, onClose, episode, audioUrl }) {
 						exit={{ y: '100%' }}
 						transition={{ duration: 0.4 }}
 					>
-						<div className='grid grid-cols-7 gap-8'>
-							<div className='col-span-2'>{thumbnail && <img src={urlFor(thumbnail).url()} alt={titulo} className='w-full h-[400px] object-cover rounded-xl mb-6' />}</div>
-							<div className='col-span-4  flex flex-row justify-between '>
+						<div className='grid grid-cols-8 gap-8'>
+							<div className='col-span-2 bg-amber-300'>
+								{Array.isArray(episode.imagens) && episode.imagens.length > 0 && (
+									<div className='flex flex-col gap-4'>
+										{episode.imagens.map((img, idx) => (
+											<img key={idx} src={urlFor(img).url()} alt={`${titulo} - imagem ${idx + 1}`} className='w-full h-[300px] object-cover rounded-xl' />
+										))}
+									</div>
+								)}
+							</div>
+							<div className='col-span-5  flex flex-row justify-between bg-purple-700'>
 								<div className='w-3/4 flex flex-col gap-4 '>
-									<h2 className='text-xl font-bold'>{titulo}</h2>
+									<h2 className='text-2xl font-bold'>{titulo}</h2>
 									<div className='text-lg leading-relaxed'>
 										<PortableText value={descricao} />
 									</div>
 								</div>
 								<div>
-									<PlayerArchive audioUrl='https://archive.org/download/01-it-goes-like-nanana-original-mix/01-it-goes-like-nanana-original-mix.mp3' />
-
-									<div className='text-sm text-gray-400 flex gap-4 mb-4'>
+									<div className='text-sm text-gray-400 flex flex-col gap-1 mb-4'>
 										<div>
-											{data?.dia}/{mesParaNumero(data?.mes)}/{data?.ano}
+											{data?.dia}.{mesParaNumero(data?.mes)}.{data?.ano}
 										</div>
-										{horario?.inicio}
-										{duracao && <p>{duracao} min</p>}
+										<div>
+											{horario?.inicio} - {horario?.fim}
+										</div>
+										<div> {duracao && <p>duração: {duracao} min</p>}</div>
 									</div>
-									{clusters2 && <div className='inline-block bg-[#88888856] px-2 py-1 text-xs opacity-80 rounded-full mb-2'>{clusters2}</div>}
+
+									{clusters2 && <div className='inline-block bg-[#88888856] px-3.5 py-1  text-[0.9rem] opacity-80 rounded-full mb-2'>{clusters2}</div>}
 
 									{Array.isArray(clusters) && (
 										<div className='flex flex-wrap gap-2 mb-4'>
 											{clusters.map((c, i) => (
-												<div key={i} className='inline-block bg-[#48484856] px-2 py-1 text-xs opacity-80 rounded-full'>
+												<div key={i} className='inline-block bg-[#48484856] px-3.5 py-1  text-[0.9rem]  opacity-80 rounded-full'>
 													{c}
 												</div>
 											))}
@@ -70,7 +71,7 @@ export function DrawerModal({ isOpen, onClose, episode, audioUrl }) {
 									)}
 								</div>
 							</div>
-							<div className='col-span-1 text-right '>
+							<div className='col-span-1 text-right bg-red-500'>
 								<button onClick={onClose} className='text-white text-xl hover:text-red-400'>
 									<X />
 								</button>

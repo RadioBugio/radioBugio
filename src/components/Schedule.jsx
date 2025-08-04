@@ -54,7 +54,7 @@ export function Schedule({ entrevistas }) {
 																<div>
 																	{Array.isArray(ep.clusters) &&
 																		ep.clusters.map((cluster, index) => (
-																			<div key={index} className='inline-block bg-[#48484856] px-2 py-1 text-xs opacity-80 rounded-full'>
+																			<div key={index} className='inline-block bg-[#48484856] px-3 py-1 text-[0.7rem] opacity-80 rounded-full'>
 																				{cluster}
 																			</div>
 																		))}
@@ -83,9 +83,11 @@ export function Schedule({ entrevistas }) {
 																transition={{ duration: 0.3 }}
 																className='overflow-hidden mt-4 text-sm text-gray-300 px-6 pb-6'
 															>
-																{ep.thumbnail && (
-																	<div className='w-1/3 pb-8'>
-																		<img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} className='rounded-2xl' />
+																{Array.isArray(ep.imagens) && ep.imagens.length > 0 && (
+																	<div className='grid grid-cols-3 gap-2 pb-8'>
+																		{ep.imagens.map((img, idx) => (
+																			<img key={idx} src={urlFor(img).url()} alt={`${ep.titulo} - imagem ${idx + 1}`} className='rounded-xl object-cover h-32 w-full' />
+																		))}
 																	</div>
 																)}
 																<PortableText value={ep.descricao} />

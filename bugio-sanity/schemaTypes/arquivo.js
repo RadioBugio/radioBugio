@@ -45,6 +45,14 @@ export default {
           },
           validation: (Rule) => Rule.required(),
         },
+        {
+          name: 'ano',
+          title: 'Ano',
+          type: 'number',
+          placeholder: 'ex: 2025',
+
+          validation: (Rule) => Rule.required().min(2025).max(2028),
+        },
       ],
     },
     {
@@ -74,6 +82,24 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
+
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'titulo',
+        maxLength: 96,
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-') // troca espaços por hífens
+            .slice(0, 96),
+      },
+      validation: (Rule) => Rule.required(),
+    },
+
     {
       name: 'duracao',
       title: 'Duração (minutos)',
@@ -132,9 +158,20 @@ export default {
       },
     },
     {
+      name: 'imagens',
+      title: 'Imagens',
+      description: 'Colocar até 3 imagens em formato ".webp", máximo 150 Kb cada.',
+      type: 'array',
+      of: [{type: 'image'}],
+      options: {
+        layout: 'grid',
+      },
+      validation: (Rule) => Rule.max(3),
+    },
+    {
       name: 'descricao',
       title: 'Texto Descritivo',
-      type: 'text',
+      type: 'blockContent',
       validation: (Rule) => Rule.required(),
     },
   ],
