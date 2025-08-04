@@ -1,17 +1,30 @@
 @import 'tailwindcss';
 
-@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap');
 
 body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	background-color: #0f0f0f;
 	color: #eaebde;
-	font-family: 'Hedvig Letters Sans', sans-serif;
+	font-family: 'Exposure-[-20]', sans-serif;
 	padding: 0;
 	margin: 0;
 	width: 100%;
 }
+
+
+@font-face {
+	font-family: 'Exposure-[-20]';
+	src: url('./assets/fonts/205TF-Exposure-[-20].woff2') format('woff2'), url('./assets/fonts/205TF-Exposure-[-20].woff') format('woff');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Exposure-[-20]Italic';
+	src: url('./assets/fonts/205TF-Exposure-[-20]Italic.woff2') format('woff2'), url('./assets/fonts/205TF-Exposure-[-20]Italic.woff') format('woff');
+	font-style: italic;
+}
+
 
 
 

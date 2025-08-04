@@ -2,12 +2,19 @@ import { useEffect } from 'react';
 import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { urlFor } from '../utils/imageUrlBuilder.js';
-import { X, Play, Pause } from 'lucide-react';
-import { usePlayer } from '../context/PlayerContext';
+import { X } from 'lucide-react';
+import { useArchivePlayer } from '../context/ArchivePlayerContext';
+import { PlayerArchive } from './PlayerArchive.jsx';
 
+export function DrawerModal({ isOpen, onClose, episode, audioUrl }) {
+	const { playAudio, isPlaying, currentAudio, pause } = useArchivePlayer();
 
-export function DrawerModal({ isOpen, onClose, episode }) {
-		const { isPlaying} = usePlayer();
+	const isThisPlaying = currentAudio === audioUrl;
+
+	const toggle = () => {
+		if (isThisPlaying && isPlaying) pause();
+		else playAudio(audioUrl);
+	};
 
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -41,12 +48,10 @@ export function DrawerModal({ isOpen, onClose, episode }) {
 									</div>
 								</div>
 								<div>
-									<button  className='focus:outline-none my-4'>
-										{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
-									</button>
+									<PlayerArchive audioUrl='https://archive.org/download/01-it-goes-like-nanana-original-mix/01-it-goes-like-nanana-original-mix.mp3' />
+
 									<div className='text-sm text-gray-400 flex gap-4 mb-4'>
 										<div>
-											
 											{data?.dia}/{mesParaNumero(data?.mes)}/{data?.ano}
 										</div>
 										{horario?.inicio}
