@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { PortableText } from '@portabletext/react';
+import { Paragraph } from './Paragraph.jsx';
+
 
 export function Schedule({ entrevistas }) {
 	const [expandedId, setExpandedId] = useState(null);
@@ -31,7 +33,7 @@ export function Schedule({ entrevistas }) {
 						const mesNome = epExemplo?.data?.mes;
 
 						return (
-							<div key={date} className='mb-8 flex flex-col w-1/2  '>
+							<div key={date} className='mb-8 flex flex-col w-2/3  '>
 								<div>
 									<h3 className='text-xl font-semibold uppercase mb-4 opacity-50'>{formatarDataHumana(dia, mesNome, ano)}</h3>
 
@@ -41,20 +43,20 @@ export function Schedule({ entrevistas }) {
 
 											return (
 												<li key={ep._id} onClick={() => toggle(ep._id)} className='relative border-[.5px] border-[#484848] rounded-2xl p-3 transition duration-500 hover:bg-black cursor-pointer'>
-													<div className='grid grid-cols-7'>
-														<div className='col-span-1 flex justify-between text-sm opacity-80'>
+													<div className='grid grid-cols-7 gap-8'>
+														<div className='col-span-1 flex justify-between text-[1rem] opacity-80'>
 															<span>{ep.horario?.inicio}</span>
 														</div>
 														<div className='col-span-3'>
-															<h3 className='text-lg text-[#eaebde] font-semibold'>{ep.titulo}</h3>
+															<h3 className='text-[1.2rem] text-[#eaebde] font-semibold'>{ep.titulo}</h3>
 														</div>
 														<div className='col-span-2'>
-															<div className='flex flex-col gap-1'>
-																<div>{ep.clusters2 && <div className='inline-block bg-[#92929256] px-2 py-1 text-xs opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
+															<div className='flex flex-col '>
+																<div>{ep.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
 																<div>
 																	{Array.isArray(ep.clusters) &&
 																		ep.clusters.map((cluster, index) => (
-																			<div key={index} className='inline-block bg-[#48484856] px-3 py-1 text-[0.7rem] opacity-80 rounded-full'>
+																			<div key={index} className='inline-block bg-[#48484856] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full'>
 																				{cluster}
 																			</div>
 																		))}
@@ -81,16 +83,28 @@ export function Schedule({ entrevistas }) {
 																animate={{ opacity: 1, height: 'auto' }}
 																exit={{ opacity: 0, height: 0 }}
 																transition={{ duration: 0.3 }}
-																className='overflow-hidden mt-4 text-sm text-gray-300 px-6 pb-6'
+																className='overflow-hidden mt-12 text-sm text-gray-300 px-6 pb-6'
 															>
 																{Array.isArray(ep.imagens) && ep.imagens.length > 0 && (
-																	<div className='grid grid-cols-3 gap-2 pb-8'>
-																		{ep.imagens.map((img, idx) => (
-																			<img key={idx} src={urlFor(img).url()} alt={`${ep.titulo} - imagem ${idx + 1}`} className='rounded-xl object-cover h-32 w-full' />
-																		))}
+																	<div className='grid grid-cols-3 gap-8 '>
+																		<div>
+																			{ep.imagens.map((img, idx) => (
+																				<img key={idx} src={urlFor(img).url()} alt={`${ep.titulo} - imagem ${idx + 1}`} className='rounded-xl object-cover  w-full border-[.5px] border-[#484848]' />
+																			))}
+																		</div>
+																		<div className='text-[1rem]  col-span-2'>
+																			<p className=' opacity-50 font-semibold pb-2'>sínopse</p>
+																			<PortableText
+																				value={ep.descricao}
+																				components={{
+																					block: {
+																						normal: Paragraph,
+																					},
+																				}}
+																			/>
+																		</div>
 																	</div>
 																)}
-																<PortableText value={ep.descricao} />
 															</motion.div>
 														)}
 													</AnimatePresence>

@@ -3,21 +3,18 @@ export default {
   title: 'Hero',
   type: 'document',
   fields: [
-    
-    
     {
-      name: 'horario',
-      title: 'Horário',
-      type: 'object',
-      fields: [
-        {
-          name: 'inicio',
-          title: 'Hora de Início',
-          type: 'string',
-          placeholder: 'ex: 17h00',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
+      name: 'programa',
+      title: 'Programa (número)',
+      type: 'number',
+      validation: (Rule) => Rule.required().min(1),
+    },
+
+    {
+      name: 'dataHoraInicio',
+      title: 'Data e Hora de Início',
+      type: 'datetime',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'titulo',
@@ -69,7 +66,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
 
-    
     {
       name: 'descricaoMini',
       title: 'Texto Descritivo (Short)',
@@ -77,7 +73,6 @@ export default {
 
       validation: (Rule) => Rule.required(),
     },
-    
   ],
   orderings: [
     {

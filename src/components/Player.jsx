@@ -39,7 +39,7 @@ export function Player() {
 	};
 
 	return (
-		<div className='border-[.5px] border-[#484848]  text-[#eaebde] rounded-2xl p-2 flex space-x-4  max-w-md relative'>
+		<div className='border-[.5px] border-[#484848]  text-[#eaebde] rounded-2xl p-2 flex space-x-4   relative'>
 			{isOnline && meta?.song.art ? (
 				<img src={meta.song.art} alt='Album Art' className='w-35 h-35 rounded-lg object-cover' />
 			) : (
@@ -51,7 +51,7 @@ export function Player() {
 					<div>
 						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 						<p className='text-md truncate'>
-							Now Playing: <span className='font-semibold'>{meta?.song.title}</span>
+							A tocar: <span className='font-semibold'>{meta?.song.title}</span>
 						</p>
 						<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
 					</div>

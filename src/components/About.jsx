@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CirclePlus, CircleMinus } from 'lucide-react';
+
 
 export function About() {
 	const [expanded, setExpanded] = useState(false);
@@ -13,7 +15,7 @@ export function About() {
 				<h2 className='text-2xl mb-8 font-bold'>SOBRE</h2>
 
 				<div className='flex flex-col items-center'>
-					<div className='w-2/3 text-lg space-y-4'>
+					<div className='w-2/3 text-[1rem] space-y-4'>
 						<p>
 							<i>A Rádio-Estação do Bugio</i> é uma estação de rádio experimental e especulativa de conservação e monitorização marinha e atmosférica, situada na confluência entre o Rio Tejo e o
 							oceano Atlântico, situada no concelho de Oeiras. Este projeto é uma proposta dos artistas Diana Policarpo e Bernardo Gaeiras que a partir do imaginário distante do Farol do Bugio,
@@ -75,7 +77,7 @@ export function About() {
 
 						<div className='mt-4 '>
 							<button onClick={toggle} className='  hover:underline transition duration-200 underline-offset-4'>
-								{expanded ? 'Ler menos' : 'Ler mais'}
+								{expanded ? <CircleMinus strokeWidth={1} color='#484848' /> : <CirclePlus strokeWidth={1} color='#484848' />}
 							</button>
 						</div>
 					</div>

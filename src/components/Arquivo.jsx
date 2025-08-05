@@ -14,7 +14,11 @@ export function Arquivo({ arquivos }) {
 			<div className='flex flex-col items-center'>
 				<ul className='grid grid-cols-4 gap-4 w-2/3'>
 					{arquivos.map(ep => (
-						<li key={ep._id} onClick={() => setSelectedEp(ep)} className='border-[.5px] border-[#484848] hover:opacity-50 rounded-2xl p-2 transition duration-500 cursor-pointer h-[380px] flex flex-col gap-3'>
+						<li
+							key={ep._id}
+							onClick={() => setSelectedEp(ep)}
+							className='border-[.5px] border-[#484848] hover:opacity-50 rounded-2xl p-2 transition duration-500 cursor-pointer h-[380px] flex flex-col gap-3'
+						>
 							<img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} className='rounded-xl w-full h-[200px] object-cover' />
 							<div className='mx-2 flex flex-col flex-grow'>
 								<div className='flex justify-between text-xs opacity-80'>
@@ -23,7 +27,7 @@ export function Arquivo({ arquivos }) {
 									</span>
 									duração {ep.duracao} min
 								</div>
-								<h3 className='text-[1.1rem] font-semibold mt-2 leading-[1.2] '>{ep.titulo}</h3>
+								<h3 className='text-[1.2rem] font-semibold mt-2 leading-[1.2] '>{ep.titulo}</h3>
 								<div className='flex flex-col gap-1 mt-4 flex-grow content-end-safe  place-content-end-safe  '>
 									<div>{ep.clusters2 && <div className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem] opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
 									<div className='flex flex-wrap gap-1 '>

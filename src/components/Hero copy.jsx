@@ -75,46 +75,28 @@ export function Hero ()  {
 		}, []);
 
 	return (
-		<div className=' h-[75vh] flex justify-center container-default  '>
-			<div className=' grid grid-cols-3 justify-center items-center  w-full'>
-				<div className='col-span-1 '></div>
-				<div className='col-span-1 '>
-					<Player />
-					{heroData && (
-						<div className='mt-12 flex flex-col'>
-							<div>
-								<div className='text-[1rem] opacity-80 '>
-									{new Date(heroData.dataHoraInicio).toLocaleTimeString('pt-PT', {
-										hour: '2-digit',
-										minute: '2-digit',
-										timeZone: 'Europe/Lisbon',
-									})}
-								</div>
-								<div>
-									<h2 className='text-xl font-semibold mb-2 '>{heroData.titulo}</h2>
-									<div className='flex flex-col '>
-										<div>
-											{heroData.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{heroData.clusters2}</div>}
-										</div>
-										<div>
-											{Array.isArray(heroData.clusters) &&
-												heroData.clusters.map((cluster, index) => (
-													<div key={index} className='inline-block bg-[#48484856] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full mr-1'>
-														{cluster}
-													</div>
-												))}
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className='mt-6'>
-
-								<PortableText value={heroData.descricaoMini} />
-							</div>
+		<div className=' h-[75vh] flex justify-center container-default bg-amber-400'>
+			<div className=' flex flex-col  justify-center items-center '>
+				<Player />
+				{heroData && (
+					<div className='pt-12 text-lg w-1/2'>
+						<div className='text-sm opacity-70 mb-2'>
+							{new Date(heroData.dataHoraInicio).toLocaleTimeString('pt-PT', {
+								hour: '2-digit',
+								minute: '2-digit',
+								timeZone: 'Europe/Lisbon',
+							})}
 						</div>
-					)}
-				</div>
-				<div className='col-span-1 '></div>
+						<h2 className='text-xl font-semibold mb-2'>{heroData.titulo}</h2>
+						<div className='mb-2'>
+							<strong>Clusters:</strong> {heroData.clusters?.join(', ')}
+						</div>
+						<div className='mb-2'>
+							<strong>Tipo:</strong> {heroData.clusters2}
+						</div>
+						<PortableText value={heroData.descricaoMini} />
+					</div>
+				)}
 			</div>
 		</div>
 	);
