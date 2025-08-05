@@ -12,7 +12,7 @@ export function About() {
 		<>
 			<hr className='border-[#484848]' />
 			<div className='container-default text-white py-16'>
-				<h2 className='text-2xl mb-8 font-bold'>SOBRE</h2>
+				<h2 className='text-2xl mb-8 font-bold'>Sobre</h2>
 
 				<div className='flex flex-col items-center'>
 					<div className='w-2/3 text-[1rem] space-y-4'>

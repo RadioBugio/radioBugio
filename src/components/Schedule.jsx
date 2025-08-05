@@ -25,7 +25,7 @@ export function Schedule({ entrevistas }) {
 		<>
 			<hr className='border-[#484848]' />
 			<div className='text-[#eaebde] container-default '>
-				<h2 className='text-2xl mb-6 font-bold uppercase'>PROGRAMAÇÃO</h2>
+				<h2 className='text-2xl mb-6 font-bold '>Programação</h2>
 				<div className='flex flex-col items-center '>
 					{Object.entries(grouped).map(([date, episodes]) => {
 						const [dia, mesNum, ano] = date.split('-');
@@ -33,9 +33,9 @@ export function Schedule({ entrevistas }) {
 						const mesNome = epExemplo?.data?.mes;
 
 						return (
-							<div key={date} className='mb-8 flex flex-col w-2/3  '>
+							<div key={date} className='mb-12 flex flex-col w-2/3  '>
 								<div>
-									<h3 className='text-xl font-semibold uppercase mb-4 opacity-50'>{formatarDataHumana(dia, mesNome, ano)}</h3>
+									<h3 className='text-xl font-semibold mb-4 opacity-50'>{formatarDataHumana(dia, mesNome, ano)}</h3>
 
 									<ul className='flex flex-col gap-4 '>
 										{episodes.map(ep => {
@@ -48,15 +48,15 @@ export function Schedule({ entrevistas }) {
 															<span>{ep.horario?.inicio}</span>
 														</div>
 														<div className='col-span-3'>
-															<h3 className='text-[1.2rem] text-[#eaebde] font-semibold'>{ep.titulo}</h3>
+															<div className='text-[1.2rem] text-[#eaebde] leading-[1.3] font-semibold'>{ep.titulo}</div>
 														</div>
 														<div className='col-span-2'>
 															<div className='flex flex-col '>
-																<div>{ep.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{ep.clusters2}</div>}</div>
+																<div>{ep.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full border-[.5px] border-[#484848]'>{ep.clusters2}</div>}</div>
 																<div>
 																	{Array.isArray(ep.clusters) &&
 																		ep.clusters.map((cluster, index) => (
-																			<div key={index} className='inline-block bg-[#48484856] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full'>
+																			<div key={index} className='inline-block bg-[#48484856] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full border-[.5px] border-[#484848]'>
 																				{cluster}
 																			</div>
 																		))}
@@ -93,7 +93,7 @@ export function Schedule({ entrevistas }) {
 																			))}
 																		</div>
 																		<div className='text-[1rem]  col-span-2'>
-																			<p className=' opacity-50 font-semibold pb-2'>sínopse</p>
+																			<p className=' opacity-50 font-semibold pb-2'>Sínopse</p>
 																			<PortableText
 																				value={ep.descricao}
 																				components={{
@@ -122,7 +122,6 @@ export function Schedule({ entrevistas }) {
 	);
 }
 
-// 🔠 Traduz nomes dos meses para número
 function mesParaNumero(mes) {
 	const mapa = {
 		Janeiro: '01',
@@ -141,24 +140,23 @@ function mesParaNumero(mes) {
 	return mapa[mes] || '';
 }
 
-// 📆 Formata datas como "HOJE", "AMANHÃ" ou "QUA, 23 JUL"
 function formatarDataHumana(dia, mesNome, ano) {
 	const meses = {
-		Janeiro: 'JAN',
-		Fevereiro: 'FEV',
-		Março: 'MAR',
-		Abril: 'ABR',
-		Maio: 'MAI',
-		Junho: 'JUN',
-		Julho: 'JUL',
-		Agosto: 'AGO',
-		Setembro: 'SET',
-		Outubro: 'OUT',
-		Novembro: 'NOV',
-		Dezembro: 'DEZ',
+		Janeiro: 'Jan',
+		Fevereiro: 'Fev',
+		Março: 'Mar',
+		Abril: 'Abr',
+		Maio: 'Mai',
+		Junho: 'Jun',
+		Julho: 'Jul',
+		Agosto: 'Ago',
+		Setembro: 'Set',
+		Outubro: 'Out',
+		Novembro: 'Nov',
+		Dezembro: 'Dez',
 	};
 
-	const diasSemana = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
+	const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
 
 	const mesIndex = {
 		Janeiro: 0,
