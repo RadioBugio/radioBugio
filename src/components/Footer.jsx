@@ -18,7 +18,12 @@ export function Footer() {
 			<hr className='border-[#484848]' />
 
 			<footer className=' py-20 px-4'>
-				<div className='max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-8'>
+				<div className='text-xs w-2/3 text-center mx-auto'>
+					Este projeto foi concebido no âmbito da residência artística “A Call to the Sea” realizada no Farol do Bugio, em Oeiras, no âmbito do Projeto Europeu Bauhaus of the Seas Sails, em parceria
+					com o Município de Oeiras, a Fundação Calouste Gulbenkian, o Instituto Superior Técnico (ITI) e com o apoio da Direção de Faróis. Um projeto financiado pelo programa Horizonte Europa da
+					União Europeia.
+				</div>
+				<div className='max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-8 pt-8'>
 					<img src={logoOeiras} alt='Município de Oeiras' className='h-10 object-contain pointer-events-none' />
 					<img src={logoBauhaus} alt='Bauhaus of the Seas Sails' className='h-10 object-contain pointer-events-none' />
 					<img src={logoEuropa} alt='Horizonte Europa' className='h-10 object-contain pointer-events-none' />

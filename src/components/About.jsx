@@ -15,39 +15,60 @@ export function About() {
 				<div className='flex flex-col items-center'>
 					<div className='w-2/3 text-lg space-y-4'>
 						<p>
-							<i>Rádio Bugio</i> é uma plataforma de escuta situada no estuário do Tejo, junto ao farol do Bugio – uma estação sonora que emerge entre a ciência cidadã, a prática artística e a
-							ecologia especulativa.<br></br>
-							Transmitimos registos, composições e conversas que acompanham os ciclos da maré, as alterações na qualidade da água, e os ritmos das espécies mais invisíveis que habitam ou atravessam
-							esta zona fronteiriça entre o rio e o mar. Aqui, o som é sensor, testemunho e ficção.<br></br>
-							Colaboramos com cientistas, artistas, activistas, comunidades locais e seres não-humanos. A <i>Rádio Bugio</i> escuta os estados mutantes do estuário – a sua salinidade, os seus ritmos,
-							os seus sedimentos e sinais.<br></br>
-							Cada emissão é um momento poroso: parte arquivo, parte chamada, parte resposta. Começamos a partir do farol do Bugio, mas as correntes estendem-se – mergulhamos no desconhecido, em
-							direção a histórias e futuros especulativos. O nosso foco está na escuta colectiva e na inteligência subtil dos ecossistemas.<br></br> A <i>Rádio Bugio</i> é parte de uma experiência em
-							curso – um exercício de imaginação ecológica, produção partilhada de conhecimento e cuidado do estuário do Tejo.
+							<i>A Rádio-Estação do Bugio</i> é uma estação de rádio experimental e especulativa de conservação e monitorização marinha e atmosférica, situada na confluência entre o Rio Tejo e o
+							oceano Atlântico, situada no concelho de Oeiras. Este projeto é uma proposta dos artistas Diana Policarpo e Bernardo Gaeiras que a partir do imaginário distante do Farol do Bugio,
+							constrói uma infraestrutura sonora dedicada à transmissão das dinâmicas ecológicas, físicas e sociais deste território liminar, com especial atenção às formas de vida invisíveis que o
+							habitam, como os microrganismos marinhos e outras presenças imperceptíveis.<br></br>
+							<br></br>
+							Entre Agosto e Setembro de 2025, a <i>A Rádio-Estação do Bugio</i> transmite quatro dias de emissões constituídas por paisagens sonoras ao vivo e entrevistas pré-gravadas no Farol do
+							Bugio e em laboratórios de investigação. Através da sua plataforma online reúne contributos de cientistas, artistas, ativistas e historiadores envolvidos no cuidado e observação deste
+							território marinho. As emissões ao vivo combinam depoimentos científicos com paisagens sonoras originais compostas por gravações de campo, frequências subaquáticas, pulsações
+							atmosféricas, vibrações minerais e composições bioacústicas criadas por Diana Policarpo e Bernardo Gaeiras. Estes conteúdos dão a conhecer um pouco da ecologia profunda do estuário,
+							convocando vozes humanas e não humanas num mesmo plano de escuta.
 						</p>
 
 						<AnimatePresence initial={false}>
 							{expanded && (
-								<motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className='space-y-4 mt-12'>
-									<div className='font-bold text-xl'>Contexto</div>
+								<motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className='space-y-4 mt-6'>
 									<p>
-										A <i>Rádio Bugio</i> nasce do encontro entre prática artística, investigação ecológica e ativação de conhecimento situado. Criada por Bernardo Gaeiras (artista e investigador) e
-										Diana Policarpo (artista e compositora), esta estação desenvolve-se a partir de uma cartografia afetiva e ambiental do farol do Bugio e da sua envolvente submersa.<br></br>
-										Localizado no ponto onde o Tejo se encontra com o Atlântico, o Bugio é, ao mesmo tempo, estrutura histórica, ruína ecológica e ponto estratégico de observação. A estação
-										especulativa aí imaginada integra tanques flutuantes, sensores, dispositivos de escuta e plataformas de regeneração. <br></br>A <i>Rádio Bugio</i> é a dimensão sonora desta
-										estação: um espaço para partilhar práticas de escuta, dados recolhidos, ficções sonoras e testemunhos das espécies em presença. O projeto dialoga com práticas de ciência cidadã,
-										com investigações em biorremediação e com abordagens especulativas à regeneração ambiental. É também um espaço de imaginação ecossistémica, onde os limites entre dados, mitos e
-										vozes se tornam permeáveis.
+										Os episódios organizam-se em torno de cinco núcleos temáticos que atravessam diferentes escalas e formas de conhecimento: a infraestrutura e a paisagem cultural do território; as
+										forças climáticas e atmosféricas que o moldam; as dinâmicas políticas e cívicas ligadas à sua conservação; os dispositivos de percepção que nos conectam aos seus ritmos biológicos
+										e geológicos; e a rede densa de relações microscópicas que sustenta a vida neste ecossistema em contínua mutação.<br></br>
+										<br></br>
+										Estes núcleos funcionam como zonas de escuta e contaminação mútua entre disciplinas, vozes e escalas, propondo uma rádio que é também estação sensorial, arquivo vivo e ferramenta
+										de imaginação coletiva. <br></br>
+										<br></br>
+										As entrevistas permitem aprofundar o conhecimento sobre este ecossistema em transformação, com especial foco nas espécies microscópicas que o sustentam, como fungos, leveduras
+										marinhas, microalgas, bactérias e partículas em suspensão. Mais do que momentos de partilha de estórias e várias formas de conhecimento, estas conversas funcionam como sessões de
+										co-design sonoro e conceptual, envolvendo cientistas e ativistas cuja prática poderia ser enraizada a partir da futura estação de conservação do Farol do Bugio. <br></br>
+										<br></br>
+										Para além de se apresentar como um projeto de arte sonora, a <i>A Rádio-Estação do Bugio</i> é uma prática de escuta ativa - um gesto contínuo de cuidado e atenção - que ensaia
+										novas formas de habitar e imaginar territórios estuarinos e costeiros em transição. Através da escuta situada, ciência-cidadã e da experimentação artística, emerge uma visão de uma
+										estação ecológica marinha para um futuro de coabitação no município de Oeiras: uma infraestrutura imaginada a partir do som, das correntes, dos ciclos biológicos e das espécies que
+										muitas vezes escapam à nossa atenção. Esta rádio torna audível a confluência entre arte, ciência, ecologia, ficção e investigação ambiental impulsionando a literacia do oceano.
 									</p>
-									<p>
-										The team at Apple Insider has laid out a potential Mac roadmap for 2025 and 2026. With 15 products on the list, it is a comprehensive look deep into 2026. That includes the highly
-										anticipated M5 MacBook Pro and M5 MacBook Air.
-									</p>
-									<p>
-										What the roadmap lacks is exact dates. For example, the M5 MacBook Pro release is listed as late 2025 and covers three models (presumably the MacBook Pro, MacBook Pro Max, and
-										MacBook Pro Max). That could easily fit a mid-to-late October date that many felt Apple was using as the annual anchor. It could also coincide with a later launch in mid- to
-										late-November, which would potentially result in only a handful of laptops being sold in December, with the bulk of retail devices arriving in January 2026.
-									</p>
+									<h1 className='text-2xl mt-12'>Biografias</h1>
+
+									<div className='grid grid-cols-2 gap-12 mt-6'>
+										<div>
+											<div className='font-bold'>Diana Policarpo</div>
+											(PT) Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. É artista visual e compositora, actualmente a desenvolver a sua actividade artística entre as artes
+											visuais, música electroacústica e a performance multimédia. O seu trabalho investiga cultura popular, saúde, política de género e relações interespécies, justapondo a
+											estruturação rítmica do som como um material tátil dentro da construção social da ideologia esotérica. Exposições individuais e screenings recentes incluem Thyssen-Bornemisza
+											National Museum, Madrid (ES), CAM - Gulbenkian, Lisboa (PT), Rialto 6, Lisboa (PT), Manifesta 15, Barcelona (ES), McaM Xangai (CH), Biennale Gherdëina, Val Gardena (IT),
+											Kunsthall Aarhus (DK), Helsinki Biennial (FI), Fondazione Sandretto Re Rebaudengo, Turim (IT), RADIUS CCA, Delft (NL), CRAC Occitanie, Sète (FR), Ocean Space, Veneza (IT),
+											Kunsthall Trondheim (NO), MAAT, Lisboa (PT), Kunsthall Oslo (NO), Kunstverein Leipzig (DE), Kunsthall Baden-Baden (DE), Whitechapel Gallery, ICA e LUX - Moving Image em Londres
+											(UK). Foi vencedora do Prémio Novos Artistas Fundação EDP 2019 e Prémio illy Present Future 2021.
+										</div>
+										<div>
+											<div className='font-bold'>Bernardo Gaeiras</div>
+											Bernardo Gaeiras (Lisboa, 1982) é designer de artefactos e artista multimédia, desenvolvendo uma prática situada na confluência entre tecnologia, ecologia e políticas
+											descentralizadas. Atualmente investigador no programa doutoral em Medias Digitais no Interactive Technologies Institute, em Lisboa, a sua investigação percorre os modos como os
+											métodos do design — entre a especulação material e a escuta bioacústica — podem mediar relações sociotécnicas complexas com entidades mais-que-humanas. Fundador e primeiro
+											diretor do FabLab Lisboa, esteve envolvido na criação e implementação de várias iniciativas dedicadas ao fomento da criatividade local. O seu trabalho tem sido apresentado em
+											diversos contextos expositivos nacionais e internacionais, incluindo o MAC/CCB (PT), MUDAM Luxembourg (LU), Stedelijk Museum (NL) e Xuzhou Museum (CH).
+										</div>
+									</div>
 								</motion.div>
 							)}
 						</AnimatePresence>
