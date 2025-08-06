@@ -47,7 +47,6 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 									<div className='text-[1.3rem] text-[#eaebde] leading-[1.3]'>{titulo}</div>
 
 									<div className='text-[1rem] pt-8 '>
-										<p className=' opacity-50 font-semibold pb-2'>Sínopse</p>
 
 										<PortableText
 											value={descricao}

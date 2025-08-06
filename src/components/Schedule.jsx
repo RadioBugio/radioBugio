@@ -93,7 +93,6 @@ export function Schedule({ entrevistas }) {
 																			))}
 																		</div>
 																		<div className='text-[1rem]  col-span-2'>
-																			<p className=' opacity-50 font-semibold pb-2'>Sínopse</p>
 																			<PortableText
 																				value={ep.descricao}
 																				components={{
