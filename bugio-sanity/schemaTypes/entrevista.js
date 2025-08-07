@@ -70,8 +70,28 @@ export default {
       ],
     },
     {
+      name: 'horarioEN',
+      title: 'HorárioEN',
+      type: 'object',
+      fields: [
+        {
+          name: 'inicio',
+          title: 'Hora de Início',
+          type: 'string',
+          placeholder: 'ex: 5pm',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    },
+    {
       name: 'titulo',
       title: 'Título',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'tituloEN',
+      title: 'TítuloEN',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
@@ -100,6 +120,29 @@ export default {
       },
     },
     {
+      name: 'clustersEN',
+      title: 'ClustersEN',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {
+            title: 'Infrastructure and Cultural Landscape',
+            value: 'Infrastructure and Cultural Landscape',
+          },
+          {
+            title: 'Microscopic Life and Algal Relations',
+            value: 'Microscopic Life and Algal Relations',
+          },
+          {title: 'Climate and Atmospheric Forces', value: 'Climate and Atmospheric Forces'},
+          {title: 'Perception Mediators ', value: 'Perception Mediators '},
+          {title: 'Particles and Substances', value: 'Particles and Substances'},
+          {title: 'Fungos e Agentes Simbióticos', value: 'Fungos e Agentes Simbióticos'},
+          {title: 'Political and Civic Currents', value: 'Political and Civic Currents'},
+        ],
+      },
+    },
+    {
       name: 'clusters2',
       title: 'Entrevista ou Paisagem Sonora',
       type: 'string',
@@ -112,6 +155,25 @@ export default {
           {
             title: 'Paisagem Sonora',
             value: 'Paisagem Sonora',
+          },
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'clusters2_EN',
+      title: 'Interview or Soundscape',
+      type: 'string',
+      options: {
+        list: [
+          {
+            title: 'Interview',
+            value: 'Interview',
+          },
+          {
+            title: 'Soundscape',
+            value: 'Soundscape',
           },
         ],
         layout: 'dropdown',
@@ -133,6 +195,13 @@ export default {
     {
       name: 'descricao',
       title: 'Texto Descritivo',
+      type: 'blockContent',
+
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'descricaoEN',
+      title: 'Texto DescritivoEN',
       type: 'blockContent',
 
       validation: (Rule) => Rule.required(),

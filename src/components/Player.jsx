@@ -40,11 +40,7 @@ export function Player() {
 
 	return (
 		<div className='border-[.5px] border-[#484848]  text-[#eaebde] rounded-2xl p-2 flex space-x-4   relative'>
-			{isOnline && meta?.song.art ? (
-				<img src={meta.song.art} alt='Album Art' className='w-35 h-35 rounded-lg object-cover' />
-			) : (
-				<div className='w-35 h-35 rounded-lg  flex items-center justify-center border-[.5px] border-[#484848] text-sm'></div>
-			)}
+			<img src={isOnline && meta?.song.art ? meta.song.art : '/artcover.jpeg'} alt='Radio bugio imagem' className='w-35 h-35 rounded-lg object-cover border-[.5px] border-[#484848] pointer-events-none' />
 
 			<div className='  flex flex-col justify-between py-3'>
 				{meta?.isOnline ? (

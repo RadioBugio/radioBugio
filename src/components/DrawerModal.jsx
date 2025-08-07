@@ -38,7 +38,12 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 								{Array.isArray(episode.imagens) && episode.imagens.length > 0 && (
 									<div className='flex flex-col gap-4'>
 										{episode.imagens.map((img, idx) => (
-											<img key={idx} src={urlFor(img).url()} alt={`${titulo} - imagem ${idx + 1}`} className='lg:w-full h-[200px] lg:h-full object-cover rounded-xl border-[.5px] border-[#484848]' />
+											<img
+												key={idx}
+												src={urlFor(img).url()}
+												alt={`${titulo} - imagem ${idx + 1}`}
+												className='lg:w-full h-[200px] lg:h-full object-cover rounded-xl border-[.5px] border-[#484848] pointer-events-none'
+											/>
 										))}
 									</div>
 								)}

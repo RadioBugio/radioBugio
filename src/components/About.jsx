@@ -49,18 +49,21 @@ export function About() {
 										estação ecológica marinha para um futuro de coabitação no município de Oeiras: uma infraestrutura imaginada a partir do som, das correntes, dos ciclos biológicos e das espécies que
 										muitas vezes escapam à nossa atenção. Esta rádio torna audível a confluência entre arte, ciência, ecologia, ficção e investigação ambiental impulsionando a literacia do oceano.
 									</p>
+									<img src='/artcover.jpeg' alt='Diana Policarpo e Bernardo Gaeiras' className='w-full h-[450px] rounded-lg object-cover border-[.5px] border-[#484848] pointer-events-none mt-12' />
 									<h1 className='text-2xl mt-12 text-center lg:text-left'>Biografias</h1>
 
 									<div className='flex flex-col lg:grid lg:grid-cols-2 gap-12 mt-6'>
 										<div>
 											<div className='font-bold'>Diana Policarpo</div>
-											(PT) Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. É artista visual e compositora, actualmente a desenvolver a sua actividade artística entre as artes
-											visuais, música electroacústica e a performance multimédia. O seu trabalho investiga cultura popular, saúde, política de género e relações interespécies, justapondo a
-											estruturação rítmica do som como um material tátil dentro da construção social da ideologia esotérica. Exposições individuais e screenings recentes incluem Thyssen-Bornemisza
-											National Museum, Madrid (ES), CAM - Gulbenkian, Lisboa (PT), Rialto 6, Lisboa (PT), Manifesta 15, Barcelona (ES), McaM Xangai (CH), Biennale Gherdëina, Val Gardena (IT),
-											Kunsthall Aarhus (DK), Helsinki Biennial (FI), Fondazione Sandretto Re Rebaudengo, Turim (IT), RADIUS CCA, Delft (NL), CRAC Occitanie, Sète (FR), Ocean Space, Veneza (IT),
-											Kunsthall Trondheim (NO), MAAT, Lisboa (PT), Kunsthall Oslo (NO), Kunstverein Leipzig (DE), Kunsthall Baden-Baden (DE), Whitechapel Gallery, ICA e LUX - Moving Image em Londres
-											(UK). Foi vencedora do Prémio Novos Artistas Fundação EDP 2019 e Prémio illy Present Future 2021.
+											Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. É artista visual e compositora cuja prática se move entre suportes artísticos como som, escultura, filme,
+											desenho e instalação. Atualmente desenvolve o seu trabalho entre as artes visuais, a música electroacústica e a performance multimédia. O seu trabalho investiga cultura popular,
+											saúde, política de género e as relações interespécies. Policarpo estabelece frequentemente ligações entre arte e ciência, tanto nas suas instalações como através do envolvimento
+											direto com paisagens e sistemas ecológicos ou de extração. Os seus projetos exploram a estrutura rítmica do som como um material táctil, entrelaçado com a construção social da
+											ideologia esotérica. Exposições individuais e screenings recentes incluem o Museu Nacional Thyssen-Bornemisza, Madrid (ES), CAM - Gulbenkian, Lisboa (PT), Rialto 6, Lisboa (PT),
+											Manifesta 15, Barcelona (ES), McaM Xangai (CH), Biennale Gherdëina, Val Gardena (IT), Kunsthall Aarhus (DK), Helsinki Biennial (FI), Fondazione Sandretto Re Rebaudengo, Turim
+											(IT), RADIUS CCA, Delft (NL), CRAC Occitanie, Sète (FR), Ocean Space, Veneza (IT), Kunsthall Trondheim (NO), MAAT, Lisboa (PT), Kunsthall Oslo (NO), Kunstverein Leipzig (DE),
+											Kunsthalle Baden-Baden (DE), Whitechapel Gallery, ICA e LUX - Moving Image em Londres (UK). Foi vencedora do Prémio Novos Artistas Fundação EDP em 2019 e do Prémio illy Present
+											Future em 2021.
 										</div>
 										<div>
 											<div className='font-bold'>Bernardo Gaeiras</div>

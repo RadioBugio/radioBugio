@@ -111,7 +111,7 @@ export function Schedule({ entrevistas }) {
 																					key={idx}
 																					src={urlFor(img).url()}
 																					alt={`${ep.titulo} - imagem ${idx + 1}`}
-																					className='rounded-xl object-cover  w-full h-[300px] border-[.5px] border-[#484848]'
+																					className='rounded-xl object-cover  w-full h-[300px] border-[.5px] border-[#484848] pointer-events-none'
 																				/>
 																			))}
 																		</div>

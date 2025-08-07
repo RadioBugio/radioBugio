@@ -22,7 +22,12 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
-
+    {
+      name: 'tituloEN',
+      title: 'TítuloEN',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
     {
       name: 'clusters',
       title: 'Clusters',
@@ -47,6 +52,29 @@ export default {
       },
     },
     {
+      name: 'clustersEN',
+      title: 'ClustersEN',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {
+            title: 'Infrastructure and Cultural Landscape',
+            value: 'Infrastructure and Cultural Landscape',
+          },
+          {
+            title: 'Microscopic Life and Algal Relations',
+            value: 'Microscopic Life and Algal Relations',
+          },
+          {title: 'Climate and Atmospheric Forces', value: 'Climate and Atmospheric Forces'},
+          {title: 'Perception Mediators ', value: 'Perception Mediators '},
+          {title: 'Particles and Substances', value: 'Particles and Substances'},
+          {title: 'Fungos e Agentes Simbióticos', value: 'Fungos e Agentes Simbióticos'},
+          {title: 'Political and Civic Currents', value: 'Political and Civic Currents'},
+        ],
+      },
+    },
+    {
       name: 'clusters2',
       title: 'Entrevista ou Paisagem Sonora',
       type: 'string',
@@ -65,10 +93,36 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'clusters2_EN',
+      title: 'Interview or Soundscape',
+      type: 'string',
+      options: {
+        list: [
+          {
+            title: 'Interview',
+            value: 'Interview',
+          },
+          {
+            title: 'Soundscape',
+            value: 'Soundscape',
+          },
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
+    },
 
     {
       name: 'descricaoMini',
       title: 'Texto Descritivo (Short)',
+      type: 'blockContent',
+
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'descricaoMiniEN',
+      title: 'Texto DescritivoEN',
       type: 'blockContent',
 
       validation: (Rule) => Rule.required(),
