@@ -11,11 +11,11 @@ export function About() {
 	return (
 		<>
 			<hr className='border-[#484848]' />
-			<div className='container-default text-white py-16'>
-				<h2 className='text-2xl mb-8 font-bold'>Sobre</h2>
+			<div className='container-default '>
+				<h2 className='text-2xl mb-8 font-bold text-center lg:text-left'>Sobre</h2>
 
-				<div className='flex flex-col items-center'>
-					<div className='w-2/3 text-[1rem] space-y-4'>
+				<div className='lg:flex lg:flex-col lg:items-center'>
+					<div className='lg:w-2/3 lg:text-[1rem] text-sm space-y-4 text-[#eaebde]'>
 						<p>
 							<i>A Rádio-Estação do Bugio</i> é uma estação de rádio experimental e especulativa de conservação e monitorização marinha e atmosférica, situada na confluência entre o Rio Tejo e o
 							oceano Atlântico, situada no concelho de Oeiras. Este projeto é uma proposta dos artistas Diana Policarpo e Bernardo Gaeiras que a partir do imaginário distante do Farol do Bugio,
@@ -49,9 +49,9 @@ export function About() {
 										estação ecológica marinha para um futuro de coabitação no município de Oeiras: uma infraestrutura imaginada a partir do som, das correntes, dos ciclos biológicos e das espécies que
 										muitas vezes escapam à nossa atenção. Esta rádio torna audível a confluência entre arte, ciência, ecologia, ficção e investigação ambiental impulsionando a literacia do oceano.
 									</p>
-									<h1 className='text-2xl mt-12'>Biografias</h1>
+									<h1 className='text-2xl mt-12 text-center lg:text-left'>Biografias</h1>
 
-									<div className='grid grid-cols-2 gap-12 mt-6'>
+									<div className='flex flex-col lg:grid lg:grid-cols-2 gap-12 mt-6'>
 										<div>
 											<div className='font-bold'>Diana Policarpo</div>
 											(PT) Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. É artista visual e compositora, actualmente a desenvolver a sua actividade artística entre as artes
@@ -77,7 +77,7 @@ export function About() {
 
 						<div className='mt-4 '>
 							<button onClick={toggle} className='  hover:underline transition duration-200 underline-offset-4'>
-								{expanded ? <CircleMinus strokeWidth={1} color='#484848' /> : <CirclePlus strokeWidth={1} color='#484848' />}
+								{expanded ? <CircleMinus strokeWidth={2} color='black' fill='#eaebde' /> : <CirclePlus strokeWidth={2} color='black' fill='#eaebde' />}
 							</button>
 						</div>
 					</div>

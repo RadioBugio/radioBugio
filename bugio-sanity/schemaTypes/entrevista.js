@@ -88,8 +88,8 @@ export default {
             value: 'Infraestrutura e Paisagem Cultural',
           },
           {
-            title: 'Vida Microscópica e Relações de Algas',
-            value: 'Vida Microscópica e Relações de Algas',
+            title: 'Vida Microscópica e Relações entre Algas',
+            value: 'Vida Microscópica e Relações entre Algas',
           },
           {title: 'Forças Climáticas e Atmosféricas', value: 'Forças Climáticas e Atmosféricas'},
           {title: 'Mediadores de Percepção', value: 'Mediadores de Percepção'},
@@ -118,8 +118,6 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
-
-    
 
     {
       name: 'imagens',

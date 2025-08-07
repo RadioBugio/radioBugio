@@ -9,10 +9,10 @@ export function Arquivo({ arquivos }) {
 	if (!arquivos || arquivos.length === 0) return null;
 
 	return (
-		<div className='text-[#eaebde] container-default relative'>
-			<h2 className='text-2xl mb-8 font-bold '>Arquivo</h2>
+		<div className='text-[#eaebde] container-default relative '>
+			<h2 className='text-2xl mb-8 font-bold lg:text-left text-center'>Arquivo</h2>
 			<div className='flex flex-col items-center'>
-				<ul className='grid grid-cols-4 gap-4 w-2/3'>
+				<ul className='grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-2/3'>
 					{arquivos.map(ep => (
 						<li
 							key={ep._id}

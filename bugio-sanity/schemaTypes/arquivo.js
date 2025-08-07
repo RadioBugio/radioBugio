@@ -64,14 +64,14 @@ export default {
           name: 'inicio',
           title: 'Hora de Início',
           type: 'string',
-          placeholder: 'ex: 17h00',
+          placeholder: 'ex: 17:00',
           validation: (Rule) => Rule.required(),
         },
         {
           name: 'fim',
           title: 'Hora de Fim',
           type: 'string',
-          placeholder: 'ex: 19h30',
+          placeholder: 'ex: 19:30',
           validation: (Rule) => Rule.required(),
         },
       ],
@@ -83,22 +83,7 @@ export default {
       validation: (Rule) => Rule.required(),
     },
 
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'titulo',
-        maxLength: 96,
-        slugify: (input) =>
-          input
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '-') // troca espaços por hífens
-            .slice(0, 96),
-      },
-      validation: (Rule) => Rule.required(),
-    },
+    
 
     {
       name: 'duracao',
@@ -118,8 +103,8 @@ export default {
             value: 'Infraestrutura e Paisagem Cultural',
           },
           {
-            title: 'Vida Microscópica e Relações de Algas',
-            value: 'Vida Microscópica e Relações de Algas',
+            title: 'Vida Microscópica e Relações entre Algas',
+            value: 'Vida Microscópica e Relações entre Algas',
           },
           {title: 'Forças Climáticas e Atmosféricas', value: 'Forças Climáticas e Atmosféricas'},
           {title: 'Mediadores de Percepção', value: 'Mediadores de Percepção'},

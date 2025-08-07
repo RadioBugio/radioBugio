@@ -26,28 +26,28 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 
 					<motion.div
 						key='drawer'
-						className='fixed left-0 right-0 bottom-0 h-[70vh] border-t border-[#484848] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-8 overflow-y-auto '
+						className='fixed left-0 right-0 bottom-0 
+						h-[70vh] border-t border-[#484848] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-6 lg:p-8 overflow-y-auto '
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
 						transition={{ duration: 0.4 }}
 					>
-						<div className='grid grid-cols-9 gap-8'>
-							<div className='col-span-2 '>
+						<div className='flex flex-col lg:grid lg:grid-cols-9 lg:gap-8'>
+							<div className='col-span-2 order-2 lg:order-1 mb-6 lg:mb-0'>
 								{Array.isArray(episode.imagens) && episode.imagens.length > 0 && (
 									<div className='flex flex-col gap-4'>
 										{episode.imagens.map((img, idx) => (
-											<img key={idx} src={urlFor(img).url()} alt={`${titulo} - imagem ${idx + 1}`} className='w-full object-cover rounded-xl border-[.5px] border-[#484848]' />
+											<img key={idx} src={urlFor(img).url()} alt={`${titulo} - imagem ${idx + 1}`} className='lg:w-full h-[200px] lg:h-full object-cover rounded-xl border-[.5px] border-[#484848]' />
 										))}
 									</div>
 								)}
 							</div>
-							<div className='col-span-6  grid grid-cols-6 gap-8'>
+							<div className='col-span-6 flex flex-col lg:grid lg:grid-cols-6 gap-8 order-3 lg:order-2'>
 								<div className='col-span-4 flex flex-col gap-4 '>
-									<div className='text-[1.3rem] text-[#eaebde] leading-[1.3]'>{titulo}</div>
+									<div className='text-[1.1rem] font-semibold  lg:text-[1.3rem] text-[#eaebde] leading-[1.3]'>{titulo}</div>
 
-									<div className='text-[1rem] pt-8 '>
-
+									<div className=' lg:pt-8 text-sm lg:text-[1rem] '>
 										<PortableText
 											value={descricao}
 											components={{
@@ -69,12 +69,12 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 										<div> {duracao && <p>duração: {duracao} min</p>}</div>
 									</div>
 
-									{clusters2 && <div className='inline-block bg-[#88888856] px-4 py-1  text-[0.9rem] opacity-80 rounded-full mb-2'>{clusters2}</div>}
+									{clusters2 && <div className='inline-block bg-[#88888856] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs opacity-80 rounded-full mb-2'>{clusters2}</div>}
 
 									{Array.isArray(clusters) && (
 										<div className='flex flex-wrap gap-2 mb-4'>
 											{clusters.map((c, i) => (
-												<div key={i} className='inline-block bg-[#48484856] px-4 py-1  text-[0.9rem]  opacity-80 rounded-full'>
+												<div key={i} className='inline-block bg-[#48484856] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xsopacity-80 rounded-full'>
 													{c}
 												</div>
 											))}
@@ -82,7 +82,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 									)}
 								</div>
 							</div>
-							<div className='col-span-1 text-right '>
+							<div className='col-span-1 text-right order-1 lg:order-3 mb-3 lg:mb-0'>
 								<button onClick={onClose} className='text-white text-xl hover:text-red-400'>
 									<X />
 								</button>

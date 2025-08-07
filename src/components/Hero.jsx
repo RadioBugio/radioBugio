@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react'
 import  sanityClient from '../SanityClient.js'
 import { PortableText } from '@portabletext/react'
 import { Player } from './Player';
+import { Paragraph } from './Paragraph.jsx';
+
 
 export function Hero ()  {
    const [heroData, setHeroData] = useState(null);
 
-		// Função que busca o hero atual (cujo dataHoraInicio já passou)
 		const fetchCurrentHero = async () => {
 			const data = await sanityClient.fetch(`*[_type == "hero"]{
       _id,
@@ -31,7 +32,6 @@ export function Hero ()  {
 			return herosValidos[0] || null;
 		};
 
-		// Função que busca o próximo evento futuro (para agendar update)
 		const fetchNextHeroStart = async () => {
 			const data = await sanityClient.fetch(`*[_type == "hero"]{
       "dataHoraInicio": dataHoraInicio
@@ -75,27 +75,19 @@ export function Hero ()  {
 		}, []);
 
 	return (
-		<div className=' h-[75vh] flex justify-center container-default  '>
-			<div className=' grid grid-cols-3 justify-center items-center  w-full'>
+		<div className=' lg:h-[100vh] flex justify-center container-default '>
+			<div className='mt-[5rem] lg:mt-0 grid lg:grid-cols-3 justify-center items-center  w-full '>
 				<div className='col-span-1 '></div>
 				<div className='col-span-1 '>
 					<Player />
 					{heroData && (
 						<div className='mt-12 flex flex-col'>
 							<div>
-								<div className='text-[1rem] opacity-80 '>
-									{new Date(heroData.dataHoraInicio).toLocaleTimeString('pt-PT', {
-										hour: '2-digit',
-										minute: '2-digit',
-										timeZone: 'Europe/Lisbon',
-									})}
-								</div>
+								
 								<div>
 									<h2 className='text-xl font-semibold mb-2 '>{heroData.titulo}</h2>
 									<div className='flex flex-col '>
-										<div>
-											{heroData.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{heroData.clusters2}</div>}
-										</div>
+										<div>{heroData.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{heroData.clusters2}</div>}</div>
 										<div>
 											{Array.isArray(heroData.clusters) &&
 												heroData.clusters.map((cluster, index) => (
@@ -107,9 +99,15 @@ export function Hero ()  {
 									</div>
 								</div>
 							</div>
-							<div className='mt-6'>
-
-								<PortableText value={heroData.descricaoMini} />
+							<div className='mt-6 text-sm lg:text-base'>
+								<PortableText
+									value={heroData.descricaoMini}
+									components={{
+										block: {
+											normal: Paragraph,
+										},
+									}}
+								/>
 							</div>
 						</div>
 					)}
