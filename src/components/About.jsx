@@ -18,11 +18,11 @@ export function About() {
 					<div className='lg:w-2/3 lg:text-[1rem] text-sm space-y-4 text-[#eaebde]'>
 						<p>
 							<i>A Rádio-Estação do Bugio</i> é uma estação de rádio experimental e especulativa de conservação e monitorização marinha e atmosférica, situada na confluência entre o Rio Tejo e o
-							oceano Atlântico, situada no concelho de Oeiras. Este projeto é uma proposta dos artistas Diana Policarpo e Bernardo Gaeiras que a partir do imaginário distante do Farol do Bugio,
+							oceano Atlântico, no concelho de Oeiras. Este projeto é uma proposta dos artistas Diana Policarpo e Bernardo Gaeiras que a partir do imaginário distante do Farol do Bugio,
 							constrói uma infraestrutura sonora dedicada à transmissão das dinâmicas ecológicas, físicas e sociais deste território liminar, com especial atenção às formas de vida invisíveis que o
 							habitam, como os microrganismos marinhos e outras presenças imperceptíveis.<br></br>
 							<br></br>
-							Entre Agosto e Setembro de 2025, a <i>A Rádio-Estação do Bugio</i> transmite quatro dias de emissões constituídas por paisagens sonoras ao vivo e entrevistas pré-gravadas no Farol do
+							Entre Agosto e Setembro de 2025, a <i> Rádio-Estação do Bugio</i> transmite quatro dias de emissões constituídas por paisagens sonoras ao vivo e entrevistas pré-gravadas no Farol do
 							Bugio e em laboratórios de investigação. Através da sua plataforma online reúne contributos de cientistas, artistas, ativistas e historiadores envolvidos no cuidado e observação deste
 							território marinho. As emissões ao vivo combinam depoimentos científicos com paisagens sonoras originais compostas por gravações de campo, frequências subaquáticas, pulsações
 							atmosféricas, vibrações minerais e composições bioacústicas criadas por Diana Policarpo e Bernardo Gaeiras. Estes conteúdos dão a conhecer um pouco da ecologia profunda do estuário,
@@ -44,7 +44,7 @@ export function About() {
 										marinhas, microalgas, bactérias e partículas em suspensão. Mais do que momentos de partilha de estórias e várias formas de conhecimento, estas conversas funcionam como sessões de
 										co-design sonoro e conceptual, envolvendo cientistas e ativistas cuja prática poderia ser enraizada a partir da futura estação de conservação do Farol do Bugio. <br></br>
 										<br></br>
-										Para além de se apresentar como um projeto de arte sonora, a <i>A Rádio-Estação do Bugio</i> é uma prática de escuta ativa - um gesto contínuo de cuidado e atenção - que ensaia
+										Para além de se apresentar como um projeto de arte sonora, a <i>Rádio-Estação do Bugio</i> é uma prática de escuta ativa - um gesto contínuo de cuidado e atenção - que ensaia
 										novas formas de habitar e imaginar territórios estuarinos e costeiros em transição. Através da escuta situada, ciência-cidadã e da experimentação artística, emerge uma visão de uma
 										estação ecológica marinha para um futuro de coabitação no município de Oeiras: uma infraestrutura imaginada a partir do som, das correntes, dos ciclos biológicos e das espécies que
 										muitas vezes escapam à nossa atenção. Esta rádio torna audível a confluência entre arte, ciência, ecologia, ficção e investigação ambiental impulsionando a literacia do oceano.
