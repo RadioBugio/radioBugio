@@ -7,6 +7,15 @@ export function MenuMobile() {
 	const [isOpen, setIsOpen] = useState(false);
 	const drawerRef = useRef(null);
 
+	// ✅ Define scrollToSection DENTRO do componente, assim tem acesso ao setIsOpen
+	const scrollToSection = id => {
+		const el = document.getElementById(id);
+		if (el) {
+			el.scrollIntoView({ behavior: 'smooth' });
+		}
+		setIsOpen(false); // <- aqui já funciona
+	};
+
 	useEffect(() => {
 		const handleOutsideClick = e => {
 			if (isOpen && drawerRef.current && !drawerRef.current.contains(e.target)) {
@@ -46,19 +55,12 @@ export function MenuMobile() {
 							exit={{ y: '-100%' }}
 							transition={{ duration: 0.3 }}
 							className='fixed top-0 left-0 right-0 border-[.5px] border-[#484848] bg-[#0f0f0f] z-10 rounded-b-2xl shadow-md px-6 pb-8 overflow-hidden'
-							
 						>
-							<div className='mt-[6em]  '>
+							<div className='mt-[6em]'>
 								<div className='flex flex-col items-start gap-3 text-xl'>
-									<button onClick={() => scrollToSection('programacao')} className='hover:underline  '>
-										Programação
-									</button>
-									<button onClick={() => scrollToSection('arquivo')} className='hover:underline '>
-										Arquivo
-									</button>
-									<button onClick={() => scrollToSection('sobre')} className='hover:underline '>
-										Sobre
-									</button>
+									<button onClick={() => scrollToSection('programacao')}>Programação</button>
+									<button onClick={() => scrollToSection('arquivo')}>Arquivo</button>
+									<button onClick={() => scrollToSection('sobre')}>Sobre</button>
 								</div>
 							</div>
 						</motion.div>
