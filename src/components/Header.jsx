@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MenuMobile } from './MenuMobile';
 
-
 export function Header() {
 	const scrollToSection = id => {
 		const el = document.getElementById(id);

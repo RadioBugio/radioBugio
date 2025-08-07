@@ -8,11 +8,9 @@ import { PlayerProvider } from './context/PlayerContext';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<NowPlayingProvider>
-		<PlayerProvider>
-
-			<RouterProvider router={router} />
-
-		</PlayerProvider>
-	</NowPlayingProvider>,
+		<NowPlayingProvider>
+			<PlayerProvider>
+				<RouterProvider router={router} />
+			</PlayerProvider>
+		</NowPlayingProvider>
 );

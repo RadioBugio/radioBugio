@@ -7,13 +7,12 @@ export function MenuMobile() {
 	const [isOpen, setIsOpen] = useState(false);
 	const drawerRef = useRef(null);
 
-	// ✅ Define scrollToSection DENTRO do componente, assim tem acesso ao setIsOpen
 	const scrollToSection = id => {
 		const el = document.getElementById(id);
 		if (el) {
 			el.scrollIntoView({ behavior: 'smooth' });
 		}
-		setIsOpen(false); // <- aqui já funciona
+		setIsOpen(false); 
 	};
 
 	useEffect(() => {

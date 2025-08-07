@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import sanityClient from '../SanityClient.js';
-
-import { Player } from '../components/Player';
 import { Schedule } from '../components/Schedule';
 import { About } from '../components/About.jsx';
 import { Video } from '../components/Video.jsx';
@@ -60,7 +58,8 @@ export function Home() {
 	}, []);
 
 	return (
-		<>
+		<div >
+			
 			<Hero />
 			<div id='programacao'>
 				<Schedule entrevistas={entrevistas} />
@@ -74,6 +73,6 @@ export function Home() {
 			<div id='sobre'>
 				<About />
 			</div>
-		</>
+		</div>
 	);
 }
