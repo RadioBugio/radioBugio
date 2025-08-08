@@ -41,9 +41,9 @@ export function Player() {
 					<>
 						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 						<div className='min-w-0'>
-							<span className='inline-block font-semibold leading-[1.2]'>
-								{translations[lang].agora} {songTitle}
-							</span>
+							<div className='inline-block font-semibold leading-[1.2]'>
+								<span className=' opacity-70'>{translations[lang].agora}</span>  {songTitle}
+							</div>
 						</div>
 						<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
 					</>
