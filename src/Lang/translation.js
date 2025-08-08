@@ -57,7 +57,7 @@ Currently a doctoral researcher in the Digital Media program at the Interactive 
     `,
 		aboutBioTitle: 'Biografias',
 		aboutDianaTitle: 'Diana Policarpo',
-		aboutDianaText: `Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. É artista visual e compositora cuja prática se move entre suportes artísticos como som, escultura, filme,
+		aboutDianaText: `Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. <br> É artista visual e compositora cuja prática se move entre suportes artísticos como som, escultura, filme,
 											desenho e instalação. Atualmente desenvolve o seu trabalho entre as artes visuais, a música electroacústica e a performance multimédia. O seu trabalho investiga cultura popular,
 											saúde, política de género e as relações interespécies. Policarpo estabelece frequentemente ligações entre arte e ciência, tanto nas suas instalações como através do envolvimento
 											direto com paisagens e sistemas ecológicos ou de extração. Os seus projetos exploram a estrutura rítmica do som como um material táctil, entrelaçado com a construção social da
