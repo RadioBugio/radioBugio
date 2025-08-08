@@ -57,10 +57,10 @@ export function MenuMobile() {
 							animate={{ y: 0 }}
 							exit={{ y: '-100%' }}
 							transition={{ duration: 0.3 }}
-							className='fixed top-0 left-0 right-0 border-[.5px] border-[#484848] bg-[#0f0f0f] z-10 rounded-b-2xl shadow-md px-6 pb-8 overflow-hidden'
+							className='fixed top-0 left-0 right-0 border-[.5px] border-[#484848] bg-[#0f0f0f] z-10 rounded-b-2xl shadow-md px-6 pb-6 overflow-hidden'
 						>
 							<div className='mt-[6em]'>
-								<div className='flex flex-col items-start gap-3 text-xl mb-6'>
+								<div className='flex flex-col items-start gap-3 text-xl mb-4'>
 									<button onClick={() => scrollToSection('programacao')}>{translations[lang].programação}</button>
 									<button onClick={() => scrollToSection('arquivo')}>{translations[lang].arquivo}</button>
 									<button onClick={() => scrollToSection('sobre')}>{translations[lang].sobre}</button>

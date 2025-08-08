@@ -51,7 +51,7 @@ export function Player() {
 					<div className='text-sm font-semibold'>
 						OFFLINE
 						<br />
-						Voltaremos em breve.
+						{translations[lang].breve}
 					</div>
 				)}
 				<div className='flex gap-4'>
