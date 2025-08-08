@@ -20,7 +20,7 @@ export function Footer() {
 			<SmallPlayer />
 			<hr className='border-[#484848]' />
 
-			<footer className='container-default  '>
+			<footer className='container-default pb-10 lg:pb-0 '>
 				<div className='text-xs lg:w-2/3 lg:text-center mx-auto leading-[1.4]'>
 					<span dangerouslySetInnerHTML={{ __html: translations[lang].footer }} />
 				</div>
