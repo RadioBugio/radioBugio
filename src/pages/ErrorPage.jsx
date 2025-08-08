@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-
-
+import { translations } from '../Lang/translation.js';
+import { useLanguage } from '../context/LanguageContext';
 
 export function ErrorPage() {
+		const { lang } = useLanguage();
+
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -15,7 +17,9 @@ export function ErrorPage() {
 	return (
 		<div>
 			<div className='w-full h-screen flex justify-center items-center text-xl flex-col'>
-				ok
+				{translations[lang].errorPage.map((text, index) => (
+					<p key={index}>{text}</p>
+				))}
 			</div>
 		</div>
 	);

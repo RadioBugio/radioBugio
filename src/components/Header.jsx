@@ -26,7 +26,7 @@ export function Header() {
 						<button onClick={() => scrollToSection('programacao')} className='hover:underline  '>
 							{translations[lang].programação}
 						</button>
-						<button onClick={() => scrollToSection('arquivo')} className='hover:underline '>
+						<button  className='opacity-40 cursor-not-allowed'>
 							{translations[lang].arquivo}
 						</button>
 						<button onClick={() => scrollToSection('sobre')} className='hover:underline '>
@@ -40,7 +40,6 @@ export function Header() {
 					</div>
 
 					<div className='text-right '>
-					
 						<LangSwitcher />
 					</div>
 				</div>

@@ -5,6 +5,7 @@ export const translations = {
 		sobre: 'About',
 		breve: 'New broadcast soon.',
 		agora: 'Now:',
+		errorPage: ['Page not found.', 'You will be redirected to the home page in 5 seconds...'],
 		aboutIntro: `Bugio Radio-Station is an experimental and speculative radio station for marine and atmospheric conservation and monitoring, located at the confluence of the Tagus River and the Atlantic Ocean, within the municipality of Oeiras. This project is a proposal by artists Diana Policarpo and Bernardo Gaeiras, who, starting from the distant imaginary of the Bugio's Lighthouse, construct a sonic infrastructure dedicated to transmitting the ecological, physical, and social dynamics of this liminal territory, with particular attention to the invisible life forms that inhabit it, such as marine microorganisms and other imperceptible presences.<br></br>
 Between August and September 2025, Bugio Radio-Station will broadcast four days of transmissions composed of live soundscapes and pre-recorded interviews, recorded at the Bugio Lighthouse and in research laboratories and facilities. Through its online platform, it gathers contributions from scientists, artists, activists, and historians engaged in the care and observation of this marine territory. The live transmissions combine scientific testimonies with original soundscapes composed of field recordings, underwater frequencies, atmospheric pulses, mineral vibrations, and bioacoustic compositions created by Diana Policarpo and Bernardo Gaeiras. These contents offer insight into the deep ecology of the estuary, bringing human and non-human voices into a shared field of listening.
 `,
@@ -34,6 +35,7 @@ Currently a doctoral researcher in the Digital Media program at the Interactive 
 		sobre: 'Sobre',
 		breve: 'Nova emissão em breve.',
 		agora: 'Agora:',
+		errorPage: ['Página não encontrada.', 'Vais ser reencaminhado para a página inicial em 5 segundos...'],
 		aboutIntro: `<i>A Rádio-Estação do Bugio</i> é uma estação de rádio experimental e especulativa de conservação e monitorização marinha e atmosférica, situada na confluência entre o Rio Tejo e o oceano Atlântico, no concelho de Oeiras. Este projeto é uma proposta dos artistas Diana Policarpo e Bernardo Gaeiras que a partir do imaginário distante do Farol do Bugio, constrói uma
 							infraestrutura sonora dedicada à transmissão das dinâmicas ecológicas, físicas e sociais deste território liminar, com especial atenção às formas de vida invisíveis que o habitam, como
 							os microrganismos marinhos e outras presenças imperceptíveis.<br></br>

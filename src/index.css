@@ -49,15 +49,6 @@ body::before {
 
 
 
-
-/* body {
-	background-image: url('/radio-bg.jpg');
-	background-repeat: no-repeat;
-	background-position: fixed center center;
-	background-size: cover;
-	background-attachment: fixed;
-} */
-
 .container-default {
 	margin: 4rem 2rem;
 }
