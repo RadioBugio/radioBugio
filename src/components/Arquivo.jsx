@@ -4,6 +4,20 @@ import { DrawerModal } from './DrawerModal';
 import { translations } from '../Lang/translation.js';
 import { useLanguage } from '../context/LanguageContext';
 
+function horaParaEnFormat(horaStr) {
+  if (!horaStr) return '';
+  const parts = horaStr.replace('h', ':').split(':');
+  let horas = parseInt(parts[0], 10);
+  let minutos = parts[1] ? parts[1].padStart(2, '0') : '00';
+
+  const ampm = horas >= 12 ? 'pm' : 'am';
+  horas = horas % 12;
+  if (horas === 0) horas = 12;
+
+  return minutos === '00' ? `${horas} ${ampm}` : `${horas}:${minutos} ${ampm}`;
+}
+
+	
 export function Arquivo({ arquivos }) {
 	const [selectedEp, setSelectedEp] = useState(null);
 	const { lang } = useLanguage();
@@ -14,28 +28,34 @@ export function Arquivo({ arquivos }) {
 		<div className='text-[#eaebde] container-default relative '>
 			<h2 className='text-2xl mb-8 font-bold lg:text-left text-center'>{translations[lang].arquivo}</h2>
 			<div className='flex flex-col items-center'>
-				<ul className='grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-2/3'>
+				<ul className='grid grid-cols-1 lg:grid-cols-3 gap-4 lg:w-2/3'>
 					{arquivos.map(ep => (
 						<li
 							key={ep._id}
 							onClick={() => setSelectedEp(ep)}
 							className='border-[.5px] border-[#484848] hover:opacity-50 rounded-2xl p-3 transition duration-500 cursor-pointer h-[400px] flex flex-col gap-3'
 						>
-							<img src={urlFor(ep.thumbnail).url()} alt={ep.titulo} className='rounded-xl w-full h-[200px] object-cover' />
+							<img src={urlFor(ep.thumbnail).url()} alt={lang === 'pt' ? ep.titulo : ep.tituloEN} className='rounded-xl w-full h-[200px] object-cover' />
 							<div className='mx-2 flex flex-col flex-grow'>
-								<div className='flex justify-between text-xs opacity-80'>
+								<div className='flex justify-between text-sm opacity-80'>
 									<span>
-										{ep.data?.dia}/{mesParaNumero(ep.data?.mes)}/{ep.data?.ano}, {ep.horario?.inicio}
+										{ep.data?.dia}/{mesParaNumero(ep.data?.mes)}/{ep.data?.ano}, {lang === 'pt' ? ep.horario?.inicio : horaParaEnFormat(ep.horario?.inicio)}
 									</span>
 									{ep.duracao} min
 								</div>
-								<h3 className='text-[1.1rem] font-semibold mt-2 leading-[1.3] '>{ep.titulo}</h3>
+								<div className=' text-[#eaebde] text-[1.1rem] font-semibold mt-2 leading-[1.3] '> {lang === 'pt' ? ep.titulo : ep.tituloEN}</div>
 								<div className='flex flex-col gap-1 mt-4 flex-grow content-end-safe  place-content-end-safe  '>
-									<div>{ep.clusters2 && <div className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem] opacity-80 rounded-full border-[.5px] border-[#484848]'>{ep.clusters2}</div>}</div>
+									<div>
+										{(lang === 'pt' ? ep.clusters2 : ep.clusters2_EN) && (
+											<div className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem]  text-[#eaebde] rounded-full border-[.5px] border-[#484848]'>
+												{lang === 'pt' ? ep.clusters2 : ep.clusters2_EN}
+											</div>
+										)}
+									</div>
 									<div className='flex flex-wrap gap-1 '>
-										{Array.isArray(ep.clusters) &&
-											ep.clusters.map((c, i) => (
-												<span key={i} className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem] opacity-80 rounded-full border-[.5px] border-[#484848]'>
+										{Array.isArray(lang === 'pt' ? ep.clusters : ep.clustersEN) &&
+											(lang === 'pt' ? ep.clusters : ep.clustersEN).map((c, i) => (
+												<span key={i} className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem]  text-[#eaebde] rounded-full border-[.5px] border-[#484848]'>
 													{c}
 												</span>
 											))}

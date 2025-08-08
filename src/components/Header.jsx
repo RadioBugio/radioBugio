@@ -40,7 +40,7 @@ export function Header() {
 					</div>
 
 					<div className='text-right '>
-						{' '}
+					
 						<LangSwitcher />
 					</div>
 				</div>

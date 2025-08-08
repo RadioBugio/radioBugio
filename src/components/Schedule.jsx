@@ -94,7 +94,7 @@ export function Schedule({ entrevistas }) {
 															<div className='flex flex-col  lg:mt-0'>
 																<div>
 																	{(lang === 'pt' ? ep.clusters2 : ep.clusters2_EN) && (
-																		<div className='inline-block bg-[#92929256] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs opacity-80 rounded-full text-[#eaebde] border-[.5px] border-[#484848]'>
+																		<div className='inline-block bg-[#92929256] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs rounded-full text-[#eaebde] border-[.5px] border-[#484848]'>
 																			{lang === 'pt' ? ep.clusters2 : ep.clusters2_EN}
 																		</div>
 																	)}
@@ -104,7 +104,7 @@ export function Schedule({ entrevistas }) {
 																		(lang === 'pt' ? ep.clusters : ep.clustersEN).map((cluster, index) => (
 																			<div
 																				key={index}
-																				className='inline-block bg-[#92929256]  px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:mt-2 lg:text-xs text-[#eaebde]  opacity-80 rounded-full border-[.5px] border-[#484848]'
+																				className='inline-block bg-[#92929256]  px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:mt-2 lg:text-xs text-[#eaebde]  rounded-full border-[.5px] border-[#484848]'
 																			>
 																				{cluster}
 																			</div>
@@ -156,7 +156,7 @@ export function Schedule({ entrevistas }) {
 																				/>
 																			))}
 																		</div>
-																		<div className='col-span-2 text-sm lg:text-[1rem]  '>
+																		<div className='col-span-2 text-sm lg:text-[1rem]   text-[#eaebde]'>
 																			<PortableText
 																				value={lang === 'pt' ? ep.descricao : ep.descricaoEN}
 																				components={{

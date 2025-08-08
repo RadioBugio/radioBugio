@@ -2,10 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { LangSwitcher } from '../components/LangSwitcher';
+import { translations } from '../Lang/translation.js';
+import { useLanguage } from '../context/LanguageContext';
 
 export function MenuMobile() {
 	const [isOpen, setIsOpen] = useState(false);
 	const drawerRef = useRef(null);
+	const { lang } = useLanguage();
 
 	const scrollToSection = id => {
 		const el = document.getElementById(id);
@@ -33,7 +37,7 @@ export function MenuMobile() {
 		<div className='fixed top-0 left-0 right-0 z-50 lg:hidden'>
 			<div className='flex justify-between items-center p-6 bg-transparent relative z-50'>
 				<Link to='/'>
-					<img src='/logos/logoBugio.svg' alt='Logo' className='w-50' />
+					<img src='/logos/logoBugio.svg' alt='Logo' className='w-50 pointer-events-none' />
 				</Link>
 				<button onClick={() => setIsOpen(!isOpen)} className='text-white'>
 					{isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -56,11 +60,12 @@ export function MenuMobile() {
 							className='fixed top-0 left-0 right-0 border-[.5px] border-[#484848] bg-[#0f0f0f] z-10 rounded-b-2xl shadow-md px-6 pb-8 overflow-hidden'
 						>
 							<div className='mt-[6em]'>
-								<div className='flex flex-col items-start gap-3 text-xl'>
-									<button onClick={() => scrollToSection('programacao')}>Programação</button>
-									<button onClick={() => scrollToSection('arquivo')}>Arquivo</button>
-									<button onClick={() => scrollToSection('sobre')}>Sobre</button>
+								<div className='flex flex-col items-start gap-3 text-xl mb-6'>
+									<button onClick={() => scrollToSection('programacao')}>{translations[lang].programação}</button>
+									<button onClick={() => scrollToSection('arquivo')}>{translations[lang].arquivo}</button>
+									<button onClick={() => scrollToSection('sobre')}>{translations[lang].sobre}</button>
 								</div>
+								<LangSwitcher />
 							</div>
 						</motion.div>
 					</>

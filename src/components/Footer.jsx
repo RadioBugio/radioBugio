@@ -7,9 +7,12 @@ import logoCAM from '/logos/cam.png';
 import logoMarinha from '/logos/autoridade.png';
 import logoITI from '/logos/iti.png';
 import logoITQB from '/logos/itqb.png';
+import { translations } from '../Lang/translation.js';
+import { useLanguage } from '../context/LanguageContext';
 
 
 export function Footer() {
+	const { lang } = useLanguage();
 
 	
 	return (
@@ -19,9 +22,7 @@ export function Footer() {
 
 			<footer className='container-default  '>
 				<div className='text-xs lg:w-2/3 lg:text-center mx-auto leading-[1.4]'>
-					Este projeto foi concebido no âmbito da residência artística “A Call to the Sea” realizada no Farol do Bugio, em Oeiras, no âmbito do Projeto Europeu Bauhaus of the Seas Sails, em parceria
-					com o Município de Oeiras, a Fundação Calouste Gulbenkian, o Instituto Superior Técnico (ITI) e com o apoio da Direção de Faróis. Um projeto financiado pelo programa Horizonte Europa da
-					União Europeia.
+					<span dangerouslySetInnerHTML={{ __html: translations[lang].footer }} />
 				</div>
 				<div className='max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-8 py-8'>
 					<img src={logoOeiras} alt='Município de Oeiras' className='h-7 lg:h-10 object-contain pointer-events-none' />

@@ -4,11 +4,39 @@ import { Paragraph } from './Paragraph.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
+function horaParaEnFormat(horaStr) {
+	if (!horaStr) return '';
+	const parts = horaStr.replace('h', ':').split(':');
+	let horas = parseInt(parts[0], 10);
+	let minutos = parts[1] ? parts[1].padStart(2, '0') : '00';
+	const ampm = horas >= 12 ? 'pm' : 'am';
+	horas = horas % 12;
+	if (horas === 0) horas = 12;
+	return minutos === '00' ? `${horas} ${ampm}` : `${horas}:${minutos} ${ampm}`;
+}
+
+function mesParaNumero(mes) {
+	const mapa = {
+		Janeiro: '01',
+		Fevereiro: '02',
+		Março: '03',
+		Abril: '04',
+		Maio: '05',
+		Junho: '06',
+		Julho: '07',
+		Agosto: '08',
+		Setembro: '09',
+		Outubro: '10',
+		Novembro: '11',
+		Dezembro: '12',
+	};
+	return mapa[mes] || '';
+}
 
 export function DrawerModal({ episode, isOpen, onClose }) {
-
-
+	const { lang } = useLanguage();
 
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
@@ -16,8 +44,12 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 
 	if (!episode) return null;
 
-	const { titulo, data, horario, descricao, clusters, clusters2, duracao } = episode;
-
+	const titulo = lang === 'pt' ? episode.titulo : episode.tituloEN;
+	const descricao = lang === 'pt' ? episode.descricao : episode.descricaoEN;
+	const clusters = lang === 'pt' ? episode.clusters : episode.clustersEN;
+	const clusters2 = lang === 'pt' ? episode.clusters2 : episode.clusters2_EN;
+	const horario = episode.horario;
+	const duracao = episode.duracao;
 	return (
 		<AnimatePresence>
 			{isOpen && (
@@ -52,7 +84,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 								<div className='col-span-4 flex flex-col gap-4 '>
 									<div className='text-[1.1rem] font-semibold  lg:text-[1.3rem] text-[#eaebde] leading-[1.3]'>{titulo}</div>
 
-									<div className=' lg:pt-8 text-sm lg:text-[1rem] '>
+									<div className=' lg:pt-8 text-sm lg:text-[1rem]  text-[#eaebde] '>
 										<PortableText
 											value={descricao}
 											components={{
@@ -64,22 +96,27 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 									</div>
 								</div>
 								<div className='col-span-2'>
-									<div className='text-sm text-gray-400 flex flex-col gap-1 mb-4'>
+									<div className='text-sm  text-[#eaebde] flex flex-col gap-1 mb-4'>
 										<div>
-											{data?.dia}.{mesParaNumero(data?.mes)}.{data?.ano}
+											{episode.data?.dia}.{mesParaNumero(episode.data?.mes)}.{episode.data?.ano}
 										</div>
+
 										<div>
-											{horario?.inicio} - {horario?.fim}
+											{' '}
+											{duracao && (
+												<p>
+													{lang === 'pt' ? 'duração' : 'duration'}: {duracao} min
+												</p>
+											)}
 										</div>
-										<div> {duracao && <p>duração: {duracao} min</p>}</div>
 									</div>
 
-									{clusters2 && <div className='inline-block bg-[#88888856] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs opacity-80 rounded-full mb-2'>{clusters2}</div>}
+									{clusters2 && <div className='inline-block bg-[#92929256] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs rounded-full mb-2  text-[#eaebde]'>{clusters2}</div>}
 
 									{Array.isArray(clusters) && (
 										<div className='flex flex-wrap gap-2 mb-4'>
 											{clusters.map((c, i) => (
-												<div key={i} className='inline-block bg-[#48484856] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xsopacity-80 rounded-full'>
+												<div key={i} className='inline-block bg-[#92929256] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs rounded-full  text-[#eaebde]'>
 													{c}
 												</div>
 											))}
@@ -98,22 +135,4 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 			)}
 		</AnimatePresence>
 	);
-}
-
-function mesParaNumero(mes) {
-	const mapa = {
-		Janeiro: '01',
-		Fevereiro: '02',
-		Março: '03',
-		Abril: '04',
-		Maio: '05',
-		Junho: '06',
-		Julho: '07',
-		Agosto: '08',
-		Setembro: '09',
-		Outubro: '10',
-		Novembro: '11',
-		Dezembro: '12',
-	};
-	return mapa[mes] || '';
 }
