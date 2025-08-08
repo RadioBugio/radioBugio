@@ -30,11 +30,12 @@ export function About() {
 									<div className='flex flex-col lg:grid lg:grid-cols-2 gap-12 mt-6'>
 										<div>
 											<div className='font-bold'>{translations[lang].aboutDianaTitle}</div>
-											{translations[lang].aboutDianaText}
+
+											<p dangerouslySetInnerHTML={{ __html: translations[lang].aboutDianaText }} />
 										</div>
 										<div>
 											<div className='font-bold'>{translations[lang].aboutBernardoTitle}</div>
-											{translations[lang].aboutBernardoText}
+											<p dangerouslySetInnerHTML={{ __html: translations[lang].aboutBernardoText }} />
 										</div>
 									</div>
 								</motion.div>
