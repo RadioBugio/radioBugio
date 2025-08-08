@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
 
-// Componente Marquee horizontal, sem overlap
 export function Marquee({ children, speed = 20, className = '', ...props }) {
 	const containerRef = useRef(null);
 	const textRef = useRef(null);
