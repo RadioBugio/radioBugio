@@ -1,17 +1,14 @@
-export const langId = {
-	EN: 'EN',
-	PT: 'PT'
-}
-
-export const translation = {
-	EN: {
-		programação: 'Program',
+export const translations = {
+	en: {
+		programação: 'Programming',
 		arquivo: 'Archive',
 		sobre: 'About',
+		agora: 'Now:',
 	},
-	PT: {
+	pt: {
 		programação: 'Programação',
 		arquivo: 'Arquivo',
 		sobre: 'Sobre',
+		agora: 'Agora:',
 	},
 };

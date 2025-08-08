@@ -3,9 +3,12 @@ import { useNowPlaying } from '../context/NowPlayingContext';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../Lang/translation.js';
 
 function formatTime(seconds) {
+	
+
 	if (isNaN(seconds)) return '0:00';
 	const m = Math.floor(seconds / 60);
 	const s = Math.floor(seconds % 60)
@@ -19,6 +22,7 @@ export function Player() {
 	const [volumeHover, setVolumeHover] = useState(false);
 	const { meta } = useNowPlaying();
 	const [volume, setVol] = useState(1);
+	const { lang } = useLanguage();
 
 	const handleVolumeChange = e => {
 		const v = parseFloat(e.target.value);
@@ -35,9 +39,11 @@ export function Player() {
 			<div className='flex flex-col justify-between py-3'>
 				{isOnline ? (
 					<>
-						<p className='text-[#898989] text-sm mb-1'>Live stream</p>
+						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 						<div className='min-w-0'>
-							<span className='inline-block font-semibold'>Agora: {songTitle}</span>
+							<span className='inline-block font-semibold'>
+								{translations[lang].agora} {songTitle}
+							</span>
 						</div>
 						<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
 					</>

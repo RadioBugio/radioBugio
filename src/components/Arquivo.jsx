@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { DrawerModal } from './DrawerModal';
-
+import { translations } from '../Lang/translation.js';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Arquivo({ arquivos }) {
 	const [selectedEp, setSelectedEp] = useState(null);
+	const { lang } = useLanguage();
 
 	if (!arquivos || arquivos.length === 0) return null;
 
 	return (
 		<div className='text-[#eaebde] container-default relative '>
-			<h2 className='text-2xl mb-8 font-bold lg:text-left text-center'>Arquivo</h2>
+			<h2 className='text-2xl mb-8 font-bold lg:text-left text-center'>{translations[lang].arquivo}</h2>
 			<div className='flex flex-col items-center'>
 				<ul className='grid grid-cols-1 lg:grid-cols-4 gap-4 lg:w-2/3'>
 					{arquivos.map(ep => (

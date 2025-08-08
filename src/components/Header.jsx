@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MenuMobile } from './MenuMobile';
+import { LangSwitcher } from '../components/LangSwitcher';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../Lang/translation.js';
+
 
 export function Header() {
+	const { lang } = useLanguage();
+	
 	const scrollToSection = id => {
 		const el = document.getElementById(id);
 		if (el) {
@@ -18,13 +24,13 @@ export function Header() {
 				<div className='mx-8 mt-8 grid grid-cols-3 gap-4   '>
 					<div className=' flex flex-col items-start '>
 						<button onClick={() => scrollToSection('programacao')} className='hover:underline  '>
-							Programação
+							{translations[lang].programação}
 						</button>
 						<button onClick={() => scrollToSection('arquivo')} className='hover:underline '>
-							Arquivo
+							{translations[lang].arquivo}
 						</button>
 						<button onClick={() => scrollToSection('sobre')} className='hover:underline '>
-							Sobre
+							{translations[lang].sobre}
 						</button>
 					</div>
 					<div className='flex flex-col items-center '>
@@ -33,7 +39,10 @@ export function Header() {
 						</Link>
 					</div>
 
-					<div className='text-right '>PT /ENG</div>
+					<div className='text-right '>
+						{' '}
+						<LangSwitcher />
+					</div>
 				</div>
 			</div>
 

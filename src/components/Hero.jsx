@@ -3,9 +3,11 @@ import sanityClient from '../SanityClient.js';
 import { PortableText } from '@portabletext/react';
 import { Player } from './Player';
 import { Paragraph } from './Paragraph.jsx';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Hero() {
 	const [heroData, setHeroData] = useState(null);
+	const { lang } = useLanguage();
 
 	const fetchCurrentHero = async () => {
 		const data = await sanityClient.fetch(`*[_type == "hero"]{
@@ -87,12 +89,17 @@ export function Hero() {
 						<div className='mt-12 flex flex-col'>
 							<div>
 								<div>
-									<h2 className='text-xl font-semibold mb-2 '>{heroData.titulo}</h2>
+									<h2 className='text-xl font-semibold mb-2 '>{lang === 'pt' ? heroData.titulo : heroData.tituloEN}</h2>
+
 									<div className='flex flex-col '>
-										<div>{heroData.clusters2 && <div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{heroData.clusters2}</div>}</div>
 										<div>
-											{Array.isArray(heroData.clusters) &&
-												heroData.clusters.map((cluster, index) => (
+											{(lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN) && (
+												<div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN}</div>
+											)}
+										</div>
+										<div>
+											{Array.isArray(lang === 'pt' ? heroData.clusters : heroData.clustersEN) &&
+												(lang === 'pt' ? heroData.clusters : heroData.clustersEN).map((cluster, index) => (
 													<div key={index} className='inline-block bg-[#92929256] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full mr-1'>
 														{cluster}
 													</div>
@@ -103,7 +110,7 @@ export function Hero() {
 							</div>
 							<div className='mt-6 text-sm lg:text-base'>
 								<PortableText
-									value={heroData.descricaoMini}
+									value={lang === 'pt' ? heroData.descricaoMini : heroData.descricaoMiniEN}
 									components={{
 										block: {
 											normal: Paragraph,
