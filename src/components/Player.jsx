@@ -59,7 +59,7 @@ export function Player() {
 						{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
 					</button>
 
-					<div className='relative  flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
+					<div className='hidden relative  lg:flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
 						<button onClick={toggleMute}>{volume > 0 ? <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}</button>
 
 						<motion.input
