@@ -22,6 +22,17 @@ body::before {
   background: black; /* fallback caso o vídeo não carregue */
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 
 #bg-video {
   position: fixed;
