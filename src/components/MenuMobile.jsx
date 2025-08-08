@@ -37,7 +37,7 @@ export function MenuMobile() {
 		<div className='fixed top-0 left-0 right-0 z-50 lg:hidden'>
 			<div className='flex justify-between items-center p-6 bg-transparent relative z-50'>
 				<Link to='/'>
-					<img src='/logos/logoBugio.svg' alt='Logo' className='w-70 pointer-events-none' />
+					<img src='/logos/logoBugio.svg' alt='Logo' className='w-60 pointer-events-none' />
 				</Link>
 				<button onClick={() => setIsOpen(!isOpen)} className='text-white'>
 					{isOpen ? <X size={28} /> : <Menu size={28} />}
