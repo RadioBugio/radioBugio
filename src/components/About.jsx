@@ -81,7 +81,7 @@ export function About() {
 									<div className='text-2xl mt-12 text-center lg:text-left'>{translations[lang].aboutFichaTecnicaTitle}</div>
 
 									{Array.isArray(fichaTecnica) && fichaTecnica.length > 0 && (
-										<div className=' border-[.5px] w-1/2 border-[#484848] rounded-2xl p-4'>
+										<div className=' border-[.5px] lg:w-1/2 border-[#484848] rounded-2xl p-4'>
 											<ul className='flex flex-col gap-2 space-y-1 text-sm'>
 												{fichaTecnica.map((item, idx) => (
 													<li key={idx}>
