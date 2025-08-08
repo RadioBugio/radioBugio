@@ -36,12 +36,12 @@ export function Player() {
 	return (
 		<div className='border-[.5px] border-[#484848] text-[#eaebde] rounded-2xl p-2 flex space-x-4 relative'>
 			<img src='/artcover.jpeg' alt='Radio bugio' className='w-35 h-40 rounded-lg object-cover border-[.5px] border-[#484848]' />
-			<div className='flex flex-col justify-between py-3'>
+			<div className='flex flex-col justify-between lg:py-3'>
 				{isOnline ? (
 					<>
 						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 						<div className='min-w-0'>
-							<span className='inline-block font-semibold'>
+							<span className='inline-block font-semibold leading-[1.2]'>
 								{translations[lang].agora} {songTitle}
 							</span>
 						</div>
