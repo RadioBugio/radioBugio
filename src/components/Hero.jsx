@@ -12,9 +12,13 @@ export function Hero() {
       _id,
       programa,
       titulo,
+	  tituloEN,
       clusters,
+	  clustersEN,
       clusters2,
+	  clusters2_EN,
       descricaoMini,
+	  descricaoMiniEN,
       "dataHoraInicio": dataHoraInicio
     }`);
 
@@ -74,8 +78,8 @@ export function Hero() {
 	}, []);
 
 	return (
-		<div className=' lg:h-[100vh] flex justify-center container-default '>
-			<div className='mt-[5rem] lg:mt-0 grid lg:grid-cols-3 justify-center items-center  w-full '>
+		<div className=' h-[100vh] flex justify-center  '>
+			<div className='flex items-center pt-[5rem] lg:pt-0 px-5 lg:px-0 lg:grid lg:grid-cols-3 justify-center lg:items-center  w-full  '>
 				<div className='col-span-1 '></div>
 				<div className='col-span-1 '>
 					<Player />
@@ -89,7 +93,7 @@ export function Hero() {
 										<div>
 											{Array.isArray(heroData.clusters) &&
 												heroData.clusters.map((cluster, index) => (
-													<div key={index} className='inline-block bg-[#48484856] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full mr-1'>
+													<div key={index} className='inline-block bg-[#92929256] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full mr-1'>
 														{cluster}
 													</div>
 												))}

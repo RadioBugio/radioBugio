@@ -3,31 +3,41 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react';
 const PlayerContext = createContext();
 
 export function PlayerProvider({ children }) {
-	const audioRef = useRef(new Audio('https://azuracast-tiwnu-u49648.vm.elestio.app/listen/radio_estacao_do_bugio/stream'));
+	const audioRef = useRef(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
 	const [isMuted, setIsMuted] = useState(false);
 
 	useEffect(() => {
-		const audio = audioRef.current;
+		// Criar audio só no mount
+		audioRef.current = new Audio('https://azuracast-tiwnu-u49648.vm.elestio.app/listen/radio_estacao_do_bugio/stream');
+		audioRef.current.preload = 'none';
 
-		const updateTime = () => setCurrentTime(audio.currentTime);
-		const updateDuration = () => setDuration(audio.duration);
+		const updateTime = () => setCurrentTime(audioRef.current.currentTime || 0);
+		const updateDuration = () => setDuration(audioRef.current.duration || 0);
 
-		audio.addEventListener('timeupdate', updateTime);
-		audio.addEventListener('loadedmetadata', updateDuration);
+		audioRef.current.addEventListener('timeupdate', updateTime);
+		audioRef.current.addEventListener('loadedmetadata', updateDuration);
 
 		return () => {
-			audio.removeEventListener('timeupdate', updateTime);
-			audio.removeEventListener('loadedmetadata', updateDuration);
+			if (audioRef.current) {
+				audioRef.current.pause();
+				audioRef.current.src = '';
+				audioRef.current.removeEventListener('timeupdate', updateTime);
+				audioRef.current.removeEventListener('loadedmetadata', updateDuration);
+				audioRef.current = null;
+			}
 		};
 	}, []);
 
 	const togglePlay = () => {
 		if (!audioRef.current) return;
 		if (audioRef.current.paused) {
-			audioRef.current.play();
+			audioRef.current.play().catch(e => {
+				// Safari pode bloquear o autoplay sem interação
+				console.log('Erro ao dar play no Safari:', e);
+			});
 			setIsPlaying(true);
 		} else {
 			audioRef.current.pause();
@@ -36,9 +46,17 @@ export function PlayerProvider({ children }) {
 	};
 
 	const toggleMute = () => {
-		const audio = audioRef.current;
-		audio.muted = !audio.muted;
-		setIsMuted(audio.muted);
+		if (!audioRef.current) return;
+		audioRef.current.muted = !audioRef.current.muted;
+		setIsMuted(audioRef.current.muted);
+	};
+
+	// Ajusta volume direto pelo ref
+	const setVolume = v => {
+		if (audioRef.current) {
+			audioRef.current.volume = v;
+			setIsMuted(audioRef.current.muted);
+		}
 	};
 
 	return (
@@ -51,6 +69,7 @@ export function PlayerProvider({ children }) {
 				toggleMute,
 				isMuted,
 				togglePlay,
+				setVolume,
 			}}
 		>
 			{children}

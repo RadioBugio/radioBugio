@@ -4,6 +4,7 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+
 function formatTime(seconds) {
 	if (isNaN(seconds)) return '0:00';
 	const m = Math.floor(seconds / 60);
@@ -14,52 +15,40 @@ function formatTime(seconds) {
 }
 
 export function Player() {
-	const { meta } = useNowPlaying();
-	const { isPlaying, togglePlay, audioRef, currentTime } = usePlayer();
+	const { isPlaying, togglePlay, audioRef, currentTime, isMuted, toggleMute, setVolume } = usePlayer();
 	const [volumeHover, setVolumeHover] = useState(false);
-	const [volume, setVolume] = useState(1);
-
-	const isOnline = meta?.isOnline;
+	const { meta } = useNowPlaying();
+	const [volume, setVol] = useState(1);
 
 	const handleVolumeChange = e => {
-		const newVolume = parseFloat(e.target.value);
-		audioRef.current.volume = newVolume;
-		setVolume(newVolume);
+		const v = parseFloat(e.target.value);
+		setVol(v);
+		setVolume(v);
 	};
 
-	const toggleMute = () => {
-		if (!audioRef.current) return;
-		if (audioRef.current.volume > 0) {
-			audioRef.current.volume = 0;
-			setVolume(0);
-		} else {
-			audioRef.current.volume = 1;
-			setVolume(1);
-		}
-	};
+	const isOnline = meta?.isOnline;
+	const songTitle = meta?.song?.title || '';
 
 	return (
-		<div className='border-[.5px] border-[#484848]  text-[#eaebde] rounded-2xl p-2 flex space-x-4   relative'>
-			<img src='/artcover.jpeg' alt='Radio bugio imagem' className='w-35 h-40 rounded-lg object-cover border-[.5px] border-[#484848] pointer-events-none' />
-
-			<div className='  flex flex-col justify-between py-3'>
-				{meta?.isOnline ? (
-					<div>
-						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
-						<div className="  min-w-0">
-
-							<span className='inline-block font-semibold'>A tocar: {meta?.song.title}</span>
+		<div className='border-[.5px] border-[#484848] text-[#eaebde] rounded-2xl p-2 flex space-x-4 relative'>
+			<img src='/artcover.jpeg' alt='Radio bugio' className='w-35 h-40 rounded-lg object-cover border-[.5px] border-[#484848]' />
+			<div className='flex flex-col justify-between py-3'>
+				{isOnline ? (
+					<>
+						<p className='text-[#898989] text-sm mb-1'>Live stream</p>
+						<div className='min-w-0'>
+							<span className='inline-block font-semibold'>Agora: {songTitle}</span>
 						</div>
-
 						<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
-					</div>
+					</>
 				) : (
 					<div className='text-sm font-semibold'>
-						OFFLINE<br></br> Visita o nosso arquivo.
+						OFFLINE
+						<br />
+						Voltaremos em breve.
 					</div>
 				)}
-
-				<div className=' flex gap-4 '>
+				<div className='flex gap-4'>
 					<button onClick={togglePlay} disabled={!isOnline} className={`focus:outline-none ${!isOnline ? 'opacity-40 cursor-not-allowed' : ''}`}>
 						{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
 					</button>
