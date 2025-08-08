@@ -1,43 +1,96 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CirclePlus, CircleMinus } from 'lucide-react';
 import { translations } from '../Lang/translation.js';
 import { useLanguage } from '../context/LanguageContext';
+import { PortableText } from '@portabletext/react';
+import sanityClient from '../SanityClient.js';
+
 
 export function About() {
 	const [expanded, setExpanded] = useState(false);
+	const [aboutData, setAboutData] = useState(null);
 	const { lang } = useLanguage();
-	const toggle = () => setExpanded(prev => !prev);
+
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "sobre"][0]{
+				sobre,
+				sobreEN,
+				sobreExpandido,
+				sobreExpandidoEN,
+				biografiaDiana,
+				biografiaDianaEN,
+				biografiaBernardo,
+				biografiaBernardoEN,
+				fichatecnica,
+				fichatecnicaEN
+			}`,
+			)
+			.then(data => setAboutData(data));
+	}, []);
+
+	const toggle = () => {
+		setExpanded(prev => !prev);
+	};
+
+	/* if (!aboutData) return null; */
+
+
+	if (!aboutData) {
+		return <div className='container-default text-[#eaebde]'>Loading...</div>;
+	}
+
+	const sobre = lang === 'pt' ? aboutData.sobre : aboutData.sobreEN;
+	const sobreExpandido = lang === 'pt' ? aboutData.sobreExpandido : aboutData.sobreExpandidoEN;
+	const bioDiana = lang === 'pt' ? aboutData.biografiaDiana : aboutData.biografiaDianaEN;
+	const bioBernardo = lang === 'pt' ? aboutData.biografiaBernardo : aboutData.biografiaBernardoEN;
+	const fichaTecnica = lang === 'pt' ? aboutData.fichatecnica : aboutData.fichatecnicaEN;
+
 
 	return (
 		<>
 			<hr className='border-[#484848]' />
 			<div className='container-default '>
-				<h2 className='text-2xl mb-8 font-bold text-center lg:text-left'>{translations[lang].sobre}</h2>
+				<div className='text-2xl mb-8 font-bold text-center lg:text-left'>{translations[lang].sobre}</div>
 
 				<div className='lg:flex lg:flex-col lg:items-center'>
 					<div className='lg:w-2/3 lg:text-[1rem] text-sm space-y-4 text-[#eaebde]'>
-						<p dangerouslySetInnerHTML={{ __html: translations[lang].aboutIntro }} />
-
+						<PortableText value={sobre} />
 						<AnimatePresence initial={false}>
 							{expanded && (
 								<motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className='space-y-4 mt-6'>
-									<p dangerouslySetInnerHTML={{ __html: translations[lang].aboutExpand }} />
+									<PortableText value={sobreExpandido} />
 
 									<img src='/artcover.jpeg' alt='Diana Policarpo & Bernardo Gaeiras' className='w-full h-[450px] rounded-lg object-cover border-[.5px] border-[#484848] pointer-events-none mt-12' />
-									<h1 className='text-2xl mt-12 text-center lg:text-left'>{translations[lang].aboutBioTitle}</h1>
+
+									<div className='text-2xl mt-12 text-center lg:text-left'>{translations[lang].aboutBioTitle}</div>
 
 									<div className='flex flex-col lg:grid lg:grid-cols-2 gap-12 mt-6'>
 										<div>
-											<div className='font-bold'>{translations[lang].aboutDianaTitle}</div>
-
-											<p dangerouslySetInnerHTML={{ __html: translations[lang].aboutDianaText }} />
+											<div className='font-bold'>Diana Policarpo</div>
+											<PortableText value={bioDiana} />
 										</div>
 										<div>
-											<div className='font-bold'>{translations[lang].aboutBernardoTitle}</div>
-											<p dangerouslySetInnerHTML={{ __html: translations[lang].aboutBernardoText }} />
+											<div className='font-bold'>Bernardo Gaeiras</div>
+											<PortableText value={bioBernardo} />
 										</div>
 									</div>
+
+									<div className='text-2xl mt-12 text-center lg:text-left'>{translations[lang].aboutFichaTecnicaTitle}</div>
+
+									{Array.isArray(fichaTecnica) && fichaTecnica.length > 0 && (
+										<div className=' border-[.5px] w-1/2 border-[#484848] rounded-2xl p-4'>
+											<ul className='flex flex-col gap-2 space-y-1 text-sm'>
+												{fichaTecnica.map((item, idx) => (
+													<li key={idx}>
+														<b>{item.nome}</b> <br></br> <span className='opacity-60'>{item.funcao}</span>
+													</li>
+												))}
+											</ul>
+										</div>
+									)}
 								</motion.div>
 							)}
 						</AnimatePresence>

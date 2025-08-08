@@ -17,6 +17,7 @@ In addition to being a sound art project, Bugio Radio-Station is a practice of a
 
     `,
 		aboutBioTitle: 'Biography',
+		aboutFichaTecnicaTitle: 'Credits',
 		aboutDianaTitle: 'Diana Policarpo',
 		aboutDianaText: `Diana Policarpo (Lisbon, 1986) lives and works between Lisbon and London. <br>
 She is a visual artist and composer whose practice moves fluidly across artistic media including sound, sculpture, film, drawing, and installation. Currently working across visual arts, electroacoustic music, and multimedia performance, her work investigates popular culture, health, gender politics, and interspecies relationships. Policarpo frequently draws connections between art and science, both in her installations and through direct engagement with landscapes and ecological or extractive systems. Her projects explore the rhythmic structure of sound as a tactile material, interwoven with the social construction of esoteric ideology.<br>
@@ -56,6 +57,7 @@ Currently a doctoral researcher in the Digital Media program at the Interactive 
       muitas vezes escapam à nossa atenção. Esta rádio torna audível a confluência entre arte, ciência, ecologia, ficção e investigação ambiental impulsionando a literacia do oceano.
     `,
 		aboutBioTitle: 'Biografias',
+		aboutFichaTecnicaTitle: 'Ficha técnica',
 		aboutDianaTitle: 'Diana Policarpo',
 		aboutDianaText: `Diana Policarpo (Lisboa, 1986) vive e trabalha entre Lisboa e Londres. <br> É artista visual e compositora cuja prática se move entre suportes artísticos como som, escultura, filme,
 											desenho e instalação. Atualmente desenvolve o seu trabalho entre as artes visuais, a música electroacústica e a performance multimédia. O seu trabalho investiga cultura popular,
