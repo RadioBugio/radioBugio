@@ -69,20 +69,7 @@ export default {
         },
       ],
     },
-    {
-      name: 'horarioEN',
-      title: 'HorárioEN',
-      type: 'object',
-      fields: [
-        {
-          name: 'inicio',
-          title: 'Hora de Início',
-          type: 'string',
-          placeholder: 'ex: 5pm',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
-    },
+   
     {
       name: 'titulo',
       title: 'Título',

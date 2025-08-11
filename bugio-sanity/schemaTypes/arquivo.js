@@ -67,27 +67,7 @@ export default {
           placeholder: 'ex: 17:00',
           validation: (Rule) => Rule.required(),
         },
-        {
-          name: 'inicioEN',
-          title: 'Hora de InícioEN',
-          type: 'string',
-          placeholder: 'ex: 5pm',
-          validation: (Rule) => Rule.required(),
-        },
-        {
-          name: 'fim',
-          title: 'Hora de Fim',
-          type: 'string',
-          placeholder: 'ex: 19:30',
-          validation: (Rule) => Rule.required(),
-        },
-        {
-          name: 'fimEN',
-          title: 'Hora de FimEN',
-          type: 'string',
-          placeholder: 'ex: 7:30',
-          validation: (Rule) => Rule.required(),
-        },
+        
       ],
     },
     {

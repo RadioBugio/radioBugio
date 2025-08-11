@@ -20,13 +20,11 @@ export default {
       name: 'titulo',
       title: 'Título',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'tituloEN',
       title: 'TítuloEN',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'clusters',
@@ -91,7 +89,6 @@ export default {
         ],
         layout: 'dropdown',
       },
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'clusters2_EN',
@@ -110,7 +107,6 @@ export default {
         ],
         layout: 'dropdown',
       },
-      validation: (Rule) => Rule.required(),
     },
 
     {
@@ -118,14 +114,12 @@ export default {
       title: 'Texto Descritivo (Short)',
       type: 'blockContent',
 
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'descricaoMiniEN',
       title: 'Texto DescritivoEN',
       type: 'blockContent',
 
-      validation: (Rule) => Rule.required(),
     },
   ],
   orderings: [
