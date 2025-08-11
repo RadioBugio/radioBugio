@@ -69,7 +69,7 @@ export default {
         },
       ],
     },
-   
+
     {
       name: 'titulo',
       title: 'Título',
@@ -213,6 +213,45 @@ export default {
       ],
     },
   ],
+  preview: {
+    select: {
+      programa: 'programa',
+      title: 'titulo',
+      dia: 'data.dia',
+      mes: 'data.mes',
+      ano: 'data.ano',
+      hora: 'horario.inicio',
+      media: 'imagens.0', // pega a primeira imagem do array
+    },
+    prepare({programa, title, dia, mes, ano, hora, media}) {
+      const mapMes = {
+        Janeiro: '01',
+        Fevereiro: '02',
+        Março: '03',
+        Abril: '04',
+        Maio: '05',
+        Junho: '06',
+        Julho: '07',
+        Agosto: '08',
+        Setembro: '09',
+        Outubro: '10',
+        Novembro: '11',
+        Dezembro: '12',
+      }
+      const pad2 = (n) => String(n ?? '').padStart(2, '0')
+      const mm = mapMes[mes] || ''
+      const dd = pad2(dia)
+      const dateStr = dd && mm && ano ? `${dd}/${mm}/${ano}` : ''
+      const subtitle = [dateStr, hora].filter(Boolean).join(' • ')
+
+      return {
+        title: programa ? `${programa}. ${title}` : title || 'Sem título',
+        subtitle,
+        media 
+      }
+    },
+  },
+
   orderings: [
     {
       title: 'Ordenar por programa',
