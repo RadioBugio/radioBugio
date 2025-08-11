@@ -129,12 +129,9 @@ export default {
     },
     prepare({programa, title, dataHoraInicio}) {
       const d = dataHoraInicio ? new Date(dataHoraInicio) : null
-
       const pad2 = (n) => String(n ?? '').padStart(2, '0')
       const dateStr = d ? `${pad2(d.getDate())}/${pad2(d.getMonth() + 1)}/${d.getFullYear()}` : ''
-
       const timeStr = d ? `${pad2(d.getHours())}:${pad2(d.getMinutes())}` : ''
-
       const subtitle = [dateStr, timeStr].filter(Boolean).join(' • ')
 
       return {
