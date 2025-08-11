@@ -112,7 +112,6 @@ export default {
           {title: 'Correntes Políticas e Cívicas', value: 'Correntes Políticas e Cívicas'},
         ],
       },
-      validation: (Rule) => Rule.required().min(1),
     },
     {
       name: 'clustersEN',
