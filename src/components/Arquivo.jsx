@@ -44,21 +44,20 @@ export function Arquivo({ arquivos }) {
 									{ep.duracao} min
 								</div>
 								<div className=' text-[#eaebde] text-[1.1rem] font-semibold mt-2 leading-[1.3] '> {lang === 'pt' ? ep.titulo : ep.tituloEN}</div>
-								<div className='flex flex-col gap-1 mt-4 flex-grow content-end-safe  place-content-end-safe  '>
-									<div>
-										{(lang === 'pt' ? ep.clusters2 : ep.clusters2_EN) && (
-											<div className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem]  text-[#eaebde] rounded-full border-[.5px] border-[#484848]'>
-												{lang === 'pt' ? ep.clusters2 : ep.clusters2_EN}
-											</div>
-										)}
-									</div>
-									<div className='flex flex-wrap gap-1 '>
-										{Array.isArray(lang === 'pt' ? ep.clusters : ep.clustersEN) &&
-											(lang === 'pt' ? ep.clusters : ep.clustersEN).map((c, i) => (
-												<span key={i} className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem]  text-[#eaebde] rounded-full border-[.5px] border-[#484848]'>
-													{c}
-												</span>
-											))}
+								<div className='mt-auto pt-2 '>
+									
+									
+									{(lang === 'pt' ? ep.clusters2 : ep.clusters2_EN) && (
+										<div className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem] text-[#eaebde] rounded-full border-[.5px] border-[#484848] mb-1'>
+											{lang === 'pt' ? ep.clusters2 : ep.clusters2_EN}
+										</div>
+									)}
+									<div className='flex flex-wrap gap-1'>
+										{(Array.isArray(lang === 'pt' ? ep.clusters : ep.clustersEN) ? (lang === 'pt' ? ep.clusters : ep.clustersEN) : []).map((c, i) => (
+											<span key={i} className='inline-block bg-[#88888856] px-3 py-1 text-[0.7rem] text-[#eaebde] rounded-full border-[.5px] border-[#484848]'>
+												{c}
+											</span>
+										))}
 									</div>
 								</div>
 							</div>

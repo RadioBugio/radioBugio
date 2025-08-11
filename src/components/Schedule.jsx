@@ -6,7 +6,6 @@ import { Paragraph } from './Paragraph.jsx';
 import { translations } from '../Lang/translation.js';
 import { useLanguage } from '../context/LanguageContext';
 
-
 function mesParaNumero(mes) {
 	const mapa = {
 		Janeiro: '01',
@@ -42,8 +41,6 @@ function horaParaEnFormat(horaStr) {
 	}
 }
 
-
-
 export function Schedule({ entrevistas }) {
 	const [expandedId, setExpandedId] = useState(null);
 	const { lang } = useLanguage();
@@ -52,8 +49,18 @@ export function Schedule({ entrevistas }) {
 		setExpandedId(prev => (prev === id ? null : id));
 	};
 
-	if (!entrevistas || entrevistas.length === 0) return null;
+	if (!entrevistas || entrevistas.length === 0) {
+		return (
+			<>
+				<hr className='border-[#484848]' />
 
+				<div className='text-center text-[#eaebde] container-default '>
+					<div className='text-2xl font-bold lg:text-left text-center'>{translations[lang].programação}</div>
+					<div className='text-lg font-semibold opacity-50'>{translations[lang].disclaimer}</div>
+				</div>
+			</>
+		);
+	}
 	const grouped = entrevistas.reduce((acc, ep) => {
 		const dateKey = `${ep.data?.dia}-${mesParaNumero(ep.data?.mes)}-${ep.data?.ano}`;
 		if (!acc[dateKey]) acc[dateKey] = [];

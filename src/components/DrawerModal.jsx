@@ -98,7 +98,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 								<div className='col-span-2'>
 									<div className='text-sm  text-[#eaebde] flex flex-col gap-1 mb-4'>
 										<div>
-											{episode.data?.dia}.{mesParaNumero(episode.data?.mes)}.{episode.data?.ano}
+											{episode.data?.dia}.{mesParaNumero(episode.data?.mes)}.{episode.data?.ano} 
 										</div>
 
 										<div>

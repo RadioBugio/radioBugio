@@ -23,12 +23,14 @@ export function Header() {
 			<div className='hidden lg:block  fixed top-0 left-0 right-0 z-50  '>
 				<div className='mx-8 mt-8 grid grid-cols-3 gap-4   '>
 					<div className=' flex flex-col items-start '>
-						<button onClick={() => scrollToSection('programacao')} className='hover:underline  '>
+						<button onClick={() => scrollToSection('programacao')} className=' hover:underline'>
 							{translations[lang].programação}
 						</button>
-						<button  className='opacity-40 cursor-not-allowed'>
+
+						<button onClick={() => scrollToSection('arquivo')} className='hover:underline '>
 							{translations[lang].arquivo}
 						</button>
+
 						<button onClick={() => scrollToSection('sobre')} className='hover:underline '>
 							{translations[lang].sobre}
 						</button>

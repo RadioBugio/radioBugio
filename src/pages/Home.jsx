@@ -13,7 +13,7 @@ export function Home() {
 	useEffect(() => {
 		const fetchEntrevistas = async () => {
 			try {
-				const data = await sanityClient.fetch(`*[_type == "entrevista"] | order(programa asc) {
+				const data = await sanityClient.fetch(`*[_type == "programacao"] | order(programa asc) {
 					_id,
 					programa,
 					data,

@@ -1,6 +1,6 @@
 export default {
-  name: 'entrevista',
-  title: 'Entrevistas',
+  name: 'programacao',
+  title: 'Programação',
   type: 'document',
   fields: [
     {

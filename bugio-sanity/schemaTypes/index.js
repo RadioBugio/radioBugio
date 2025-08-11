@@ -1,8 +1,8 @@
-import entrevista from "./entrevista";
+import programacao from "./programacao";
 import arquivo from "./arquivo";
 import blockContent from './blockContent' 
 import hero from './hero'
 import sobre from './sobre'
 
 
-export const schemaTypes = [entrevista, arquivo, blockContent, hero, sobre]
+export const schemaTypes = [programacao, arquivo, blockContent, hero, sobre]
