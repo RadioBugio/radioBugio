@@ -113,15 +113,36 @@ export default {
       name: 'descricaoMini',
       title: 'Texto Descritivo (Short)',
       type: 'blockContent',
-
     },
     {
       name: 'descricaoMiniEN',
       title: 'Texto DescritivoEN',
       type: 'blockContent',
-
     },
   ],
+
+  preview: {
+    select: {
+      programa: 'programa',
+      title: 'titulo',
+      dataHoraInicio: 'dataHoraInicio',
+    },
+    prepare({programa, title, dataHoraInicio}) {
+      const d = dataHoraInicio ? new Date(dataHoraInicio) : null
+
+      const pad2 = (n) => String(n ?? '').padStart(2, '0')
+      const dateStr = d ? `${pad2(d.getDate())}/${pad2(d.getMonth() + 1)}/${d.getFullYear()}` : ''
+
+      const timeStr = d ? `${pad2(d.getHours())}:${pad2(d.getMinutes())}` : ''
+
+      const subtitle = [dateStr, timeStr].filter(Boolean).join(' • ')
+
+      return {
+        title: programa ? `${programa}. ${title || 'Sem título'}` : title || 'Sem título',
+        subtitle,
+      }
+    },
+  },
   orderings: [
     {
       title: 'Ordenar por programa',
