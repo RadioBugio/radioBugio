@@ -33,7 +33,7 @@ export function Arquivo({ arquivos }) {
 						<li
 							key={ep._id}
 							onClick={() => setSelectedEp(ep)}
-							className='border-[.5px] border-[#484848] hover:opacity-50 rounded-2xl p-3 transition duration-500 cursor-pointer h-[400px] flex flex-col gap-3'
+							className='border-[.5px] border-[#484848] hover:opacity-50 rounded-2xl p-3 transition duration-500 cursor-pointer h-[450px] flex flex-col gap-3'
 						>
 							<img src={urlFor(ep.thumbnail).url()} alt={lang === 'pt' ? ep.titulo : ep.tituloEN} className='rounded-xl w-full h-[200px] object-cover' />
 							<div className='mx-2 flex flex-col flex-grow'>
