@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { DrawerModal } from './DrawerModal';
 import { translations } from '../Lang/translation.js';

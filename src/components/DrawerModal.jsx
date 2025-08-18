@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -6,7 +6,6 @@ import { X } from 'lucide-react';
 import { Paragraph } from './Paragraph.jsx';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { useLanguage } from '../context/LanguageContext';
-import { usePlayer } from '../context/PlayerContext';
 import { ArchivePlayer } from './ArchivePlayer.jsx';
 
 function mesParaNumero(mes) {
@@ -27,21 +26,8 @@ function mesParaNumero(mes) {
 	return mapa[mes] || '';
 }
 
-// helper para parar e libertar recursos do <audio>
-function stopAndUnload(audioEl) {
-	if (!audioEl) return;
-	try {
-		audioEl.pause();
-		audioEl.currentTime = 0;
-		audioEl.removeAttribute('src'); // evita downloads/buffer a ficarem em memória
-		audioEl.load(); // força limpar o buffer/ligação
-	} catch {}
-}
-
 export function DrawerModal({ episode, isOpen, onClose }) {
 	const { lang } = useLanguage();
-	const { isPlaying: liveIsPlaying, pause: pauseLive } = usePlayer();
-	const archiveAudioRef = useRef(null);
 
 	// trava/destrava scroll do body
 	useEffect(() => {
@@ -54,36 +40,10 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 	// ESC fecha o drawer
 	useEffect(() => {
 		if (!isOpen) return;
-		const onKey = e => {
-			if (e.key === 'Escape') onClose?.();
-		};
+		const onKey = e => e.key === 'Escape' && onClose?.();
 		window.addEventListener('keydown', onKey);
 		return () => window.removeEventListener('keydown', onKey);
 	}, [isOpen, onClose]);
-
-	// ao fechar o drawer, parar e descarregar a gravação
-	useEffect(() => {
-		if (!isOpen && archiveAudioRef.current) {
-			stopAndUnload(archiveAudioRef.current);
-		}
-	}, [isOpen]);
-
-	// ao desmontar, garantir que limpamos o áudio
-	useEffect(() => {
-		return () => stopAndUnload(archiveAudioRef.current);
-	}, []);
-
-	// se o Live começar a tocar → pausa a gravação
-	useEffect(() => {
-		if (liveIsPlaying && archiveAudioRef.current && !archiveAudioRef.current.paused) {
-			archiveAudioRef.current.pause();
-		}
-	}, [liveIsPlaying]);
-
-	// se a gravação começa a tocar → pausa o Live
-	const handleArchivePlay = () => {
-		pauseLive();
-	};
 
 	if (!episode) return null;
 
@@ -108,8 +68,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
 						transition={{ duration: 0.4 }}
-						// impedir que cliques dentro do drawer fechem pelo overlay
-						onClick={e => e.stopPropagation()}
+						onClick={e => e.stopPropagation()} // não fechar ao clicar dentro
 					>
 						<div className='flex flex-col lg:grid lg:grid-cols-9 lg:gap-8'>
 							{/* Coluna imagens */}
@@ -134,12 +93,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 									<div className='text-[1.1rem] font-semibold lg:text-[1.3rem] text-[#eaebde] leading-[1.3]'>{titulo}</div>
 
 									<div className='lg:pt-8 text-sm lg:text-[1rem] text-[#eaebde]'>
-										<PortableText
-											value={descricao}
-											components={{
-												block: { normal: Paragraph },
-											}}
-										/>
+										<PortableText value={descricao} components={{ block: { normal: Paragraph } }} />
 									</div>
 								</div>
 
@@ -150,7 +104,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 										</div>
 										{duracao && (
 											<div>
-												{lang === 'pt' ? 'duração' : 'duration'}: {duracao} min
+												{lang === 'pt' ? 'duração' : 'duration'}: {duracao}
 											</div>
 										)}
 									</div>
@@ -167,7 +121,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 										</div>
 									)}
 
-									{episode.archiveAudioUrl && <ArchivePlayer src={episode.archiveAudioUrl} onPlayStart={handleArchivePlay} />}
+									{episode.archiveAudioUrl && <ArchivePlayer src={episode.archiveAudioUrl} />}
 								</div>
 							</div>
 
