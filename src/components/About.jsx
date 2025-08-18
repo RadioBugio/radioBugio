@@ -55,6 +55,8 @@ export function About() {
 			<div className='container-default '>
 				<div className='text-2xl mb-8 font-bold text-center lg:text-left'>{translations[lang].sobre}</div>
 
+				
+
 				<div className='lg:flex lg:flex-col lg:items-center'>
 					<div className='lg:w-2/3 lg:text-[1rem] text-sm space-y-4 text-[#eaebde]'>
 						<PortableText value={sobre} />

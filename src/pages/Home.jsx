@@ -54,7 +54,8 @@ export function Home() {
 					clusters2_EN,
 					duracao,
 					thumbnail,
-					imagens[]
+					imagens[],
+					archiveAudioUrl
 				}`);
 				setArquivos(data);
 			} catch (error) {
@@ -68,6 +69,7 @@ export function Home() {
 
 	return (
 		<div >
+			
 			
 			<Hero />
 			<div id='programacao'>

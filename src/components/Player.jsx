@@ -42,7 +42,7 @@ export function Player() {
 						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
 						<div className='min-w-0'>
 							<div className='inline-block font-semibold leading-[1.2]'>
-								<span className=' opacity-70'>{translations[lang].agora}</span>  {songTitle}
+								<span className=' opacity-70'>{translations[lang].agora}</span> {songTitle}
 							</div>
 						</div>
 						<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
@@ -69,7 +69,7 @@ export function Player() {
 							step='0.01'
 							value={volume}
 							onChange={handleVolumeChange}
-							className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer '
+							className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer accent-[#eaebde]'
 							initial={{ opacity: 0, x: -10 }}
 							animate={{ opacity: volumeHover ? 1 : 0, x: volumeHover ? 0 : -10 }}
 							transition={{ duration: 0.2 }}

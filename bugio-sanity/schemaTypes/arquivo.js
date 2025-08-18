@@ -205,6 +205,12 @@ export default {
 
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'archiveAudioUrl',
+      title: 'Internet Archive – Audio URL (permalink)',
+      type: 'url',
+      description: 'Forma: https://archive.org/download/IDENTIFIER/FILENAME (permalink estável)',
+    },
   ],
 
   preview: {

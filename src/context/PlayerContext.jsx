@@ -59,6 +59,12 @@ export function PlayerProvider({ children }) {
 		}
 	};
 
+	const pause = () => {
+		if (!audioRef.current) return;
+		audioRef.current.pause();
+		setIsPlaying(false);
+	};
+
 	return (
 		<PlayerContext.Provider
 			value={{
@@ -70,6 +76,7 @@ export function PlayerProvider({ children }) {
 				isMuted,
 				togglePlay,
 				setVolume,
+				pause,
 			}}
 		>
 			{children}
