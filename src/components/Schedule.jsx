@@ -90,7 +90,7 @@ export function Schedule({ entrevistas }) {
 
 											return (
 												<li key={ep._id} onClick={() => toggle(ep._id)} className='relative border-[.5px] border-[#484848] rounded-2xl p-3 transition duration-500 hover:bg-black cursor-pointer'>
-													<div className='flex flex-col lg:grid lg:grid-cols-7 gap-2 lg:gap-8 px-2 pt-2'>
+													<div className='flex flex-col lg:grid lg:grid-cols-7 gap-2 lg:gap-8 px-2 py-2'>
 														<div className='col-span-1 flex justify-between text-sm lg:text-[1rem] opacity-80 '>
 															<span>{lang === 'pt' ? ep.horario?.inicio : horaParaEnFormat(ep.horario?.inicio)}</span>
 														</div>
@@ -149,7 +149,7 @@ export function Schedule({ entrevistas }) {
 																animate={{ opacity: 1, height: 'auto' }}
 																exit={{ opacity: 0, height: 0 }}
 																transition={{ duration: 0.3 }}
-																className='overflow-hidden mt-6 lg:mt-12 text-sm text-gray-300 lg:px-0 lg:pb-2 '
+																className='overflow-hidden mt-6 lg:mt-12 text-sm text-gray-300 lg:px-0 lg:pb-0 '
 															>
 																{Array.isArray(ep.imagens) && ep.imagens.length > 0 && (
 																	<div className='flex flex-col lg:grid lg:grid-cols-3 gap-8 px-2'>
