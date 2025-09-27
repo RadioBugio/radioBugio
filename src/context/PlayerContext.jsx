@@ -10,8 +10,7 @@ export function PlayerProvider({ children }) {
 	const [isMuted, setIsMuted] = useState(false);
 
 	useEffect(() => {
-		// Criar audio só no mount
-		audioRef.current = new Audio('https://azuracast-tiwnu-u49648.vm.elestio.app/listen/radio_estacao_do_bugio/stream');
+		audioRef.current = new Audio('https://azuracast-zrtyr-u49648.vm.elestio.app/listen/radio_estacao_do_bugio/stream');
 		audioRef.current.preload = 'none';
 
 		const updateTime = () => setCurrentTime(audioRef.current.currentTime || 0);
@@ -35,7 +34,6 @@ export function PlayerProvider({ children }) {
 		if (!audioRef.current) return;
 		if (audioRef.current.paused) {
 			audioRef.current.play().catch(e => {
-				// Safari pode bloquear o autoplay sem interação
 				console.log('Erro ao dar play no Safari:', e);
 			});
 			setIsPlaying(true);

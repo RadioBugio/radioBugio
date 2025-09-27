@@ -11,7 +11,7 @@ export function NowPlayingProvider({ children }) {
 	useEffect(() => {
 		const fetchMeta = async () => {
 			try {
-				const res = await axios.get('https://azuracast-tiwnu-u49648.vm.elestio.app/api/nowplaying/radio_estacao_do_bugio');
+				const res = await axios.get('https://azuracast-zrtyr-u49648.vm.elestio.app/api/nowplaying/radio_estacao_do_bugio');
 				setMeta({
 					song: res.data.now_playing.song,
 					isOnline: res.data.is_online, 
