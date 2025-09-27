@@ -38,7 +38,7 @@ export function Player() {
 			<div className='flex flex-col justify-between lg:py-3'>
 				{isOnline ? (
 					<>
-						<p className='text-[#898989] text-sm mb-1 live-now'>Live stream</p>
+						<p className='text-[#898989] text-sm mb-0 live-now'>Live stream</p>
 						<div className='min-w-0'>
 							<div className='inline-block font-semibold leading-[1.2]'>
 								<span className=' opacity-70'>{translations[lang].agora}</span> {songTitle}
