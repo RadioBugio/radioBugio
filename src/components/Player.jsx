@@ -7,8 +7,6 @@ import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../Lang/translation.js';
 
 function formatTime(seconds) {
-	
-
 	if (isNaN(seconds)) return '0:00';
 	const m = Math.floor(seconds / 60);
 	const s = Math.floor(seconds % 60)
@@ -18,7 +16,8 @@ function formatTime(seconds) {
 }
 
 export function Player() {
-	const { isPlaying, togglePlay, audioRef, currentTime, isMuted, toggleMute, setVolume } = usePlayer();
+	const { isPlaying, togglePlay, currentTime, isMuted, toggleMute, setVolume, liveAvailable } = usePlayer();
+
 	const [volumeHover, setVolumeHover] = useState(false);
 	const { meta } = useNowPlaying();
 	const [volume, setVol] = useState(1);
@@ -30,7 +29,7 @@ export function Player() {
 		setVolume(v);
 	};
 
-	const isOnline = meta?.isOnline;
+	const isOnline = (meta?.isOnline ?? false) || liveAvailable || isPlaying;
 	const songTitle = meta?.song?.title || '';
 
 	return (
@@ -55,12 +54,13 @@ export function Player() {
 					</div>
 				)}
 				<div className='flex gap-4'>
-					<button onClick={togglePlay} disabled={!isOnline} className={`focus:outline-none ${!isOnline ? 'opacity-40 cursor-not-allowed' : ''}`}>
+					<button onClick={togglePlay} className='focus:outline-none'>
 						{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
 					</button>
-
 					<div className='hidden relative  lg:flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
-						<button onClick={toggleMute}>{volume > 0 ? <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}</button>
+						<button onClick={toggleMute}>
+							{isMuted || volume === 0 ? <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}
+						</button>
 
 						<motion.input
 							type='range'
