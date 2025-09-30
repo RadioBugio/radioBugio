@@ -54,7 +54,7 @@ export function Player() {
 					</div>
 				)}
 				<div className='flex gap-4'>
-					<button onClick={togglePlay} className='focus:outline-none'>
+					<button onClick={togglePlay} className='focus:outline-none' disabled={!isOnline}>
 						{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
 					</button>
 					<div className='hidden relative  lg:flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
