@@ -38,7 +38,7 @@ export function Home() {
 
 		const fetchArquivos = async () => {
 			try {
-				const data = await sanityClient.fetch(`*[_type == "arquivo"] | order(programa asc) {
+				const data = await sanityClient.fetch(`*[_type == "arquivo"] | order(programa desc) {
 					_id,
 					programa,
 					data,
