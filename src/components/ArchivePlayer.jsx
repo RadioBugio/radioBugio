@@ -78,7 +78,7 @@ export function ArchivePlayer({ src, className = '' }) {
 	};
 
 	return (
-		<div className={`w-full border-[.5px] border-[#484848] p-4 text-sm rounded-xl ${className}`}>
+		<div className={`w-full  pt-4 pl-1 text-sm rounded-xl ${className}`}>
 			<audio ref={audioRef} src={src} preload='metadata' className='hidden' />
 
 			<div className='group flex items-center gap-4'>

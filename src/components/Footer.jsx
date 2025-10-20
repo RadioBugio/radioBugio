@@ -20,7 +20,7 @@ export function Footer() {
 			<SmallPlayer />
 			<hr className='border-[#484848]' />
 
-			<footer className='container-default pb-10 lg:pb-0 '>
+			<footer className='container-default  pb-10 lg:pb-[4rem] '>
 				<div className='text-xs lg:w-2/3 lg:text-center mx-auto leading-[1.4]'>
 					<span dangerouslySetInnerHTML={{ __html: translations[lang].footer }} />
 				</div>
@@ -35,7 +35,7 @@ export function Footer() {
 				</div>
 				<div className='text-xs lg:w-2/3 text-center mx-auto leading-[1.4]'>
 					This website was designed and developed by{' '}
-					<a href='www.diogobrito.xyz' target='_blank'>
+					<a href='www.diogobrito.xyz' target='_blank' rel='noreferrer noopener'>
 						<u>Diogo Brito</u>
 					</a>
 					. All Sound, Text and Images are copyright of Rádio-Estação Bugio and the respective authors.

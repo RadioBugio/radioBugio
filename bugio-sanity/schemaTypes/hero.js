@@ -46,6 +46,7 @@ export default {
           {title: 'Partículas e Substâncias', value: 'Partículas e Substâncias'},
           {title: 'Fungos e Agentes Simbióticos', value: 'Fungos e Agentes Simbióticos'},
           {title: 'Correntes Políticas e Cívicas', value: 'Correntes Políticas e Cívicas'},
+          {title: 'Ciência Cidadã', value: 'Ciência Cidadã'},
         ],
       },
     },
@@ -67,8 +68,9 @@ export default {
           {title: 'Climate and Atmospheric Forces', value: 'Climate and Atmospheric Forces'},
           {title: 'Perception Mediators ', value: 'Perception Mediators '},
           {title: 'Particles and Substances', value: 'Particles and Substances'},
-          {title: 'Fungos e Agentes Simbióticos', value: 'Fungos e Agentes Simbióticos'},
+          {title: 'Fungi and Symbiotic Agents', value: 'Fungi and Symbiotic Agents'},
           {title: 'Political and Civic Currents', value: 'Political and Civic Currents'},
+          {title: 'Citizen Science', value: 'Citizen Science'},
         ],
       },
     },
@@ -85,6 +87,10 @@ export default {
           {
             title: 'Paisagem Sonora',
             value: 'Paisagem Sonora',
+          },
+          {
+            title: 'Podcast',
+            value: 'Podcast',
           },
         ],
         layout: 'dropdown',
@@ -103,6 +109,10 @@ export default {
           {
             title: 'Soundscape',
             value: 'Soundscape',
+          },
+          {
+            title: 'Podcast',
+            value: 'Podcast',
           },
         ],
         layout: 'dropdown',

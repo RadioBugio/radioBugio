@@ -1,4 +1,3 @@
-// NowPlayingContext.jsx
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -21,7 +20,6 @@ export function NowPlayingProvider({ children }) {
 					Boolean(d?.is_online) ||
 					Boolean(d?.live?.is_live) ||
 					Boolean(d?.now_playing?.is_playing) ||
-					// alguns retornam "playing" ou têm listeners>0 quando online
 					Boolean(d?.playing) ||
 					(typeof d?.listeners?.current === 'number' && d.listeners.current > 0);
 

@@ -51,11 +51,9 @@ export function About() {
 
 	return (
 		<>
-			<hr className='border-[#484848]' />
-			<div className='container-default '>
-				<div className='text-2xl mb-8 font-bold text-center lg:text-left'>{translations[lang].sobre}</div>
-
-				
+			<hr className='border-[#4c4c4b]' />
+			<div className='m-[2rem] '>
+				<div className='text-xl opacity-60  font-semibold text-center lg:text-left'>{translations[lang].sobre}</div>
 
 				<div className='lg:flex lg:flex-col lg:items-center'>
 					<div className='lg:w-2/3 lg:text-[1rem] text-sm space-y-4 text-[#eaebde]'>
@@ -98,8 +96,8 @@ export function About() {
 						</AnimatePresence>
 
 						<div className='mt-4 '>
-							<button onClick={toggle} className='  hover:underline transition duration-200 underline-offset-4'>
-								{expanded ? <CircleMinus strokeWidth={2} color='black' fill='#eaebde' /> : <CirclePlus strokeWidth={2} color='black' fill='#eaebde' />}
+							<button onClick={toggle} className='  hover:opacity-50 transition duration-300'>
+								{expanded ? <div>Menos</div> : <div>Mais</div>}
 							</button>
 						</div>
 					</div>

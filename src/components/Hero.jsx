@@ -80,49 +80,53 @@ export function Hero() {
 	}, []);
 
 	return (
-		<div className=' h-[100vh] flex justify-center  '>
-			<div className='flex items-center pt-[5rem] lg:pt-0 px-5 lg:px-0 lg:grid lg:grid-cols-3 justify-center lg:items-center  w-full  '>
-				<div className='col-span-1 '></div>
-				<div className='col-span-1 '>
-					<Player />
-					{heroData && (
-						<div className='mt-12 flex flex-col'>
-							<div>
+		<>
+			<div className=' h-[100vh] pt-[6rem] flex items-center justify-center'>
+				<div className='flex flex-col items-center '>
+					<div className=''>
+						<Player />
+					</div>
+					<div className='w-1/2'>
+						{heroData && (
+							<div className='mt-12 flex flex-col'>
 								<div>
-									<h2 className='text-xl font-semibold mb-2 '>{lang === 'pt' ? heroData.titulo : heroData.tituloEN}</h2>
+									<div>
+										<h2 className='text-xl font-semibold mb-2 '>{lang === 'pt' ? heroData.titulo : heroData.tituloEN}</h2>
 
-									<div className='flex flex-col '>
-										<div>
-											{(lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN) && (
-												<div className='inline-block bg-[#92929256] px-3 py-1 text-xs opacity-80 rounded-full'>{lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN}</div>
-											)}
-										</div>
-										<div>
-											{Array.isArray(lang === 'pt' ? heroData.clusters : heroData.clustersEN) &&
-												(lang === 'pt' ? heroData.clusters : heroData.clustersEN).map((cluster, index) => (
-													<div key={index} className='inline-block bg-[#92929256] px-3 py-1 mt-1 text-[0.7rem] opacity-80 rounded-full mr-1'>
-														{cluster}
+										<div className='flex gap-1'>
+											<div className=''>
+												{(lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN) && (
+													<div className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
+														{lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN}
 													</div>
-												))}
+												)}
+											</div>
+											<div className='flex gap-1'>
+												{Array.isArray(lang === 'pt' ? heroData.clusters : heroData.clustersEN) &&
+													(lang === 'pt' ? heroData.clusters : heroData.clustersEN).map((cluster, index) => (
+														<div key={index} className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
+															{cluster}
+														</div>
+													))}
+											</div>
 										</div>
 									</div>
 								</div>
+								<div className='mt-6 text-sm lg:text-base'>
+									<PortableText
+										value={lang === 'pt' ? heroData.descricaoMini : heroData.descricaoMiniEN}
+										components={{
+											block: {
+												normal: Paragraph,
+											},
+										}}
+									/>
+								</div>
 							</div>
-							<div className='mt-6 text-sm lg:text-base'>
-								<PortableText
-									value={lang === 'pt' ? heroData.descricaoMini : heroData.descricaoMiniEN}
-									components={{
-										block: {
-											normal: Paragraph,
-										},
-									}}
-								/>
-							</div>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
-				<div className='col-span-1 '></div>
 			</div>
-		</div>
+		</>
 	);
 }

@@ -33,9 +33,9 @@ export function Player() {
 	const songTitle = meta?.song?.title || '';
 
 	return (
-		<div className='border-[.5px] border-[#484848] text-[#eaebde] rounded-2xl p-2 flex space-x-4 relative'>
-			<img src='/artcover.jpeg' alt='Radio bugio' className='w-35 h-40 rounded-lg object-cover border-[.5px] border-[#484848]' />
-			<div className='flex flex-col justify-between lg:py-3'>
+		<div className='border-[.5px] border-[#4c4c4b] text-[#eaebde] rounded-2xl  flex space-x-3 relative w-[600px]'>
+			<img src='/artcover.jpeg' alt='Radio bugio' className='w-45 h-45 rounded-l-xl object-cover border-[.5px] border-[#484848]' />
+			<div className='flex flex-col justify-between lg:py-3 pl-2 '>
 				{isOnline ? (
 					<>
 						<p className='text-[#898989] text-sm mb-0 live-now'>Live stream</p>

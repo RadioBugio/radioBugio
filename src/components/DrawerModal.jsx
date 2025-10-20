@@ -1,3 +1,4 @@
+// src/components/DrawerModal.jsx
 import React, { useEffect } from 'react';
 import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,28 +9,68 @@ import { urlFor } from '../utils/imageUrlBuilder.js';
 import { useLanguage } from '../context/LanguageContext';
 import { ArchivePlayer } from './ArchivePlayer.jsx';
 
-function mesParaNumero(mes) {
-	const mapa = {
-		Janeiro: '01',
-		Fevereiro: '02',
-		Março: '03',
-		Abril: '04',
-		Maio: '05',
-		Junho: '06',
-		Julho: '07',
-		Agosto: '08',
-		Setembro: '09',
-		Outubro: '10',
-		Novembro: '11',
-		Dezembro: '12',
-	};
-	return mapa[mes] || '';
+// --- helpers de formatação (iguais ao Archive) ----------------
+const MONTHS_PT = {
+	Janeiro: 'Jan',
+	Fevereiro: 'Fev',
+	Março: 'Mar',
+	Abril: 'Abr',
+	Maio: 'Mai',
+	Junho: 'Jun',
+	Julho: 'Jul',
+	Agosto: 'Ago',
+	Setembro: 'Set',
+	Outubro: 'Out',
+	Novembro: 'Nov',
+	Dezembro: 'Dez',
+};
+const MONTHS_EN = {
+	Janeiro: 'Jan',
+	Fevereiro: 'Feb',
+	Março: 'Mar',
+	Abril: 'Apr',
+	Maio: 'May',
+	Junho: 'Jun',
+	Julho: 'Jul',
+	Agosto: 'Aug',
+	Setembro: 'Sep',
+	Outubro: 'Oct',
+	Novembro: 'Nov',
+	Dezembro: 'Dec',
+};
+
+function horaEnCompact(horaStr) {
+	if (!horaStr) return '';
+	const parts = horaStr.replace('h', ':').split(':');
+	let h = parseInt(parts[0], 10);
+	const m = parts[1] ? parts[1].padStart(2, '0') : '00';
+	const ampm = h >= 12 ? 'pm' : 'am';
+	h = h % 12;
+	if (h === 0) h = 12;
+	return m === '00' ? `${h}${ampm}` : `${h}:${m}${ampm}`;
 }
+
+function formatDateTimeLabel(dataObj, horario, lang) {
+	if (!dataObj) return '';
+	const dd = String(dataObj.dia ?? '').padStart(2, '0');
+	const mmName = dataObj.mes;
+	const yyyy = dataObj.ano;
+
+	if (lang === 'pt') {
+		const mon = MONTHS_PT[mmName] ?? mmName;
+		const h = horario?.inicio || '';
+		return [`${dd} ${mon} ${yyyy}`, h ? `, ${h}` : ''].join('');
+	} else {
+		const mon = MONTHS_EN[mmName] ?? mmName;
+		const h = horaEnCompact(horario?.inicio);
+		return [`${mon} ${dd} ${yyyy}`, h ? `, ${h}` : ''].join('');
+	}
+}
+// --------------------------------------------------------------
 
 export function DrawerModal({ episode, isOpen, onClose }) {
 	const { lang } = useLanguage();
 
-	// trava/destrava scroll do body
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 		return () => {
@@ -37,7 +78,6 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 		};
 	}, [isOpen]);
 
-	// ESC fecha o drawer
 	useEffect(() => {
 		if (!isOpen) return;
 		const onKey = e => e.key === 'Escape' && onClose?.();
@@ -52,6 +92,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 	const clusters = lang === 'pt' ? episode.clusters : episode.clustersEN;
 	const clusters2 = lang === 'pt' ? episode.clusters2 : episode.clusters2_EN;
 	const duracao = episode.duracao;
+	const dateTimeLabel = formatDateTimeLabel(episode.data, episode.horario, lang);
 
 	return (
 		<AnimatePresence>
@@ -63,12 +104,12 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 					{/* Drawer */}
 					<motion.div
 						key='drawer'
-						className='fixed left-0 right-0 bottom-0 h-[80vh] lg:h-[70vh] border-t border-[#484848] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-6 lg:p-8 overflow-y-auto'
+						className='fixed left-0 right-0 bottom-0 h-[70vh] lg:h-[80vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-[1.5rem]  p-6 lg:p-8 overflow-y-auto'
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
 						transition={{ duration: 0.4 }}
-						onClick={e => e.stopPropagation()} // não fechar ao clicar dentro
+						onClick={e => e.stopPropagation()}
 					>
 						<div className='flex flex-col lg:grid lg:grid-cols-9 lg:gap-8'>
 							{/* Coluna imagens */}
@@ -76,12 +117,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 								{Array.isArray(episode.imagens) && episode.imagens.length > 0 && (
 									<div className='flex flex-col gap-4'>
 										{episode.imagens.map((img, idx) => (
-											<img
-												key={idx}
-												src={urlFor(img).url()}
-												alt={`${titulo} - imagem ${idx + 1}`}
-												className='lg:w-full h-[200px] lg:h-full object-cover rounded-xl border-[.5px] border-[#484848] pointer-events-none'
-											/>
+											<img key={idx} src={urlFor(img).url()} alt={`${titulo} - imagem ${idx + 1}`} className='lg:w-full h-[200px] lg:h-full object-cover rounded-xl pointer-events-none' />
 										))}
 									</div>
 								)}
@@ -98,23 +134,25 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 								</div>
 
 								<div className='col-span-2'>
-									<div className='text-sm text-[#eaebde] flex flex-col gap-1 mb-4'>
-										<div>
-											{episode.data?.dia}.{mesParaNumero(episode.data?.mes)}.{episode.data?.ano}
-										</div>
+									<div className='text-base text-[#eaebde] flex flex-col gap-1 mb-4'>
+										{dateTimeLabel && (
+											<div>
+												{lang === 'pt' ? 'Data' : 'Date'}: {dateTimeLabel}
+											</div>
+										)}
 										{duracao && (
 											<div>
-												{lang === 'pt' ? 'duração' : 'duration'}: {duracao}
+												{lang === 'pt' ? 'Duração' : 'Duration'}: {duracao} min
 											</div>
 										)}
 									</div>
 
-									{clusters2 && <div className='inline-block bg-[#92929256] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs rounded-full mb-2 text-[#eaebde]'>{clusters2}</div>}
+									{clusters2 && <div className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]  mb-1'>{clusters2}</div>}
 
-									{Array.isArray(clusters) && (
-										<div className='flex flex-wrap gap-2 mb-4'>
+									{Array.isArray(clusters) && clusters.length > 0 && (
+										<div className='flex flex-wrap gap-1 mb-4'>
 											{clusters.map((c, i) => (
-												<div key={i} className='inline-block bg-[#92929256] px-2 py-0.5 lg:px-3 lg:py-1 text-[0.7rem] lg:text-xs rounded-full text-[#eaebde]'>
+												<div key={i} className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
 													{c}
 												</div>
 											))}
@@ -125,9 +163,10 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 								</div>
 							</div>
 
+							{/* Close */}
 							<div className='col-span-1 text-right order-1 lg:order-3 mb-3 lg:mb-0'>
-								<button onClick={onClose} className='text-white text-xl hover:text-[#484848] cursor-pointer' aria-label='Fechar'>
-									<X />
+								<button onClick={onClose} className='inline-flex items-center gap-2 text-white hover:text-[#bbbbbb] cursor-pointer' aria-label={lang === 'pt' ? 'Fechar' : 'Close'}>
+									{lang === 'pt' ? 'Fechar' : 'Close'}
 								</button>
 							</div>
 						</div>

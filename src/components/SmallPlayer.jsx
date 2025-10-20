@@ -34,8 +34,8 @@ export function SmallPlayer() {
 
 	return (
 		<>
-			<div className='fixed bottom-0 right-0  left-0 z-50  lg:flex'>
-				<div className='pb-4 pl-4 pr-4 lg:pr-0 '>
+			<div className='fixed bottom-0   right-0 z-90   lg:flex'>
+				<div className='pb-8 pl-4 pr-4 lg:pr-8 '>
 					<AnimatePresence>
 						{isOnline && showMiniPlayer && (
 							<motion.div
@@ -50,7 +50,7 @@ export function SmallPlayer() {
 								<div className='border-l-1 border-[#484848] py-2 px-4 '>
 									<div className='flex  gap-5 items-center'>
 										<button onClick={togglePlay} className='text-[#eaebde] transition'>
-											{isPlaying ? <Pause className='w-4 h-4' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-4 h-4' stroke='"eaebde"' fill='#eaebde' />}
+											{isPlaying ? <Pause className='w-4 h-4' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-4 h-4' stroke='#eaebde' fill='#eaebde' />}
 										</button>
 
 										<Marquee className='text-[#eaebde] max-w-[175px] lg:max-w-[250px]'>{meta?.song.title || 'Offline'}</Marquee>
@@ -63,7 +63,7 @@ export function SmallPlayer() {
 				</div>
 			</div>
 
-			<div className='fixed bottom-0 left-0 w-full h-30 bg-gradient-to-t from-[#0f0f0f]/100 to-transparent z-40 pointer-events-none'></div>
+			<div className='fixed bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#0f0f0f]/100 to-transparent z-30 pointer-events-none'></div>
 		</>
 	);
 }
