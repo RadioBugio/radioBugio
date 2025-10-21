@@ -92,9 +92,7 @@ export function Schedule({ entrevistas }) {
 			<hr className='border-[#4c4c4b]' />
 
 			<div className='m-[2rem] text-[#eaebde]'>
-				<div className='flex items-baseline justify-between mb-2'>
-					<h3 className='text-xl opacity-60  font-semibold'>{lang === 'pt' ? 'Programação' : 'Programming'}</h3>
-				</div>
+				
 
 				{Object.entries(grouped).map(([key, group]) => (
 					<section key={key} className='mt-6'>

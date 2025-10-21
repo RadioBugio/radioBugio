@@ -20,6 +20,7 @@ export const translations = {
 		limparTodos: 'Clear all filters',
 		fechar: 'Close',
 		opções: 'No options',
+		investigacao: 'Research',
 	},
 	pt: {
 		programação: 'Programação',
@@ -42,5 +43,6 @@ export const translations = {
 		limparTodos: 'Limpar filtros',
 		fechar: 'Fechar',
 		opções: 'Sem opções',
+		investigacao: 'Investigação',
 	},
 };

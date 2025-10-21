@@ -109,6 +109,9 @@ export function Header() {
 								<NavLink to='/arquivo' className='hover:opacity-50 transition duration-300'>
 									{translations[lang].arquivo}
 								</NavLink>
+								<NavLink to='/investigacao' className='hover:opacity-50 transition duration-300'>
+									{translations[lang].investigacao}
+								</NavLink>
 								<button onClick={() => scrollToSection('sobre')} className='hover:opacity-50 transition duration-300'>
 									{translations[lang].sobre}
 								</button>
@@ -130,6 +133,9 @@ export function Header() {
 								<button onClick={() => scrollToSection('programacao')} className='hover:opacity-50 transition duration-300'>
 									{translations[lang].programação}
 								</button>
+								<NavLink to='/investigacao' className='hover:opacity-50 transition duration-300'>
+									{translations[lang].investigacao}
+								</NavLink>
 								<button onClick={() => scrollToSection('sobre')} className='hover:opacity-50 transition duration-300'>
 									{translations[lang].sobre}
 								</button>

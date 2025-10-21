@@ -59,11 +59,11 @@ function formatDateTimeLabel(dataObj, horario, lang) {
 	if (lang === 'pt') {
 		const mon = MONTHS_PT[mmName] ?? mmName;
 		const h = horario?.inicio || '';
-		return [`${dd} ${mon} ${yyyy}`, h ? `, ${h}` : ''].join('');
+		return [`${dd} ${mon} ${yyyy}`, h ? ` · ${h}` : ''].join('');
 	} else {
 		const mon = MONTHS_EN[mmName] ?? mmName;
 		const h = horaEnCompact(horario?.inicio);
-		return [`${mon} ${dd} ${yyyy}`, h ? `, ${h}` : ''].join('');
+		return [`${mon} ${dd} ${yyyy}`, h ? ` · ${h}` : ''].join('');
 	}
 }
 // --------------------------------------------------------------
@@ -104,7 +104,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 					{/* Drawer */}
 					<motion.div
 						key='drawer'
-						className='fixed left-0 right-0 bottom-0 h-[70vh] lg:h-[80vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-[1.5rem]  p-6 lg:p-8 overflow-y-auto'
+						className='fixed left-0 right-0 bottom-0 h-[70vh] lg:h-[90vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-[1.5rem]  p-6 lg:p-8 overflow-y-auto'
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
@@ -139,7 +139,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 											<div>
 												{lang === 'pt' ? 'Data' : 'Date'}: {dateTimeLabel}
 											</div>
-										)}
+										)} 
 										{duracao && (
 											<div>
 												{lang === 'pt' ? 'Duração' : 'Duration'}: {duracao} min
