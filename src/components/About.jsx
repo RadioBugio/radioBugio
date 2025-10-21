@@ -63,7 +63,7 @@ export function About() {
 								<motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className='space-y-4 mt-6'>
 									<PortableText value={sobreExpandido} />
 
-									<img src='/artcover.jpeg' alt='Diana Policarpo & Bernardo Gaeiras' className='w-full h-[450px] rounded-lg object-cover border-[.5px] border-[#484848] pointer-events-none mt-12' />
+									<img src='/artcover.jpeg' alt='Diana Policarpo & Bernardo Gaeiras' className='w-full h-[450px] rounded-[15px] object-cover border-[.5px] border-[#484848] pointer-events-none mt-12' />
 
 									<div className='text-2xl mt-12 text-center lg:text-left'>{translations[lang].aboutBioTitle}</div>
 
