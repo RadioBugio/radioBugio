@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CirclePlus, CircleMinus } from 'lucide-react';
 import { translations } from '../Lang/translation.js';
+import { PortableComponents } from '../utils/PortableComponents.jsx';
 import { useLanguage } from '../context/LanguageContext';
 import { PortableText } from '@portabletext/react';
 import sanityClient from '../SanityClient.js';
@@ -69,12 +69,10 @@ export function About() {
 
 									<div className='flex flex-col lg:grid lg:grid-cols-2 gap-12 mt-6'>
 										<div>
-											
-											<PortableText value={bioDiana} />
+											<PortableText value={bioDiana} components={PortableComponents} />
 										</div>
 										<div>
-											
-											<PortableText value={bioBernardo} />
+											<PortableText value={bioBernardo} components={PortableComponents} />
 										</div>
 									</div>
 
@@ -84,8 +82,9 @@ export function About() {
 										<div className=' border-[.5px] lg:w-1/2 border-[#484848] rounded-2xl p-4'>
 											<ul className='flex flex-col gap-2 space-y-1 text-sm'>
 												{fichaTecnica.map((item, idx) => (
-													<li key={idx}>
-														<b>{item.nome}</b> <br></br> <span className='opacity-60'>{item.funcao}</span>
+													<li className='flex flex-col gap-1' key={idx}>
+														<span className='opacity-50'>{item.funcao}</span>
+														<b>{item.nome}</b> 
 													</li>
 												))}
 											</ul>
