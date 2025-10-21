@@ -88,7 +88,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 						aria-modal='true'
 						role='dialog'
 					>
-						<div className='grid grid-cols-2  gap-12'>
+						<div className='grid grid-cols-2  gap-12 pb-6'>
 							<div className='text-[1.15rem] lg:text-[1.35rem] font-semibold text-[#eaebde] leading-[1.3]'>{title || (lang === 'pt' ? 'Sem título' : 'Untitled')}</div>
 							<div className='text-right '>
 								<button onClick={onClose} className='text-white hover:text-[#a7a7a7]' aria-label='Fechar'>
