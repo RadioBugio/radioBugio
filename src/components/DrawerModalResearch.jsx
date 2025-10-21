@@ -139,6 +139,30 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 								{descricaoBlocks ? (
 									<div className=' text-sm lg:text-[1rem] text-[#eaebde]'>
 										<PortableText value={descricaoBlocks} components={PortableComponents} />
+
+										<div className=' pt-6'>
+											{/* Ficha técnica */}
+											{Array.isArray(ficha) && ficha.length > 0 && (
+												<div className='border-t border-[#333] pt-4'>
+													<div className='text-sm uppercase tracking-wide opacity-80 mb-2'>{lang === 'pt' ? 'Ficha técnica' : 'Credits'}</div>
+													<ul className='space-y-1 text-sm text-[#e1e1e1]'>
+														{ficha.map((p, i) => (
+															<li className='flex flex-col pb-2' key={i}>
+																{p?.funcao ? <span className='opacity-50'> {p.funcao}</span> : null}
+																<span className='font-medium'>{p?.nome}</span>
+															</li>
+														))}
+													</ul>
+												</div>
+											)}
+
+											{/* Áudio (opcional) */}
+											{doc?.archiveAudioUrl ? (
+												<div className='border-t border-[#333] pt-4 mt-4'>
+													<ArchivePlayer src={doc.archiveAudioUrl} />
+												</div>
+											) : null}
+										</div>
 									</div>
 								) : (
 									<div className='mt-4 text-sm opacity-60'>{lang === 'pt' ? 'Sem descrição disponível.' : 'No description available.'}</div>
@@ -148,21 +172,6 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 							{/* Meta + ficha técnica + áudio */}
 
 							<div className='lg:col-span-12 order-4 mt-6'>
-								{/* Ficha técnica */}
-								{Array.isArray(ficha) && ficha.length > 0 && (
-									<div className='border-t border-[#333] pt-4'>
-										<div className='text-sm uppercase tracking-wide opacity-80 mb-2'>{lang === 'pt' ? 'Ficha técnica' : 'Credits'}</div>
-										<ul className='space-y-1 text-sm text-[#e1e1e1]'>
-											{ficha.map((p, i) => (
-												<li key={i}>
-													<span className='font-medium'>{p?.nome}</span>
-													{p?.funcao ? <span className='opacity-80'> — {p.funcao}</span> : null}
-												</li>
-											))}
-										</ul>
-									</div>
-								)}
-
 								{/* Áudio (opcional) */}
 								{doc?.archiveAudioUrl ? (
 									<div className='border-t border-[#333] pt-4 mt-4'>

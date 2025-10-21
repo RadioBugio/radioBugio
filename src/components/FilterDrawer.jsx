@@ -66,24 +66,18 @@ export function FilterDrawer({
 						<label htmlFor='archive-search' className='sr-only'>
 							{lang === 'pt' ? 'Pesquisar no arquivo' : 'Search archive'}
 						</label>
-						<div className='flex items-center gap-2'>
+						<div className='flex items-center'>
 							<input
 								id='archive-search'
 								type='text'
 								value={searchText}
 								onChange={e => setSearchText(e.target.value)}
 								placeholder={translations[lang].pesquisar}
-								className='
-                  w-full rounded-xl border border-r-[.5px] border-[#666566]
-                  bg-transparent px-3 py-2 text-sm outline-none
-                  focus:border-[#eaebde]
-                '
+								onKeyDown={e => {
+									if (e.key === 'Escape') setSearchText(''); 
+								}}
+								className='w-full rounded-xl border border-r-[.5px] border-[#666566] bg-transparent px-3 py-2 text-sm outline-none focus:border-[#eaebde]'
 							/>
-							{searchText ? (
-								<button onClick={() => setSearchText('')} className='text-xs px-2 py-1 border border-[#484848] rounded hover:bg-[#ffffff10]' aria-label={translations[lang].limpar}>
-									{translations[lang].limpar}
-								</button>
-							) : null}
 						</div>
 					</div>
 

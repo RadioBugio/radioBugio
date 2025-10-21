@@ -109,7 +109,7 @@ export function Schedule({ entrevistas }) {
 								return (
 									<li
 										key={ep._id}
-										className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem] pb-3 transition duration-500 cursor-pointer h-[540px] flex flex-col gap-3'
+										className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem]  transition duration-500 cursor-pointer h-full flex flex-col '
 										onClick={() => {
 											setSelectedEp(ep);
 											setOpen(true);
@@ -118,7 +118,7 @@ export function Schedule({ entrevistas }) {
 										{cover && <img src={cover} alt={title} className='w-full h-[250px] object-cover rounded-t-2xl' />}
 
 										{/* corpo */}
-										<div className='mx-3 flex flex-col flex-grow'>
+										<div className='m-4 flex flex-col flex-grow '>
 											{/* hora */}
 											{hour && <div className='text-base opacity-80 mb-2'>{hour}</div>}
 
@@ -126,7 +126,7 @@ export function Schedule({ entrevistas }) {
 											<div className='text-[1.15rem] font-semibold leading-[1.3]'>{title}</div>
 
 											{/* chips */}
-											<div className='mt-auto'>
+											<div className='mt-auto pt-12'>
 												{/* chip principal */}
 												{chipsMain && (
 													<div
