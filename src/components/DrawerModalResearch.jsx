@@ -31,7 +31,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 	const title = useMemo(() => {
 		if (!doc) return '';
 		const t = (lang === 'pt' ? doc?.titulo : doc?.tituloEN) || doc?.titulo || doc?.tituloEN || '';
-		return doc?.programa ? `${doc.programa}. ${t}` : t;
+		return doc?.programa ? `${t}` : t;
 	}, [doc, lang]);
 
 	const descricaoBlocks = lang === 'pt' ? doc?.descricao : doc?.descricaoEN;
@@ -47,10 +47,8 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 		}
 	}, [doc]);
 
-	// --- Carousel simples -------------------------------------
 	const [idx, setIdx] = useState(0);
 	useEffect(() => {
-		// sempre que muda doc, reset ao índice
 		setIdx(0);
 	}, [doc]);
 
@@ -84,7 +82,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 					{/* Drawer */}
 					<motion.div
 						key='drawer-research'
-						className='fixed left-0 right-0 bottom-0 h-[75vh] lg:h-[80vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-6 lg:p-8 overflow-y-auto'
+						className='fixed left-0 right-0 bottom-0 h-[75vh] lg:h-[85vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-4xl p-6 lg:p-8 overflow-y-auto'
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
@@ -93,9 +91,16 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 						aria-modal='true'
 						role='dialog'
 					>
-						<div className='flex flex-col lg:grid lg:grid-cols-12 lg:gap-8'>
+						<div className='flex justify-between gap-12'>
+							<div className='text-[1.15rem] lg:text-[1.35rem] font-semibold text-[#eaebde] leading-[1.3]'>{title || (lang === 'pt' ? 'Sem título' : 'Untitled')}</div>
+							<button onClick={onClose} className='text-white hover:text-[#a7a7a7]' aria-label='Fechar'>
+								{lang === 'pt' ? 'Fechar' : 'Close'}
+							</button>
+						</div>
+
+						<div className='flex flex-col lg:grid lg:grid-cols-12 lg:gap-12 lg:pt-6'>
 							{/* Col lateral: imagens/carrossel */}
-							<div className='lg:col-span-5 order-2 lg:order-1 mb-6 lg:mb-0'>
+							<div className='lg:col-span-6 order-2 lg:order-2 mb-6 lg:mb-0 '>
 								{images.length > 0 ? (
 									<div className='relative'>
 										{/* imagem atual */}
@@ -104,8 +109,6 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 											src={images[idx]}
 											alt={`${title} – imagem ${idx + 1}`}
 											className='w-full h-[240px] lg:h-[500px] object-cover rounded-xl pointer-events-none select-none'
-											initial={{ opacity: 0.4, scale: 0.98 }}
-											animate={{ opacity: 1, scale: 1 }}
 											transition={{ duration: 0.25 }}
 											draggable={false}
 										/>
@@ -123,7 +126,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 												{/* indicadores */}
 												<div className='absolute bottom-2 left-0 right-0 flex justify-center gap-2'>
 													{images.map((_, i) => (
-														<span key={i} className={`w-2 h-2 rounded-full ${i === idx ? 'bg-white' : 'bg-white/40'}`} />
+														<span key={i} className={`w-2 h-2 rounded-full ${i === idx ? 'bg-[#eaebde]' : 'bg-white/40'}`} />
 													))}
 												</div>
 											</>
@@ -133,11 +136,9 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 							</div>
 
 							{/* Conteúdo principal */}
-							<div className='lg:col-span-6 order-3 lg:order-2'>
-								<div className='text-[1.15rem] lg:text-[1.35rem] font-semibold text-[#eaebde] leading-[1.3]'>{title || (lang === 'pt' ? 'Sem título' : 'Untitled')}</div>
-
+							<div className='lg:col-span-6 order-3 lg:order-1 '>
 								{descricaoBlocks ? (
-									<div className='lg:pt-6 text-sm lg:text-[1rem] text-[#eaebde]'>
+									<div className=' text-sm lg:text-[1rem] text-[#eaebde]'>
 										<PortableText value={descricaoBlocks} components={{ block: { normal: Paragraph } }} />
 									</div>
 								) : (
@@ -146,11 +147,6 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 							</div>
 
 							{/* Meta + ficha técnica + áudio */}
-							<div className='lg:col-span-1 order-1 lg:order-3 mb-3 lg:mb-0 text-right'>
-								<button onClick={onClose} className='text-white hover:text-[#a7a7a7]' aria-label='Fechar'>
-									{lang === 'pt' ? 'Fechar' : 'Close'}
-								</button>
-							</div>
 
 							<div className='lg:col-span-12 order-4 mt-6'>
 								{/* Ficha técnica */}

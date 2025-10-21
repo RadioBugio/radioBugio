@@ -35,13 +35,13 @@ export default {
     {
       name: 'imagens',
       title: 'Imagens',
-      description: 'Colocar até 3 imagens em formato ".webp", máximo 150 Kb cada.',
+      description: 'Colocar até 10 imagens em formato ".webp", máximo 150 Kb cada.',
       type: 'array',
       of: [{type: 'image'}],
       options: {
         layout: 'grid',
       },
-      validation: (Rule) => Rule.max(3),
+      validation: (Rule) => Rule.max(10),
     },
     {
       name: 'descricao',
