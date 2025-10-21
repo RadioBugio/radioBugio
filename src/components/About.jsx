@@ -69,11 +69,11 @@ export function About() {
 
 									<div className='flex flex-col lg:grid lg:grid-cols-2 gap-12 mt-6'>
 										<div>
-											<div className='font-bold'>Diana Policarpo</div>
+											
 											<PortableText value={bioDiana} />
 										</div>
 										<div>
-											<div className='font-bold'>Bernardo Gaeiras</div>
+											
 											<PortableText value={bioBernardo} />
 										</div>
 									</div>
