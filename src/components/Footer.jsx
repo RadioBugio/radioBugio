@@ -35,7 +35,7 @@ export function Footer() {
 				</div>
 				<div className='text-xs lg:w-2/3 text-center mx-auto leading-[1.4]'>
 					This website was designed and developed by{' '}
-					<a href='www.diogobrito.xyz' target='_blank' rel='noreferrer noopener'>
+					<a href='https://www.diogobrito.xyz' target='_blank' rel='noopener noreferrer'>
 						<u>Diogo Brito</u>
 					</a>
 					. All Sound, Text and Images are copyright of Rádio-Estação Bugio and the respective authors.
