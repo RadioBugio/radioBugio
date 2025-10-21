@@ -322,12 +322,12 @@ export function Archive() {
 								<li
 									key={ep._id}
 									onClick={() => setSelectedEp(ep)}
-									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem] pb-3 transition duration-500 cursor-pointer h-[470px] flex flex-col gap-3'
+									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem]  transition duration-500 cursor-pointer h-full flex flex-col '
 								>
 									
 									<img src={urlFor(ep.thumbnail).url()} alt={title} className='rounded-t-2xl w-full h-[250px] object-cover' />
 
-									<div className='mx-3 flex flex-col flex-grow'>
+									<div className='m-4 flex flex-col flex-grow '>
 										<div className='flex justify-between text-sm opacity-80'>
 											<span>{formatDateTimeLabel(ep.data , ep.horario, lang)}</span>
 											{ep.duracao ? <span>{ep.duracao} min</span> : <span />}
@@ -337,10 +337,10 @@ export function Archive() {
 										<div className='text-[#eaebde] text-[1.2rem] font-semibold mt-2 leading-[1.3]'>{title}</div>
 
 										{/* chips */}
-										<div className='mt-auto pt-2'>
-											{chipsMain && <div className='inline-block px-2.5 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b] mb-2'>{chipsMain}</div>}
+										<div className='mt-auto pt-12'>
+											{chipsMain && <div className='inline-block px-2.5 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b] '>{chipsMain}</div>}
 
-											<div className={`flex flex-wrap gap-2 ${chipsList.length ? 'mt-0' : ''}`}>
+											<div className={`flex flex-wrap gap-2 ${chipsList.length ? 'mt-2' : ''}`}>
 												{chipsList.map((c, i) => (
 													<span key={i} className='inline-block px-2.5 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
 														{c}

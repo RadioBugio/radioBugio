@@ -143,22 +143,22 @@ export function Research() {
 								<li
 									key={doc._id}
 									onClick={() => setSelectedDoc(doc)}
-									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem] pb-3 transition duration-500 cursor-pointer min-h-[420px] flex flex-col gap-3'
+									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem] transition duration-500 cursor-pointer h-full flex flex-col '
 								>
 									{/* imagem (opcional) */}
 									{cover && <img src={cover} alt={title} className='rounded-t-2xl w-full h-[250px] object-cover' />}
 
 									{/* corpo */}
-									<div className='mx-3 flex flex-col flex-grow'>
+									<div className='m-4 flex flex-col flex-grow '>
 										{/* título */}
-										<div className='text-[#eaebde] text-[1.15rem] font-semibold mt-2 leading-[1.3]'>{title}</div>
+										<div className='text-[#eaebde] text-[1.15rem] font-semibold  leading-[1.3]'>{title}</div>
 
 										{/* excerto opcional (primeiras linhas da descrição) */}
 										{(() => {
 											const plain = lang === 'pt' ? ptToPlain(doc?.descricao) : ptToPlain(doc?.descricaoEN);
 											const excerpt = plain?.trim()?.slice(0, 140);
 											return excerpt ? (
-												<div className='text-sm opacity-70 mt-2 line-clamp-3'>
+												<div className='text-sm opacity-70 mt-3 line-clamp-3'>
 													{excerpt}
 													{plain.length > 140 ? '…' : ''}
 												</div>
