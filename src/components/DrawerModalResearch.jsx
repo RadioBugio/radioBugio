@@ -1,10 +1,8 @@
-// src/components/DrawerModalResearch.jsx
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-
-import { Paragraph } from './Paragraph.jsx';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { PortableComponents } from '../utils/PortableComponents.jsx';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { ArchivePlayer } from './ArchivePlayer.jsx';
@@ -37,7 +35,6 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 	const descricaoBlocks = lang === 'pt' ? doc?.descricao : doc?.descricaoEN;
 	const ficha = lang === 'pt' ? doc?.fichatecnica : doc?.fichatecnicaEN;
 
-	// imagens -> array de urls
 	const images = useMemo(() => {
 		if (!Array.isArray(doc?.imagens)) return [];
 		try {
@@ -48,9 +45,9 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 	}, [doc]);
 
 	const [idx, setIdx] = useState(0);
-	useEffect(() => {
-		setIdx(0);
-	}, [doc]);
+	useEffect(() => setIdx(0), [doc]);
+
+	const isPrograma3 = Number(doc?.programa) === 3;
 
 	const hasCarousel = images.length > 1;
 	const prev = useCallback(() => setIdx(i => (i - 1 + images.length) % images.length), [images.length]);
@@ -91,11 +88,13 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 						aria-modal='true'
 						role='dialog'
 					>
-						<div className='flex justify-between gap-12'>
+						<div className='grid grid-cols-2  gap-12'>
 							<div className='text-[1.15rem] lg:text-[1.35rem] font-semibold text-[#eaebde] leading-[1.3]'>{title || (lang === 'pt' ? 'Sem título' : 'Untitled')}</div>
-							<button onClick={onClose} className='text-white hover:text-[#a7a7a7]' aria-label='Fechar'>
-								{lang === 'pt' ? 'Fechar' : 'Close'}
-							</button>
+							<div className='text-right '>
+								<button onClick={onClose} className='text-white hover:text-[#a7a7a7]' aria-label='Fechar'>
+									{lang === 'pt' ? 'Fechar' : 'Close'}
+								</button>
+							</div>
 						</div>
 
 						<div className='flex flex-col lg:grid lg:grid-cols-12 lg:gap-12 lg:pt-6'>
@@ -108,7 +107,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 											key={idx}
 											src={images[idx]}
 											alt={`${title} – imagem ${idx + 1}`}
-											className='w-full h-[240px] lg:h-[500px] object-cover rounded-xl pointer-events-none select-none'
+											className={`w-full ${isPrograma3 ? 'h-full' : 'h-[240px] lg:h-[500px]'} object-cover rounded-xl pointer-events-none select-none`}
 											transition={{ duration: 0.25 }}
 											draggable={false}
 										/>
@@ -139,7 +138,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 							<div className='lg:col-span-6 order-3 lg:order-1 '>
 								{descricaoBlocks ? (
 									<div className=' text-sm lg:text-[1rem] text-[#eaebde]'>
-										<PortableText value={descricaoBlocks} components={{ block: { normal: Paragraph } }} />
+										<PortableText value={descricaoBlocks} components={PortableComponents} />
 									</div>
 								) : (
 									<div className='mt-4 text-sm opacity-60'>{lang === 'pt' ? 'Sem descrição disponível.' : 'No description available.'}</div>
