@@ -47,7 +47,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 	const [idx, setIdx] = useState(0);
 	useEffect(() => setIdx(0), [doc]);
 
-	const isPrograma3 = Number(doc?.programa) === 3;
+	const isPrograma2 = Number(doc?.programa) === 2;
 
 	const hasCarousel = images.length > 1;
 	const prev = useCallback(() => setIdx(i => (i - 1 + images.length) % images.length), [images.length]);
@@ -107,7 +107,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 											key={idx}
 											src={images[idx]}
 											alt={`${title} – imagem ${idx + 1}`}
-											className={`w-full ${isPrograma3 ? 'h-full' : 'h-[240px] lg:h-[500px]'} object-cover rounded-xl pointer-events-none select-none`}
+											className={`w-full ${isPrograma2 ? 'h-full' : 'h-[240px] lg:h-[500px]'} object-cover rounded-xl pointer-events-none select-none`}
 											transition={{ duration: 0.25 }}
 											draggable={false}
 										/>
