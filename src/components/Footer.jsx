@@ -1,5 +1,4 @@
 import React from 'react';
-import { SmallPlayer } from '../components/SmallPlayer';
 import logoOeiras from '/logos/oeiras.png';
 import logoBauhaus from '/logos/bauhaus.png';
 import logoEuropa from '/logos/europa.png';
@@ -17,7 +16,7 @@ export function Footer() {
 	
 	return (
 		<>
-			<SmallPlayer />
+			
 			<hr className='border-[#484848]' />
 
 			<footer className='container-default  pb-10 lg:pb-[4rem] '>

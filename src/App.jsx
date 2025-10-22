@@ -2,8 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Analytics } from '@vercel/analytics/react';
-
-
+import { SmallPlayer } from './components/SmallPlayer';
 
 function App() {
 	return (
@@ -16,7 +15,7 @@ function App() {
 
 			<Header />
 			<Outlet />
-			
+			<SmallPlayer />
 			<Analytics />
 		</>
 	);

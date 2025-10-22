@@ -12,7 +12,7 @@ export function LogoAnimated({ className = '' }) {
 		: {
 				x: [0, AMP, -AMP * 2.1, AMP * 0.3, 0],
 				y: [0, -AMP, AMP * 0.5, -AMP * 0.2, 0],
-				rotate: [0, ROT, -ROT * 0.5, ROT * 0.9, 0],
+				rotate: [0, ROT, -ROT * 0.5, ROT * 2.9, 0],
 				scale: [1, 1 + SCL, 1, 1 + SCL * 0.6, 1],
 		  };
 
