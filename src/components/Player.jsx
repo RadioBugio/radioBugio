@@ -33,50 +33,99 @@ export function Player() {
 	const songTitle = meta?.song?.title || '';
 
 	return (
-		<div className='border-[.5px] border-[#4c4c4b] text-[#eaebde] rounded-2xl  flex space-x-3 relative w-[600px]'>
-			<img src='/artcover.jpeg' alt='Radio bugio' className='w-45 h-45 rounded-l-xl object-cover border-[.5px] border-[#484848]' />
-			<div className='flex flex-col justify-between lg:py-3 pl-2 '>
-				{isOnline ? (
-					<>
-						<p className='text-[#898989] text-sm mb-0 live-now'>Live stream</p>
-						<div className='min-w-0'>
-							<div className='inline-block font-semibold leading-[1.2]'>
-								<span className=' opacity-70'>{translations[lang].agora}</span> {songTitle}
+		<>
+			{/* // DESKTOP */}
+			<div className='lg:flex border-[.5px] border-[#4c4c4b] text-[#eaebde] rounded-2xl  hidden space-x-3 relative w-[600px]'>
+				<img src='/artcover.jpeg' alt='Radio bugio' className='w-45 h-45 rounded-l-xl object-cover border-[.5px] border-[#484848]' />
+				<div className='flex flex-col justify-between lg:py-3 pl-2 '>
+					{isOnline ? (
+						<>
+							<p className='text-[#898989] text-sm mb-0 live-now'>Live stream</p>
+							<div className='min-w-0'>
+								<div className='inline-block font-semibold leading-[1.2]'>
+									<span className=' opacity-70'>{translations[lang].agora}</span> {songTitle}
+								</div>
 							</div>
+							<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
+						</>
+					) : (
+						<div className='text-sm font-semibold'>
+							OFFLINE
+							<br />
+							{translations[lang].breve}
 						</div>
-						<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
-					</>
-				) : (
-					<div className='text-sm font-semibold'>
-						OFFLINE
-						<br />
-						{translations[lang].breve}
-					</div>
-				)}
-				<div className='flex gap-4'>
-					<button onClick={togglePlay} className='focus:outline-none' disabled={!isOnline}>
-						{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
-					</button>
-					<div className='hidden relative  lg:flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
-						<button onClick={toggleMute}>
-							{isMuted || volume === 0 ? <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}
+					)}
+					<div className='flex gap-4'>
+						<button onClick={togglePlay} className='focus:outline-none' disabled={!isOnline}>
+							{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
 						</button>
+						<div className='hidden relative  lg:flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
+							<button onClick={toggleMute}>
+								{isMuted || volume === 0 ? <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}
+							</button>
 
-						<motion.input
-							type='range'
-							min='0'
-							max='1'
-							step='0.01'
-							value={volume}
-							onChange={handleVolumeChange}
-							className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer accent-[#eaebde]'
-							initial={{ opacity: 0, x: -10 }}
-							animate={{ opacity: volumeHover ? 1 : 0, x: volumeHover ? 0 : -10 }}
-							transition={{ duration: 0.2 }}
-						/>
+							<motion.input
+								type='range'
+								min='0'
+								max='1'
+								step='0.01'
+								value={volume}
+								onChange={handleVolumeChange}
+								className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer accent-[#eaebde]'
+								initial={{ opacity: 0, x: -10 }}
+								animate={{ opacity: volumeHover ? 1 : 0, x: volumeHover ? 0 : -10 }}
+								transition={{ duration: 0.2 }}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			{/* // MOBILE */}
+			<div className='border-[.5px] border-[#4c4c4b] text-[#eaebde] rounded-2xl  flex flex-col lg:hidden  relative w-[250px]'>
+				<img src='/artcover.jpeg' alt='Radio bugio' className='w-full h-45 rounded-t-xl object-cover border-[.5px] border-[#484848]' />
+				<div className='flex flex-col  p-3 '>
+					{isOnline ? (
+						<>
+							<p className='text-[#898989] text-sm mb-0 live-now'>Live stream</p>
+							<div className='min-w-0'>
+								<div className='inline-block font-semibold leading-[1.2]'>
+									<span className=' opacity-70'>{translations[lang].agora}</span> {songTitle}
+								</div>
+							</div>
+							<p className='text-sm text-[#898989]'>{formatTime(currentTime)}</p>
+						</>
+					) : (
+						<div className='text-sm font-semibold'>
+							OFFLINE
+							<br />
+							{translations[lang].breve}
+						</div>
+					)}
+					<div className='flex gap-4 pt-5'>
+						<button onClick={togglePlay} className='focus:outline-none' disabled={!isOnline}>
+							{isPlaying ? <Pause className='w-8 h-8' stroke='#eaebde' fill='#eaebde' /> : <Play className='w-8 h-8' stroke='#eaebde' fill='#eaebde' />}
+						</button>
+						<div className='hidden relative  lg:flex' onMouseEnter={() => setVolumeHover(true)} onMouseLeave={() => setVolumeHover(false)}>
+							<button onClick={toggleMute}>
+								{isMuted || volume === 0 ? <VolumeX className='w-7 h-7' stroke='#eaebde' fill='#eaebde' /> : <Volume2 className='w-7 h-7' stroke='#eaebde' fill='#eaebde' />}
+							</button>
+
+							<motion.input
+								type='range'
+								min='0'
+								max='1'
+								step='0.01'
+								value={volume}
+								onChange={handleVolumeChange}
+								className='absolute top-3 left-12 w-24 h-1 bg-gray-400 rounded appearance-none cursor-pointer accent-[#eaebde]'
+								initial={{ opacity: 0, x: -10 }}
+								animate={{ opacity: volumeHover ? 1 : 0, x: volumeHover ? 0 : -10 }}
+								transition={{ duration: 0.2 }}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
 	);
 }

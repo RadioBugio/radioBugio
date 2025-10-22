@@ -69,22 +69,16 @@ export function Header() {
 		if (onArchive && filterOpen) setShowSides(true);
 	}, [filterOpen, onArchive]);
 
-	const scrollToSection = id => {
-		const el = document.getElementById(id);
-		if (el) el.scrollIntoView({ behavior: 'smooth' });
-	};
+	
 
 	const goToHomeSection = id => {
 		if (loc.pathname === '/') {
-			// Já estamos na Home → rola diretamente
 			const el = document.getElementById(id);
 			if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			// atualiza o hash também (opcional, mas útil)
 			if (window.location.hash !== `#${id}`) {
 				history.replaceState(null, '', `/#${id}`);
 			}
 		} else {
-			// NÃO estamos na Home → navega com HASH (browser cuida do resto)
 			navigate(`/#${id}`);
 		}
 	};

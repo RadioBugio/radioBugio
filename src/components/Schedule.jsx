@@ -91,7 +91,7 @@ export function Schedule({ entrevistas }) {
 		<>
 			<hr className='border-[#4c4c4b]' />
 
-			<div className='m-[2rem] text-[#eaebde]'>
+			<div className='mx-4 my-12 lg:m-[2rem] text-[#eaebde]'>
 				
 
 				{Object.entries(grouped).map(([key, group]) => (
@@ -115,15 +115,15 @@ export function Schedule({ entrevistas }) {
 											setOpen(true);
 										}}
 									>
-										{cover && <img src={cover} alt={title} className='w-full h-[250px] object-cover rounded-t-2xl' />}
+										{cover && <img src={cover} alt={title} className='w-full h-[250px] object-cover rounded-t-[15px]' />}
 
 										{/* corpo */}
 										<div className='m-4 flex flex-col flex-grow '>
 											{/* hora */}
-											{hour && <div className='text-base opacity-80 mb-2'>{hour}</div>}
+											{hour && <h2 className=' opacity-60 mb-2'>{hour}</h2>}
 
 											{/* título */}
-											<div className='text-[1.15rem] font-semibold leading-[1.3]'>{title}</div>
+											<h2 className=''>{title}</h2>
 
 											{/* chips */}
 											<div className='mt-auto pt-12'>

@@ -322,7 +322,7 @@ export function Archive() {
 								<li
 									key={ep._id}
 									onClick={() => setSelectedEp(ep)}
-									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem]  transition duration-500 cursor-pointer h-full flex flex-col '
+									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[15px]  transition duration-500 cursor-pointer h-full flex flex-col '
 								>
 									
 									<img src={urlFor(ep.thumbnail).url()} alt={title} className='rounded-t-2xl w-full h-[250px] object-cover' />
@@ -334,7 +334,7 @@ export function Archive() {
 										</div>
 
 										{/* título */}
-										<div className='text-[#eaebde] text-[1.2rem] font-semibold mt-2 leading-[1.3]'>{title}</div>
+										<h2 className='mt-2'>{title}</h2>
 
 										{/* chips */}
 										<div className='mt-auto pt-12'>

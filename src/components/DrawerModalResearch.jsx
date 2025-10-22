@@ -88,16 +88,23 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 						aria-modal='true'
 						role='dialog'
 					>
-						<div className='grid grid-cols-2  gap-12 '>
-							<div className='text-[1.15rem] lg:text-[1.35rem] font-semibold text-[#eaebde] leading-[1.3]'>{title || (lang === 'pt' ? 'Sem título' : 'Untitled')}</div>
-							<div className='text-right '>
-								<button onClick={onClose} className='text-white hover:text-[#a7a7a7]' aria-label='Fechar'>
+						<div className='flex flex-col gap-4 lg:gap-6 lg:grid lg:grid-cols-6 lg:pb-12'>
+							<div className='col-span-5 order-2 lg:order-0'>
+								<h1>{title}</h1>
+							</div>
+
+							<div className='lg:text-right text-center'>
+								<button
+									onClick={onClose}
+									className='inline-flex items-center gap-2 opacity-70  hover:opacity-50 transition duration-300 hover:text-[#bbbbbb] cursor-pointer'
+									aria-label={lang === 'pt' ? 'Fechar' : 'Close'}
+								>
 									{lang === 'pt' ? 'Fechar' : 'Close'}
 								</button>
 							</div>
 						</div>
 
-						<div className='flex flex-col lg:grid lg:grid-cols-12 lg:gap-12 lg:pt-12'>
+						<div className='flex flex-col pt-4 lg:pt-0 lg:grid lg:grid-cols-12 lg:gap-12'>
 							{/* Col lateral: imagens/carrossel */}
 							<div className='lg:col-span-6 order-2 lg:order-2 mb-6 lg:mb-0 '>
 								{images.length > 0 ? (

@@ -143,7 +143,7 @@ export function Research() {
 								<li
 									key={doc._id}
 									onClick={() => setSelectedDoc(doc)}
-									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem] transition duration-500 cursor-pointer h-full flex flex-col '
+									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[15px] transition duration-500 cursor-pointer h-full flex flex-col '
 								>
 									{/* imagem (opcional) */}
 									{cover && <img src={cover} alt={title} className='rounded-t-2xl w-full h-[250px] object-cover' />}

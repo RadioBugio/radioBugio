@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-
 body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -9,42 +8,45 @@ body {
 	padding: 0;
 	margin: 0;
 	width: 100%;
+	color: #eaebde
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: black; 
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: black;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
 }
 
 .animate-marquee {
-  animation-name: marquee;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+	animation-name: marquee;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
 }
-
 
 #bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	z-index: -1;
+	pointer-events: none;
 }
-
 
 @font-face {
 	font-family: 'Exposure-[-20]';
@@ -59,37 +61,76 @@ body::before {
 }
 
 :root {
-  --drawer-w: 350px;   /* desktop */
-  --drawer-w-sm: 280px;/* mobile/tablet */
+	--drawer-w: 350px; /* desktop */
+	--drawer-w-sm: 280px; /* mobile/tablet */
 }
 
 @media (max-width: 1024px) {
-  :root { --drawer-w: var(--drawer-w-sm); }
+	:root {
+		--drawer-w: var(--drawer-w-sm);
+	}
 }
 
 .with-drawer-padding {
-  padding-left: var(--drawer-w);
-  transition: padding-left 200ms ease;
+	padding-left: var(--drawer-w);
+	transition: padding-left 200ms ease;
 }
 .without-drawer-padding {
-  padding-left: 0;
-  transition: padding-left 200ms ease;
+	padding-left: 0;
+	transition: padding-left 200ms ease;
 }
 
 /* a gaveta ocupa 100vh e começa abaixo do header fixo */
 .drawer-panel {
-  height: 100vh;
+	height: 100vh;
 }
 
+h1 {
+	font-size: 1.5rem;
+	line-height: 1.2;
+	color: #eaebde
+}
+@media (max-width: 768px) {
+	h1 {
+		font-size: 1.2rem;
+		line-height: 1.2;
+	}
+}
 
+h2 {
+	font-size: 1.2rem;
+	line-height: 1.2;
+	color: #eaebde
+}
 
+p {
+	font-size: 16px;
+	line-height: 1.3;
+	color: #eaebde
+}
+@media (max-width: 768px) {
+	p {
+		font-size: 15px;
+		line-height: 1.3;
+		
+	}
+}
+button{
+	color: #eaebde
+}
+
+@media (max-width: 768px) {
+	button {
+		font-size: 1rem;
+	}
+}
 
 .container-default {
-	margin:  6rem 2rem 2rem;
+	margin: 6rem 2rem 2rem;
 }
 @media (max-width: 768px) {
 	.container-default {
-		margin: 2rem 1.5rem;
+		margin: 5rem 1rem 1rem;
 	}
 }
 
@@ -115,7 +156,7 @@ body::before {
 		opacity: 0;
 	}
 }
- 
+
 .micro {
 	background: rgba(255, 255, 255, 0);
 	backdrop-filter: blur(15px);
@@ -125,7 +166,6 @@ body::before {
 	height: 500px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-
 
 .schedule-item {
 	background-color: #eaebde;

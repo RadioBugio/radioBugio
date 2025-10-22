@@ -52,8 +52,8 @@ export function About() {
 	return (
 		<>
 			<hr className='border-[#4c4c4b]' />
-			<div className='m-[2rem] '>
-				<div className='text-xl opacity-60  font-semibold text-center lg:text-left'>{translations[lang].sobre}</div>
+			<div className='mx-4 my-12 lg:m-[2rem]'>
+				<div className='hidden lg:block text-xl opacity-60  font-semibold text-center lg:text-left'>{translations[lang].sobre}</div>
 
 				<div className='lg:flex lg:flex-col lg:items-center'>
 					<div className='lg:w-2/3 lg:text-[1rem] text-sm space-y-4 text-[#eaebde]'>
@@ -63,7 +63,11 @@ export function About() {
 								<motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className='space-y-4 mt-6'>
 									<PortableText value={sobreExpandido} />
 
-									<img src='/artcover.jpeg' alt='Diana Policarpo & Bernardo Gaeiras' className='w-full h-[450px] rounded-[15px] object-cover border-[.5px] border-[#484848] pointer-events-none mt-12' />
+									<img
+										src='/artcover.jpeg'
+										alt='Diana Policarpo & Bernardo Gaeiras'
+										className='w-full h-[450px] rounded-[15px] object-cover border-[.5px] border-[#484848] pointer-events-none mt-12'
+									/>
 
 									<div className='text-2xl mt-12 text-center lg:text-left'>{translations[lang].aboutBioTitle}</div>
 
@@ -84,7 +88,7 @@ export function About() {
 												{fichaTecnica.map((item, idx) => (
 													<li className='flex flex-col gap-1' key={idx}>
 														<span className='opacity-50'>{item.funcao}</span>
-														<b>{item.nome}</b> 
+														<b>{item.nome}</b>
 													</li>
 												))}
 											</ul>

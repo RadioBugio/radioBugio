@@ -81,19 +81,19 @@ export function Hero() {
 
 	return (
 		<>
-			<div className=' h-[100vh] pt-[6rem] flex items-center justify-center'>
+			<div className=' lg:h-[100vh] pt-[6rem] flex items-center justify-center'>
 				<div className='flex flex-col items-center '>
 					<div className=''>
 						<Player />
 					</div>
-					<div className='w-1/2'>
+					<div className='lg:w-1/2 mx-4 lg:mx-0'>
 						{heroData && (
 							<div className='mt-12 flex flex-col'>
 								<div>
 									<div>
-										<h2 className='text-xl font-semibold mb-2 '>{lang === 'pt' ? heroData.titulo : heroData.tituloEN}</h2>
+										<h1 className=' mb-2 '>{lang === 'pt' ? heroData.titulo : heroData.tituloEN}</h1>
 
-										<div className='flex gap-1'>
+										<div className='flex flex-wrap gap-1'>
 											<div className=''>
 												{(lang === 'pt' ? heroData.clusters2 : heroData.clusters2_EN) && (
 													<div className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
@@ -101,7 +101,7 @@ export function Hero() {
 													</div>
 												)}
 											</div>
-											<div className='flex gap-1'>
+											<div className='flex flex-wrap gap-1'>
 												{Array.isArray(lang === 'pt' ? heroData.clusters : heroData.clustersEN) &&
 													(lang === 'pt' ? heroData.clusters : heroData.clustersEN).map((cluster, index) => (
 														<div key={index} className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
@@ -112,7 +112,7 @@ export function Hero() {
 										</div>
 									</div>
 								</div>
-								<div className='mt-6 text-sm lg:text-base'>
+								<div className='mt-12 mb-12 lg:mb-0 '>
 									<PortableText
 										value={lang === 'pt' ? heroData.descricaoMini : heroData.descricaoMiniEN}
 										components={{

@@ -104,24 +104,30 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 					{/* Drawer */}
 					<motion.div
 						key='drawer'
-						className='fixed left-0 right-0 bottom-0 h-[70vh] lg:h-[85vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-[1.5rem]  p-6 lg:p-8 overflow-y-auto'
+						className='fixed left-0 right-0 bottom-0 h-[73vh] lg:h-[85vh] border-t border-[#666566] bg-[#0f0f0f] text-white z-50 rounded-t-[1.5rem]  p-6 lg:p-8 overflow-y-auto'
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
 						transition={{ duration: 0.4 }}
 						onClick={e => e.stopPropagation()}
 					>
-						<div className='grid grid-cols-2 gap-12 pb-12'>
-							<div className='text-[1.1rem] font-semibold lg:text-[1.3rem] text-[#eaebde] leading-[1.3]'>{titulo}</div>
+						<div className='flex flex-col gap-4 lg:gap-6 lg:grid lg:grid-cols-6 lg:pb-12'>
+							<div className='col-span-5 order-2 lg:order-0'>
+								<h1>{titulo}</h1>
+							</div>
 
-							<div className='text-right'>
-								<button onClick={onClose} className='inline-flex items-center gap-2 text-white hover:text-[#bbbbbb] cursor-pointer' aria-label={lang === 'pt' ? 'Fechar' : 'Close'}>
+							<div className='lg:text-right text-center'>
+								<button
+									onClick={onClose}
+									className='inline-flex items-center gap-2 opacity-70  hover:opacity-50 transition duration-300 hover:text-[#bbbbbb] cursor-pointer'
+									aria-label={lang === 'pt' ? 'Fechar' : 'Close'}
+								>
 									{lang === 'pt' ? 'Fechar' : 'Close'}
 								</button>
 							</div>
 						</div>
 
-						<div className='flex flex-col lg:grid lg:grid-cols-12 lg:gap-12'>
+						<div className='flex flex-col pt-4 lg:pt-0 lg:grid lg:grid-cols-12 lg:gap-12'>
 							<div className='col-span-4  lg:mb-0'>
 								{Array.isArray(episode.imagens) && episode.imagens.length > 0 && (
 									<div className='flex flex-col gap-4'>
@@ -131,15 +137,16 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 									</div>
 								)}
 							</div>
-							<div className='col-span-8 flex flex-col lg:grid lg:grid-cols-6 gap-12 '>
-								<div className='col-span-4 flex flex-col gap-4'>
-									<div className='text-sm lg:text-[1rem] text-[#eaebde]'>
+							<div className='col-span-8 flex flex-col lg:grid lg:grid-cols-6  gap-4 lg:gap-12 pt-4 lg:pt-0 '>
+								<div className='col-span-4 flex flex-col gap-5 order-2 lg:order-0 '>
+									<hr className='border-[#484848] lg:hidden block ' />
+									<div className=' text-[#eaebde] '>
 										<PortableText value={descricao} components={{ block: { normal: Paragraph } }} />
 									</div>
 								</div>
 
-								<div className='col-span-2'>
-									<div className='text-base text-[#eaebde] flex flex-col gap-1 mb-4'>
+								<div className='col-span-2 order-1 lg:order-0  mb-1 lg:mb-0'>
+									<div className='text-base text-[#eaebde] flex flex-col gap-1 mb-2 lg:mb-4'>
 										{dateTimeLabel && (
 											<div>
 												{lang === 'pt' ? 'Data' : 'Date'}: {dateTimeLabel}
@@ -155,7 +162,7 @@ export function DrawerModal({ episode, isOpen, onClose }) {
 									{clusters2 && <div className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]  mb-1'>{clusters2}</div>}
 
 									{Array.isArray(clusters) && clusters.length > 0 && (
-										<div className='flex flex-wrap gap-1 mb-4'>
+										<div className='flex flex-wrap gap-1 '>
 											{clusters.map((c, i) => (
 												<div key={i} className='inline-block px-2 py-[0.1rem] text-[0.8rem] text-[#cccccb] rounded-full border border-[#4c4c4b]'>
 													{c}
