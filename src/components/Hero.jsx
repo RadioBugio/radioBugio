@@ -81,7 +81,7 @@ export function Hero() {
 
 	return (
 		<>
-			<div className=' lg:h-[100vh] pt-[6rem] flex items-center justify-center'>
+			<div className=' lg:h-[100vh] pt-[6rem] pb-[4rem] flex items-center justify-center'>
 				<div className='flex flex-col items-center '>
 					<div className=''>
 						<Player />
