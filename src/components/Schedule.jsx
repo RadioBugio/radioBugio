@@ -109,7 +109,7 @@ export function Schedule({ entrevistas }) {
 								return (
 									<li
 										key={ep._id}
-										className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[1.5rem]  transition duration-500 cursor-pointer h-full flex flex-col '
+										className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[15px]  transition duration-500 cursor-pointer h-full flex flex-col '
 										onClick={() => {
 											setSelectedEp(ep);
 											setOpen(true);

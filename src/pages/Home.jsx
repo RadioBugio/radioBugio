@@ -79,9 +79,9 @@ export function Home() {
 	return (
 		<div>
 			<Hero />
-			<div id='programacao'>
+			{/* <div id='programacao'>
 				<Schedule entrevistas={entrevistas} />
-			</div>
+			</div> */}
 			<div>
 				<Video />
 			</div>

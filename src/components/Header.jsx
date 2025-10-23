@@ -92,9 +92,9 @@ export function Header() {
 
 	const leftLinks = (
 		<>
-			<button onClick={() => goToHomeSection('programacao')} className='hover:opacity-50 transition duration-300'>
+			{/* <button onClick={() => goToHomeSection('programacao')} className='hover:opacity-50 transition duration-300'>
 				{translations[lang].programação}
-			</button>
+			</button> */}
 			<NavLink to='/arquivo' className='hover:opacity-50 transition duration-300'>
 				{translations[lang].arquivo}
 			</NavLink>
@@ -109,9 +109,9 @@ export function Header() {
 
 	const rightLinksWhenArchive = (
 		<>
-			<button onClick={() => goToHomeSection('programacao')} className='hover:opacity-50 transition duration-300'>
+			{/* <button onClick={() => goToHomeSection('programacao')} className='hover:opacity-50 transition duration-300'>
 				{translations[lang].programação}
-			</button>
+			</button> */}
 			<NavLink to='/investigacao' className='hover:opacity-50 transition duration-300'>
 				{translations[lang].investigacao}
 			</NavLink>

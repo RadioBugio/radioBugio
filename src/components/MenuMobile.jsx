@@ -118,10 +118,9 @@ export function MenuMobile() {
 
 							{/* Links */}
 							<nav className='flex flex-col items-start gap-2 '>
-								{/* Programação (ancora da home) */}
-								<button onClick={() => goToHomeSection('programacao')} className='hover:opacity-70 transition'>
+								{/* <button onClick={() => goToHomeSection('programacao')} className='hover:opacity-70 transition'>
 									{translations[lang].programação}
-								</button>
+								</button> */}
 
 								{/* Arquivo (rota) */}
 								{!onArchive ? (
