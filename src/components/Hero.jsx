@@ -83,7 +83,12 @@ export function Hero() {
 		<>
 			<div className=' lg:h-[100vh] pt-[6rem] pb-[4rem] flex items-center justify-center'>
 				<div className='flex flex-col items-center '>
-					<div className=''>
+
+<div></div>
+
+
+
+				{/* 	<div className=''>
 						<Player />
 					</div>
 					<div className='lg:w-1/2 mx-4 lg:mx-0'>
@@ -124,7 +129,7 @@ export function Hero() {
 								</div>
 							</div>
 						)}
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</>

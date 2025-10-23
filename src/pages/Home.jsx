@@ -6,6 +6,7 @@ import { About } from '../components/About.jsx';
 import { Video } from '../components/Video.jsx';
 import { Hero } from '../components/Hero.jsx';
 import { Footer } from '../components/Footer';
+import { ArchiveTeaser } from '../components/ArchiveTeaser.jsx';
 
 
 export function Home() {
@@ -78,10 +79,11 @@ export function Home() {
 
 	return (
 		<div>
-			<Hero />
+			{/* <Hero /> */}
 			{/* <div id='programacao'>
 				<Schedule entrevistas={entrevistas} />
 			</div> */}
+			<ArchiveTeaser />
 			<div>
 				<Video />
 			</div>

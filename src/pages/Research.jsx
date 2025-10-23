@@ -134,7 +134,7 @@ export function Research() {
 			{/* Wrapper que “encolhe” ao abrir a gaveta */}
 			<div className={isOpen ? 'with-drawer-padding' : 'without-drawer-padding'}>
 				<div className='flex flex-col items-center'>
-					<ul className={`grid grid-cols-1 ${isOpen ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-6`}>
+					<ul className={`grid grid-cols-1 ${isOpen ? 'lg:grid-cols-3' : 'lg:grid-cols-4 md:grid-cols-2'} gap-6`}>
 						{filtered.map(doc => {
 							const title = (lang === 'pt' ? doc?.titulo : doc?.tituloEN) || doc?.titulo || doc?.tituloEN || '—';
 							const cover = doc?.thumbnail ? urlFor(doc.thumbnail).url() : null;

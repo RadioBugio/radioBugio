@@ -312,7 +312,7 @@ export function Archive() {
 
 			<div className={isOpen ? 'with-drawer-padding' : 'without-drawer-padding'}>
 				<div className='flex flex-col items-center'>
-					<ul className={`grid grid-cols-1 ${isOpen ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-6`}>
+					<ul className={`grid grid-cols-1 ${isOpen ? 'lg:grid-cols-3' : 'lg:grid-cols-4 md:grid-cols-2'} gap-6`}>
 						{filtered.map(ep => {
 							const title = lang === 'pt' ? ep.titulo : ep.tituloEN;
 							const chipsMain = lang === 'pt' ? ep.clusters2 : ep.clusters2_EN;
@@ -324,12 +324,11 @@ export function Archive() {
 									onClick={() => setSelectedEp(ep)}
 									className='border-[.5px] border-[#666566] hover:opacity-40 rounded-[15px]  transition duration-500 cursor-pointer h-full flex flex-col '
 								>
-									
 									<img src={urlFor(ep.thumbnail).url()} alt={title} className='rounded-t-2xl w-full h-[250px] object-cover' />
 
 									<div className='m-4 flex flex-col flex-grow '>
 										<div className='flex justify-between text-sm opacity-80'>
-											<span>{formatDateTimeLabel(ep.data , ep.horario, lang)}</span>
+											<span>{formatDateTimeLabel(ep.data, ep.horario, lang)}</span>
 											{ep.duracao ? <span>{ep.duracao} min</span> : <span />}
 										</div>
 
