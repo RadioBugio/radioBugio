@@ -1,7 +1,9 @@
+// src/components/DrawerModalResearch.jsx
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { PortableText } from '@portabletext/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 import { PortableComponents } from '../utils/PortableComponents.jsx';
 import { urlFor } from '../utils/imageUrlBuilder.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
@@ -35,6 +37,7 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 	const descricaoBlocks = lang === 'pt' ? doc?.descricao : doc?.descricaoEN;
 	const ficha = lang === 'pt' ? doc?.fichatecnica : doc?.fichatecnicaEN;
 
+	// imagens -> array de urls
 	const images = useMemo(() => {
 		if (!Array.isArray(doc?.imagens)) return [];
 		try {
@@ -66,6 +69,39 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 		window.addEventListener('keydown', onKey);
 		return () => window.removeEventListener('keydown', onKey);
 	}, [onKey]);
+
+	// ----------------- Download do "mapa" (apenas programa 2) -----------------
+	const [downloading, setDownloading] = useState(false);
+
+	const downloadFirstImage = async () => {
+		if (!images?.[0]) return;
+		try {
+			setDownloading(true);
+			const url = images[0];
+			const res = await fetch(url, { credentials: 'omit' });
+			const blob = await res.blob();
+			const objUrl = URL.createObjectURL(blob);
+
+			const ext = blob.type.split('/')[1] || 'jpg';
+			const safeTitle = (title || 'mapa').replace(/[^\w\-]+/g, '_');
+			const filename = `${safeTitle}.${ext}`;
+
+			const a = document.createElement('a');
+			a.href = objUrl;
+			a.download = filename;
+			document.body.appendChild(a);
+			a.click();
+			a.remove();
+			URL.revokeObjectURL(objUrl);
+		} catch (e) {
+			console.error('Falhou o download do mapa:', e);
+			// fallback: abre em nova aba
+			window.open(images[0], '_blank');
+		} finally {
+			setDownloading(false);
+		}
+	};
+	// -------------------------------------------------------------------------
 
 	if (!doc) return null;
 
@@ -139,6 +175,15 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 										)}
 									</div>
 								) : null}
+
+								{/* Botão de download — só no programa 2 */}
+								{isPrograma2 && images.length > 0 && (
+									<div className='mt-3'>
+										<button onClick={downloadFirstImage} disabled={downloading} className='hover:opacity-50 transition duration-300'>
+											{downloading ? (lang === 'pt' ? 'A descarregar…' : 'Downloading…') : lang === 'pt' ? 'Download mapa aqui' : 'Download map here'}
+										</button>
+									</div>
+								)}
 							</div>
 
 							{/* Conteúdo principal */}
@@ -162,13 +207,6 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 													</ul>
 												</div>
 											)}
-
-											{/* Áudio (opcional) */}
-											{doc?.archiveAudioUrl ? (
-												<div className='border-t border-[#333] pt-4 mt-4'>
-													<ArchivePlayer src={doc.archiveAudioUrl} />
-												</div>
-											) : null}
 										</div>
 									</div>
 								) : (
@@ -176,10 +214,8 @@ export function DrawerModalResearch({ doc, isOpen, onClose }) {
 								)}
 							</div>
 
-							{/* Meta + ficha técnica + áudio */}
-
+							{/* Áudio (opcional) */}
 							<div className='lg:col-span-12 order-4 mt-6'>
-								{/* Áudio (opcional) */}
 								{doc?.archiveAudioUrl ? (
 									<div className='border-t border-[#333] pt-4 mt-4'>
 										<ArchivePlayer src={doc.archiveAudioUrl} />
