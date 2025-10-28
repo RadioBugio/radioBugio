@@ -90,7 +90,7 @@ export function ArchiveTeaser() {
 			{/* conteúdo com overflow + fade no fundo */}
 			<div className='container-default  relative overflow-hidden'>
 				
-                <div className='text-xl opacity-60  font-semibold text-center lg:text-left pb-12'>{lang === 'pt' ? 'Últimas Entrevistas' : 'Last Interviews'}</div>
+                <div className='text-xl opacity-60  font-semibold text-center lg:text-left pb-6'>{lang === 'pt' ? 'Transmissções temporariamente em pausa. Últimos Episódios:' : 'Temporarily on pause. Last episodes:'}</div>
 
 				<div className='flex flex-col items-center'>
 					<ul className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6'>
